@@ -8,6 +8,8 @@
 class Depart : public Case
 {
 public:
+	Depart(std::string nom);
+	
 	void getSuivant(Joueur& joueur);
 };
 
