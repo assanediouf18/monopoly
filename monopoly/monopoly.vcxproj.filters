@@ -30,6 +30,9 @@
     <ClCompile Include="test.cpp">
       <Filter>test</Filter>
     </ClCompile>
+    <ClCompile Include="Depart.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="case.h">
@@ -40,6 +43,9 @@
     </ClInclude>
     <ClInclude Include="test.h">
       <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="Depart.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
