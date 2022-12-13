@@ -66,7 +66,7 @@ private:
 	int position;
 	int solde;
 	bool isPlaying;
-	int doubled; //Combien de fois le joueur a fait un double
+	int doubled; //Combien de fois le joueur a fait un double ?
 };
 
 #endif
