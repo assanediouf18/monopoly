@@ -6,7 +6,7 @@
 /***
 * Classe Joueur
 * Contient toutes les infos nécessaires à un joueur et reste actuellement à compléter
-* PENSER A METTRE A JOUR LE DIAGRAMME UML
+* PENSER A METTRE A JOUR LE DIAGRAMME UML ET A COMPLETER LA CLASSE !
 ***/
 class Joueur
 {
@@ -42,10 +42,6 @@ public:
 	* Remet à zéro le nombre de doubles du joueur.
 	***/
 	void resetDoubles();
-	/***
-	* Met à jour le dernier score du joueur au lancé de dé
-	***/
-	void setNewRollScore(int newScore);
 
 	void setTempsPrison(int newTps);
 

@@ -47,7 +47,7 @@ void Prison::getSuivant(Joueur& joueur)
 			//Demander aux joueurs si quelqu'un veut vendre une carte
 			break;
 		default:
-			return;
+			break;
 		}
 
 	}
