@@ -5,6 +5,7 @@ Joueur::Joueur()
 	pseudo = "Pseudo basique";
 	tpsPrison = 0;
 	position = 0;
+	doubled = 0;
 	isPlaying = true;
 }
 
@@ -26,11 +27,6 @@ void Joueur::has_a_double(int howMany)
 void Joueur::resetDoubles()
 {
 	doubled = 0;
-}
-
-void Joueur::setNewRollScore(int newScore)
-{
-	lastRoll += newScore;
 }
 
 void Joueur::setTempsPrison(int newTps)

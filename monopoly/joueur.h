@@ -22,10 +22,6 @@ public:
 	* Retourne combien de fois le joueur a fait un double
 	***/
 	int howManyDoubles() { return doubled; };
-	/***
-	* Le dernier score du joueur au lancé de dé
-	***/
-	int getLastRollScore() { return lastRoll; };
 
 	/***
 	* ATTENTION : Ajouter de quoi vérifier que le joueur ne sort pas du plateau (dans plateau par exemple)
@@ -70,7 +66,6 @@ private:
 	int position;
 	int solde;
 	bool isPlaying;
-	int lastRoll; //dernier score obtenu en lançant les dés
 	int doubled; //Combien de fois le joueur a fait un double
 };
 

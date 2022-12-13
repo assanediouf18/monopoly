@@ -8,4 +8,4 @@
 #include "case.h"
 #include "joueur.h"
 
-void testerCase();
+void testerPrison();

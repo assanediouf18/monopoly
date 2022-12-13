@@ -1,12 +1,19 @@
 #include "test.h"
+#include "Prison.h"
 
 using namespace std;
 
-void testerCase()
+void testerPrison()
 {
-	cout << "Test de la classe Case" << endl;
-	/***
-	* Il s'agit là d'un mauvais exemple puisque Case est une classe abstraite elle ne peut donc pas
-	* être instanciée pour petre testée mais vous avez compris :-D;
-	***/
+	cout << "Test de la classe Prison" << endl;
+	Joueur J, B;
+	Prison prison("Prison");
+	prison.getSuivant(J);
+
+	J.has_a_double(1);
+	prison.getSuivant(J);
+
+	prison.getSuivant(B);
+	prison.getSuivant(B);
+	prison.getSuivant(B);
 }
