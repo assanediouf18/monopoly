@@ -18,6 +18,27 @@ void Joueur::move(int nbPas)
 	setPosition(position + nbPas);
 }
 
+void Joueur::has_a_double(int howMany)
+{
+	doubled += howMany;
+}
+
+void Joueur::resetDoubles()
+{
+	doubled = 0;
+}
+
+void Joueur::setNewRollScore(int newScore)
+{
+	lastRoll += newScore;
+}
+
+void Joueur::setTempsPrison(int newTps)
+{
+	if (newTps < 0) newTps = 0;
+	tpsPrison = newTps;
+}
+
 void Joueur::setSolde(int newSolde)
 {
 	solde = newSolde;

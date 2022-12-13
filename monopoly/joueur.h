@@ -6,6 +6,7 @@
 /***
 * Classe Joueur
 * Contient toutes les infos nécessaires à un joueur et reste actuellement à compléter
+* PENSER A METTRE A JOUR LE DIAGRAMME UML
 ***/
 class Joueur
 {
@@ -17,6 +18,14 @@ public:
 	int getPosition() { return position; };
 	int getSolde() { return solde; };
 	bool isStillPlaying() { return isPlaying; };
+	/***
+	* Retourne combien de fois le joueur a fait un double
+	***/
+	int howManyDoubles() { return doubled; };
+	/***
+	* Le dernier score du joueur au lancé de dé
+	***/
+	int getLastRollScore() { return lastRoll; };
 
 	/***
 	* ATTENTION : Ajouter de quoi vérifier que le joueur ne sort pas du plateau (dans plateau par exemple)
@@ -28,6 +37,21 @@ public:
 	* nbPas peut être négatif
 	***/
 	void move(int nbPas);
+	/***
+	* Modifie le nombre de doubles que le joueur a fait.
+	* howMany est optionnel et spécifie combien de nouveaux doubles le joueur a fait
+	***/
+	void has_a_double(int howMany = 1);
+	/***
+	* Remet à zéro le nombre de doubles du joueur.
+	***/
+	void resetDoubles();
+	/***
+	* Met à jour le dernier score du joueur au lancé de dé
+	***/
+	void setNewRollScore(int newScore);
+
+	void setTempsPrison(int newTps);
 
 	/***
 	* Modifie le solde du joueur;
@@ -46,6 +70,8 @@ private:
 	int position;
 	int solde;
 	bool isPlaying;
+	int lastRoll; //dernier score obtenu en lançant les dés
+	int doubled; //Combien de fois le joueur a fait un double
 };
 
 #endif
