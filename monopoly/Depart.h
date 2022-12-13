@@ -10,6 +10,9 @@ class Depart : public Case
 public:
 	Depart(std::string nom);
 	
+	/***
+	* Donne 200 billets au joueur sans vérifier si celui-ci est en début de partie et à fait un double.
+	***/
 	void getSuivant(Joueur& joueur);
 };
 
