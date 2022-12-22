@@ -140,13 +140,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="case.cpp" />
+    <ClCompile Include="Compagnie.cpp" />
+    <ClCompile Include="Gare.cpp" />
     <ClCompile Include="joueur.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Propriete.cpp" />
+    <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="case.h" />
+    <ClInclude Include="Compagnie.h" />
+    <ClInclude Include="Gare.h" />
     <ClInclude Include="joueur.h" />
+    <ClInclude Include="Propriete.h" />
+    <ClInclude Include="Terrain.h" />
     <ClInclude Include="test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

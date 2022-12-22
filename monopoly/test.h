@@ -7,5 +7,6 @@
 
 #include "case.h"
 #include "joueur.h"
+#include "Terrain.h"
 
-void testerCase();
+void testerTerrain();

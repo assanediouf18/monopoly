@@ -2,11 +2,9 @@
 
 using namespace std;
 
-void testerCase()
+void testerTerrain()
 {
-	cout << "Test de la classe Case" << endl;
-	/***
-	* Il s'agit là d'un mauvais exemple puisque Case est une classe abstraite elle ne peut donc pas
-	* être instanciée pour petre testée mais vous avez compris :-D;
-	***/
+	cout << "Test de la classe Terrain" << endl;
+	Terrain Terrain("Rue de la Paix", 400, 39, 50, 200, 600, 1400, 1700, 2000, 200);
+
 }
