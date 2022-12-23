@@ -8,5 +8,6 @@
 #include "case.h"
 #include "joueur.h"
 #include "Terrain.h"
+#include "Propriete.h"
 
-void testerTerrain();
+void testerPropriete();

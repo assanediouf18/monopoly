@@ -1,16 +1,17 @@
 #pragma once
 #include <string>
+#include "Propriete.h"
 using namespace std;
 
-class Compagnie
+class Compagnie : protected Propriete
 {private :
-	int idCase;
-	string NomCompagnie;
-	int Prix;
+	int nb_case;
+	string nom;
+	int achat;
 
 public:
 	Compagnie(string Nom, int p, int idCase);
-	void addCompagnie();
-	void setAutreCompagnie(Compagnie*& C1, Compagnie*& C2);
+	/**void addCompagnie();
+	void setAutreCompagnie(Compagnie*& C1, Compagnie*& C2);**/
 };
 

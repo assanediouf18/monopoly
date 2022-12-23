@@ -5,6 +5,6 @@
 
 int main(int argc, char** argv)
 {
-	testerCase();
+	testerPropriete();
 	return EXIT_SUCCESS;
 }
