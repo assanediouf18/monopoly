@@ -7,25 +7,28 @@
 using namespace std;
 
 class Propriete : public Case{
-private:
+protected:
 	Joueur Proprietaire;
 	int achat;
 	int hypotheque;
 	int nb_case;
-	int estachetee;
-	int esthypothequee;
+	bool estachetee;
+	bool esthypothequee;
+	string Nom;
 public:
 	Propriete(string Nom, int Prix, int nb_case);
 	int getAchat() { return achat; };
 	int getHypotheque() { return hypotheque; };
 	int getNb_case() { return nb_case; };
-	int getEstachetee() { return estachetee; };
-	int getEsthypothequee() { return esthypothequee; };
-	void setEsthypothequee(int H) { esthypothequee = H; };
-	void setEstachetee(int A) { estachetee = A; };
-	void acheter(Joueur Joueuractuel);
+	bool getEstachetee() { return estachetee; };
+	bool getEsthypothequee() { return esthypothequee; };
+	Joueur getProprietaire() { return Proprietaire; };
+	void setEsthypothequee(bool H) { esthypothequee = H; };
+	void setEstachetee(bool A) { estachetee = A; };
+	void setProprietaire(Joueur J1) { Proprietaire = J1; };
+	virtual void acheter(Joueur Joueuractuel);
 	void hypothequer(Joueur Joueuractuel);
-	void arriverSur(Joueur Joueuractuel);
+	virtual void arriverSur(Joueur Joueuractuel);
 	void vendre(Joueur Joueuractuel);
 	/*** fonctions destinées à être virtuelles qd on les definira dans Compagnie Terrain et Gare ! ***/
 

@@ -3,7 +3,7 @@
 #include "Propriete.h"
 using namespace std;
 
-class Compagnie : protected Propriete
+class Compagnie : public Propriete
 {private :
 	int nb_case;
 	string nom;

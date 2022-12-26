@@ -54,6 +54,9 @@ public:
 	* Montant peut être négatif.
 	***/
 	void changeSolde(int montant);
+	void setMesGares(int g) { int mesGares = g; };
+	int getMesGares() { return mesGares; };
+	bool operator ==(Joueur J2);
 
 
 private:
@@ -63,6 +66,7 @@ private:
 	int solde;
 	bool isPlaying;
 	int doubled; //Combien de fois le joueur a fait un double ?
+	int mesGares;
 };
 
 #endif

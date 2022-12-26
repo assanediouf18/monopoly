@@ -17,3 +17,16 @@ void testerPropriete() {
 	P.acheter(J);
 
 }
+
+void testerGare() {
+	cout << "Test de la classe Gare" << endl;
+	Joueur J = Joueur();
+	cout << "votre pseudo est" << J.getPseudo() << endl;
+	Case C = Case("Saint Laz");
+	cout << "Vous êtes sur la case " << C.getNom() << endl;
+	Propriete P = Propriete("Saint Laz", 400, 5);
+	Gare G = Gare("Saint Laz", 400, 5);
+	G.acheter(J);
+	cout << std::boolalpha << G.getEstachetee() << endl;
+	G.arriverSur(J,2);
+}

@@ -44,3 +44,12 @@ void Joueur::changeSolde(int montant)
 {
 	setSolde(solde + montant);
 }
+
+bool Joueur::operator ==(Joueur J2) {
+	if (pseudo== J2.getPseudo()) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
