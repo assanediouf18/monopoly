@@ -149,9 +149,13 @@
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Carte.h" />
     <ClInclude Include="case.h" />
+    <ClInclude Include="classtest.h" />
     <ClInclude Include="Compagnie.h" />
     <ClInclude Include="Gare.h" />
+    <ClInclude Include="Header.h" />
+    <ClInclude Include="Jeu.h" />
     <ClInclude Include="joueur.h" />
     <ClInclude Include="Propriete.h" />
     <ClInclude Include="Terrain.h" />
