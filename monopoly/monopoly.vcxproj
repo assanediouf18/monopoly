@@ -144,6 +144,7 @@
     <ClCompile Include="Gare.cpp" />
     <ClCompile Include="joueur.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Plateau.cpp" />
     <ClCompile Include="Propriete.cpp" />
     <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="test.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="Compagnie.h" />
     <ClInclude Include="Gare.h" />
     <ClInclude Include="joueur.h" />
+    <ClInclude Include="Plateau.h" />
     <ClInclude Include="Propriete.h" />
     <ClInclude Include="Terrain.h" />
     <ClInclude Include="test.h" />
