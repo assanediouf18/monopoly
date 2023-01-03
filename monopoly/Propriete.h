@@ -22,11 +22,11 @@ public:
 	int getNb_case() { return nb_case; };
 	bool getEstachetee() { return estachetee; };
 	bool getEsthypothequee() { return esthypothequee; };
-	Joueur getProprietaire() { return Proprietaire; };
+	Joueur * getProprietaire() { return Proprietaire; };
 	void setEsthypothequee(bool H) { esthypothequee = H; };
 	void setEstachetee(bool A) { estachetee = A; };
-	void setProprietaire(Joueur J1) { Proprietaire = J1; };
-	virtual void acheter(Joueur Joueuractuel);
+	void setProprietaire(Joueur * J1) { Proprietaire = J1; };
+	virtual void acheter(Joueur * Joueuractuel);
 	void hypothequer(Joueur Joueuractuel);
 	virtual void arriverSur(Joueur& joueur);
 	void vendre(Joueur Joueuractuel);

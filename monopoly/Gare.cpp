@@ -3,7 +3,7 @@
 Gare::Gare(string nom, int prix, int idCase):Propriete(nom, prix, idCase) {
 }
 
-void Gare::acheter(Joueur Joueuractuel){
+void Gare::acheter(Joueur * Joueuractuel){
 	if (estachetee) {}
 	else {
 		string avisJoueur;
@@ -11,9 +11,9 @@ void Gare::acheter(Joueur Joueuractuel){
 		cin >> avisJoueur;
 		if (avisJoueur == "Oui") {
 			setProprietaire(Joueuractuel);
-			Joueuractuel.setSolde(Joueuractuel.getSolde() - achat);
+			Joueuractuel->setSolde(Joueuractuel->getSolde() - achat);
 			setEstachetee(true);
-			Joueuractuel.setMesGares(Joueuractuel.getMesGares() + 1);
+			Joueuractuel->setMesGares(Joueuractuel->getMesGares() + 1);
 			cout << "Vous etes le nouveau proprietaire, felicitations ! " << endl;
 		}
 	}
@@ -21,9 +21,9 @@ void Gare::acheter(Joueur Joueuractuel){
 
 void Gare::arriverSur(Joueur* joueur) {
 	Joueur Joueuractuel = *joueur;
-	Joueur Proprietaire=getProprietaire();
+	Joueur * Proprietaire=getProprietaire();
 	if (estachetee) {
-		if (Joueuractuel == getProprietaire()) {
+		if (joueur == Proprietaire) {
 			cout << "Vous possedez cette gare, bravo" << endl;
 			hypothequer(Joueuractuel);
 		}
@@ -32,22 +32,22 @@ void Gare::arriverSur(Joueur* joueur) {
 			else{
 				if (Joueuractuel.getMesGares() == 1) {
 					Joueuractuel.setSolde(Joueuractuel.getSolde() - 25);
-					Proprietaire.setSolde(Proprietaire.getSolde() + 25);
+					Proprietaire->setSolde(Proprietaire->getSolde() + 25);
 					cout << "Vous avez une seule gare, vous payez donc un loyer de 25 M." << endl;
 				}
 				if (Joueuractuel.getMesGares() == 2) {
 					Joueuractuel.setSolde(Joueuractuel.getSolde() - 50);
-					Proprietaire.setSolde(Proprietaire.getSolde() + 50);
+					Proprietaire->setSolde(Proprietaire->getSolde() + 50);
 					cout << "Vous avez deux gares, vous payez donc un loyer de 50 M." << endl;
 				}
 				if (Joueuractuel.getMesGares() == 3) {
 					Joueuractuel.setSolde(Joueuractuel.getSolde() - 100);
-					Proprietaire.setSolde(Proprietaire.getSolde() + 100);
+					Proprietaire->setSolde(Proprietaire->getSolde() + 100);
 					cout << "Vous avez trois gares, vous payez donc un loyer de 100 M." << endl;
 				}
 				if (Joueuractuel.getMesGares() == 4) {
 					Joueuractuel.setSolde(Joueuractuel.getSolde() - 200);
-					Proprietaire.setSolde(Proprietaire.getSolde() + 200);
+					Proprietaire->setSolde(Proprietaire->getSolde() + 200);
 					cout << "Vous avez quatre gares, vous payez donc un loyer de 200 M." << endl;
 				}
 				else {
@@ -57,7 +57,7 @@ void Gare::arriverSur(Joueur* joueur) {
 		}
 	}
 	else {
-		acheter(Joueuractuel);
+		acheter(joueur);
 	}
 	cout << "Votre solde actuel est de " << Joueuractuel.getSolde() << endl;
 }

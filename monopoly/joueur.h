@@ -56,7 +56,7 @@ public:
 	void changeSolde(int montant);
 	void setMesGares(int g) { int mesGares = g; };
 	int getMesGares() { return mesGares; };
-	bool operator ==(Joueur J2);
+	bool operator ==(Joueur * J2);
 
 
 private:

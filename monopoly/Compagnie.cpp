@@ -11,7 +11,7 @@ void Compagnie::arriverSur(Joueur* joueur) {
 	int d2 = rand() % 6 + 1; // lancer des deux dés
 	int loyer;
 	Joueur Joueuractuel = *joueur;
-	if (Joueuractuel == Proprietaire) {
+	if (joueur == Proprietaire) {
 		if (Joueuractuel == AutreCompagnie->getProprietaire()) {
 			loyer = (d1 + d2) * 10;
 			cout << "Vous etes debite de " << loyer << " euros, car vous etes proprietaire des deux compagnies !" << endl;
