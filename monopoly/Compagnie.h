@@ -12,7 +12,7 @@ class Compagnie : public Propriete
 
 public:
 	Compagnie(string Nom, int p, int idCase);
-	virtual void arriverSur(Joueur Joueuractuel, int idCase);
+	virtual void arriverSur(Joueur* Joueuractuel);
 	//void addCompagnie();
 	void setAutreCompagnie(Compagnie * C1, Compagnie * C2);
 };

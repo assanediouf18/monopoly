@@ -11,20 +11,18 @@ Propriete::Propriete(string Nom, int Prix, int num_case):Case(Nom) {
 	bool esthypothequee = false;
 }
 
-void Propriete::acheter(Joueur Joueuractuel){
+void Propriete::acheter(Joueur * Joueuractuel){
 	std::string avisJoueur;
 	cout << "Cette propriete n'a pas de proprietaire, voulez-vous l'acheter pour " << achat<< " euros ? Repondez soit 'Oui' soit 'Non'" << endl;
 	cin >> avisJoueur;
 	if (avisJoueur == "Oui") {
-		if (Joueuractuel.getSolde() >= getAchat()) {
-			Joueur Proprietaire = Joueuractuel;
-			Joueuractuel.setSolde(Joueuractuel.getSolde() - getAchat());
+		if (Joueuractuel->getSolde() >= getAchat()) {
+			Proprietaire = Joueuractuel;
+			Joueuractuel->setSolde(Joueuractuel->getSolde() - getAchat());
 			setEstachetee(true);
 			cout << "Vous etes le nouveau proprietaire, felicitations ! " << endl;
 		}
-		else{}
 	}
-	else{}
 }
 
 
@@ -41,6 +39,11 @@ void Propriete::hypothequer(Joueur Joueuractuel){
 		else {}
 	}
 	else {}
+}
+
+void Propriete::arriverSur(Joueur& joueur)
+{
+	std::cout << "Bienvenue sur la propriété " << this->Nom << std::endl;
 }
 
 void Propriete::vendre(Joueur Joueuractuel) {

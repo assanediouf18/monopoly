@@ -19,7 +19,8 @@ void Gare::acheter(Joueur Joueuractuel){
 	}
 }
 
-void Gare::arriverSur(Joueur Joueuractuel, int nb_case) {
+void Gare::arriverSur(Joueur* joueur) {
+	Joueur Joueuractuel = *joueur;
 	Joueur Proprietaire=getProprietaire();
 	if (estachetee) {
 		if (Joueuractuel == getProprietaire()) {

@@ -6,10 +6,11 @@ Compagnie::Compagnie(string Nom, int p, int idCase):Propriete(Nom, p, idCase){
 }
 
 
-void Compagnie::arriverSur(Joueur Joueuractuel, int idCase) {
+void Compagnie::arriverSur(Joueur* joueur) {
 	int d1 = rand() % 6 + 1;
 	int d2 = rand() % 6 + 1; // lancer des deux dés
 	int loyer;
+	Joueur Joueuractuel = *joueur;
 	if (Joueuractuel == Proprietaire) {
 		if (Joueuractuel == AutreCompagnie->getProprietaire()) {
 			loyer = (d1 + d2) * 10;

@@ -8,7 +8,7 @@ using namespace std;
 
 class Propriete : public Case{
 protected:
-	Joueur Proprietaire;
+	Joueur * Proprietaire;
 	int achat;
 	int hypotheque;
 	int nb_case;
@@ -28,6 +28,7 @@ public:
 	void setProprietaire(Joueur J1) { Proprietaire = J1; };
 	virtual void acheter(Joueur Joueuractuel);
 	void hypothequer(Joueur Joueuractuel);
+	virtual void arriverSur(Joueur& joueur);
 	void vendre(Joueur Joueuractuel);
 	/*** fonctions destinées à être virtuelles qd on les definira dans Compagnie Terrain et Gare ! ***/
 
