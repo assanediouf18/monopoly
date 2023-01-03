@@ -3,10 +3,34 @@
 using namespace std;
 
 Compagnie::Compagnie(string Nom, int p, int idCase):Propriete(Nom, p, idCase){
-	int nb_case = idCase;
-	string nom = Nom;
-	int achat = p;
 }
-/**
-void addCompagnie();
-void setAutreCompagnie(Compagnie* &C1, Compagnie*& C2);**/
+
+
+void Compagnie::arriverSur(Joueur Joueuractuel, int idCase) {
+	int d1 = rand() % 6 + 1;
+	int d2 = rand() % 6 + 1; // lancer des deux dés
+	int loyer;
+	if (Joueuractuel == Proprietaire) {
+		if (Joueuractuel == AutreCompagnie->getProprietaire()) {
+			loyer = (d1 + d2) * 10;
+			cout << "Vous etes debite de " << loyer << " euros, car vous etes proprietaire des deux compagnies !" << endl;
+		}
+		else {
+			loyer = (d1 + d2) * 4; ;
+			cout << "Vous etes debite de " << loyer << " euros" << endl;
+		}
+	}
+	else {
+		loyer = (d1 + d2) * 4; ;
+		cout << "Vous etes debite de " << loyer << " euros" << endl;
+	}
+	Joueuractuel.setSolde(Joueuractuel.getSolde() - loyer);
+	cout << "Vous avez un solde de " << Joueuractuel.getSolde() << " euros" << endl;
+
+
+}
+
+void Compagnie::setAutreCompagnie(Compagnie * C1, Compagnie * C2) {
+	C1->AutreCompagnie = C2;
+	C2->AutreCompagnie = C1;
+}

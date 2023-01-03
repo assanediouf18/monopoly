@@ -22,6 +22,7 @@ public:
 	int getNbHotel() { return nbHotel; };
 	int getLoyer() { return Loyer[6]; };
 	int getmesConstructions() { return mesConstructions[9]; };
+	void arriverSur(Joueur* Joueuractuel);
 	/***void setGroupe(Terrain*& T1, Terrain*& T2);
 	void setGroupe(Terrain*& T1, Terrain*& T2, Terrain*& T3);**/
 };

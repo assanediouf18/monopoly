@@ -28,7 +28,6 @@ public:
 	void setProprietaire(Joueur J1) { Proprietaire = J1; };
 	virtual void acheter(Joueur Joueuractuel);
 	void hypothequer(Joueur Joueuractuel);
-	virtual void arriverSur(Joueur Joueuractuel);
 	void vendre(Joueur Joueuractuel);
 	/*** fonctions destinées à être virtuelles qd on les definira dans Compagnie Terrain et Gare ! ***/
 

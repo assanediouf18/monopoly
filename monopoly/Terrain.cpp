@@ -9,3 +9,8 @@ Terrain::Terrain(string nom, int prix, int num_case, int nb_terrain, int maison1
 	int nb_case = num_case;
 	int num_terrain = nb_terrain;
 }
+
+
+void Terrain::arriverSur(Joueur* Joueuractuel) {
+	return;
+}

@@ -48,6 +48,4 @@ void Propriete::vendre(Joueur Joueuractuel) {
 }
 
 
-void Propriete::arriverSur(Joueur Joueuractuel) {
 
-}

@@ -6,6 +6,6 @@
 
 int main(int argc, char** argv)
 {
-	testerGare();
+	testerCompagnie();
 	return EXIT_SUCCESS;
 }

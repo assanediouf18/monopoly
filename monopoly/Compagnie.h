@@ -8,10 +8,12 @@ class Compagnie : public Propriete
 	int nb_case;
 	string nom;
 	int achat;
+	Compagnie* AutreCompagnie;
 
 public:
 	Compagnie(string Nom, int p, int idCase);
-	/**void addCompagnie();
-	void setAutreCompagnie(Compagnie*& C1, Compagnie*& C2);**/
+	virtual void arriverSur(Joueur Joueuractuel, int idCase);
+	//void addCompagnie();
+	void setAutreCompagnie(Compagnie * C1, Compagnie * C2);
 };
 

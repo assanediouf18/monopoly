@@ -10,7 +10,9 @@
 #include "Terrain.h"
 #include "Propriete.h"
 #include "Gare.h"
+#include "Compagnie.h"
 
 void testerGare();
 void testerPropriete();
 void testerTerrain();
+void testerCompagnie();
