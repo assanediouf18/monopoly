@@ -4,11 +4,11 @@
 using namespace std;
 
 Propriete::Propriete(string Nom, int Prix, int num_case):Case(Nom) {
-	int achat=Prix;
-	int hypotheque = achat / 2;
-	int nb_case = num_case;
-	bool estachetee = false;
-	bool esthypothequee = false;
+	achat=Prix;
+	hypotheque = achat / 2;
+	nb_case = num_case;
+	estachetee = false;
+	esthypothequee = false;
 }
 
 void Propriete::acheter(Joueur * Joueuractuel){
@@ -16,23 +16,21 @@ void Propriete::acheter(Joueur * Joueuractuel){
 	cout << "Cette propriete n'a pas de proprietaire, voulez-vous l'acheter pour " << achat<< " euros ? Repondez soit 'Oui' soit 'Non'" << endl;
 	cin >> avisJoueur;
 	if (avisJoueur == "Oui") {
-		if (Joueuractuel->getSolde() >= getAchat()) {
 			Proprietaire = Joueuractuel;
 			Joueuractuel->setSolde(Joueuractuel->getSolde() - getAchat());
 			setEstachetee(true);
 			cout << "Vous etes le nouveau proprietaire, felicitations ! " << endl;
-		}
 	}
 }
 
 
-void Propriete::hypothequer(Joueur Joueuractuel){
+void Propriete::hypothequer(Joueur * Joueuractuel){
 	if (getEstachetee()) {
 		std::string avisJoueur;
 		cout << "Voulez-vous hypothequer votre bien? Répondez 'Oui' si vous le voulez. (avec la majuscule !)" << endl;
 		cin >> avisJoueur;
 		if (avisJoueur == "Oui") {
-			Joueuractuel.setSolde(Joueuractuel.getSolde() - getHypotheque());
+			Joueuractuel->setSolde(Joueuractuel->getSolde() - getHypotheque());
 			setEsthypothequee(true);
 			cout << "Vous avez bien hypothequer votre Propriete" << endl;
 		}

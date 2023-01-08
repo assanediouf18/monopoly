@@ -25,7 +25,7 @@ void Gare::arriverSur(Joueur* joueur) {
 	if (estachetee) {
 		if (joueur == Proprietaire) {
 			cout << "Vous possedez cette gare, bravo" << endl;
-			hypothequer(Joueuractuel);
+			hypothequer(joueur);
 		}
 		else {
 			if (getEsthypothequee()) { cout << "La gare est hypothequee" << endl; }
