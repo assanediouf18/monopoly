@@ -35,3 +35,7 @@ void Compagnie::setAutreCompagnie(Compagnie * C1, Compagnie * C2) {
 	C1->AutreCompagnie = C2;
 	C2->AutreCompagnie = C1;
 }
+
+void Compagnie::setAutreCompagnie(Compagnie* C1) {
+	AutreCompagnie = C1;
+}
