@@ -14,7 +14,7 @@ public:
 	virtual void acheter(Joueur * Joueuractuel);
 	virtual void arriverSur(Joueur *joueur);
 	void setAutresGares(Gare* G1, Gare* G2, Gare* G3);
-	void setAutreGares(Gare* moi, Gare* G1, Gare* G2, Gare* G3);
+	void setAutresGares(Gare* moi, Gare* G1, Gare* G2, Gare* G3);
 
 	
 };

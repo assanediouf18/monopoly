@@ -15,5 +15,6 @@ public:
 	virtual void arriverSur(Joueur* Joueuractuel);
 	//void addCompagnie();
 	void setAutreCompagnie(Compagnie * C1, Compagnie * C2);
+	void setAutreCompagnie(Compagnie* C1);
 };
 
