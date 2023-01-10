@@ -6,6 +6,6 @@
 
 int main(int argc, char** argv)
 {
-	testerTerrain();
+	std::cout << "Création de Plateau" << std::endl;
 	return EXIT_SUCCESS;
 }
