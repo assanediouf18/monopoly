@@ -155,11 +155,14 @@
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Carte.h" />
     <ClInclude Include="case.h" />
     <ClInclude Include="Communaute.h" />
     <ClInclude Include="Compagnie.h" />
     <ClInclude Include="Depart.h" />
     <ClInclude Include="Gare.h" />
+    <ClInclude Include="Header.h" />
+    <ClInclude Include="Jeu.h" />
     <ClInclude Include="joueur.h" />
     <ClInclude Include="Parc.h" />
     <ClInclude Include="Prison.h" />
