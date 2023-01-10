@@ -23,8 +23,6 @@ public:
 	***/
 	int howManyDoubles() { return doubled; };
 
-	void setPseudo(std::string newPseudo) { pseudo = newPseudo; };
-
 	/***
 	* ATTENTION : Ajouter de quoi vérifier que le joueur ne sort pas du plateau (dans plateau par exemple)
 	* Défini la nouvelle position du joueur
@@ -56,6 +54,9 @@ public:
 	* Montant peut être négatif.
 	***/
 	void changeSolde(int montant);
+	void setMesGares(int g) { int mesGares = g; };
+	int getMesGares() { return mesGares; };
+	bool operator ==(Joueur * J2);
 
 
 private:
@@ -65,6 +66,7 @@ private:
 	int solde;
 	bool isPlaying;
 	int doubled; //Combien de fois le joueur a fait un double ?
+	int mesGares;
 };
 
 #endif

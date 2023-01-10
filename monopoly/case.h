@@ -11,7 +11,7 @@ public:
 
 	std::string getNom() { return nom; };
 
-	virtual void getSuivant(Joueur& joueur) = 0;
+	virtual void arriverSur(Joueur& joueur)=0;
 
 private:
 	std::string nom;

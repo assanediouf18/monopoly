@@ -7,5 +7,12 @@
 
 #include "case.h"
 #include "joueur.h"
+#include "Terrain.h"
+#include "Propriete.h"
+#include "Gare.h"
+#include "Compagnie.h"
 
-void testerPrison();
+void testerGare();
+void testerPropriete();
+void testerTerrain();
+void testerCompagnie();
