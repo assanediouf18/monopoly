@@ -83,7 +83,7 @@ void Terrain::setGroupe(Terrain * moi, Terrain * voisin1, Terrain * voisin2) {
 	groupe[0] = voisin1;
 	groupe[1] = voisin2;
 	nbVoisin = 2;
-	voisin1->setGroupe(voisin1, moi, voisin2);
-	voisin2->setGroupe(voisin2, moi, voisin1);
+	//voisin1->setGroupe(voisin1, moi, voisin2);
+	//voisin2->setGroupe(voisin2, moi, voisin1);
 }
 
