@@ -71,9 +71,13 @@ bool Terrain::groupeEntier(Joueur* Joueuractuel)
 void Terrain::setGroupe(Terrain * moi, Terrain * voisin){
 	groupe[0] = voisin;
 	nbVoisin = 1;
-	voisin->setGroupe(voisin, moi);
+	voisin->setGroupe(moi);
 }
 
+void Terrain::setGroupe(Terrain* voisin) {
+	groupe[0] = voisin;
+	nbVoisin = 1;
+}
 
 void Terrain::setGroupe(Terrain * moi, Terrain * voisin1, Terrain * voisin2) {
 	groupe[0] = voisin1;
