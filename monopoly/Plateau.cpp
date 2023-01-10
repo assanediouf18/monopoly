@@ -1,5 +1,6 @@
 #include "Plateau.h"
 
+/*
 Plateau::Plateau() {
     Terrain* lesTerrains;
     Taxes* lesTaxes;
@@ -124,4 +125,4 @@ void Plateau::deplacer(Joueur& j, int nbPas) {
     }
     j.setPosition(newPos);
 
-}
+}*/
