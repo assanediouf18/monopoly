@@ -6,7 +6,7 @@ Prison::Prison(std::string name) : Case(name)
 {
 }
 
-void Prison::getSuivant(Joueur& joueur)
+void Prison::arriverSur(Joueur& joueur)
 {
 	cout << joueur.getPseudo() << " est en prison depuis " << joueur.getTempsPrison() + 1 << " tour(s)." << endl;
 	if (joueur.getTempsPrison() >= 0)

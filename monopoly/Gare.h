@@ -10,11 +10,11 @@ private:
 	Gare* autres_gares[3];
 
 public:
-	Gare(string Nom, int prix, int idCase);
+	Gare(string nom = "Nom", int prix = 0, int idCase = 0);
 	virtual void acheter(Joueur * Joueuractuel);
 	virtual void arriverSur(Joueur *joueur);
-	void setAutresGares(Gare* G1, Gare* G2, Gare* G3);
-	void setAutresGares(Gare* moi, Gare* G1, Gare* G2, Gare* G3);
+	void setAutreGares(Gare* G1, Gare* G2, Gare* G3);
+	void setAutreGares(Gare* moi, Gare* G1, Gare* G2, Gare* G3);
 
 	
 };

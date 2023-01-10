@@ -3,6 +3,7 @@
 using namespace std;
 
 Compagnie::Compagnie(string Nom, int p, int idCase):Propriete(Nom, p, idCase){
+	AutreCompagnie = NULL;
 }
 
 

@@ -12,7 +12,7 @@ public:
 	/***
 	* ATTENTION : il reste a donner la carte au joueur lorsque la classe ListeCarte sera prête !
 	***/
-	void getSuivant(Joueur& joueur);
+	void arriverSur(Joueur& joueur);
 };
 
 #endif // !_COMMUNAUTE_H_

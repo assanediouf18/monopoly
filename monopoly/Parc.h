@@ -8,7 +8,7 @@ class Parc : public Case
 public:
 	Parc(std::string name);
 
-	void getSuivant(Joueur& j);
+	void arriverSur(Joueur& j);
 };
 
 #endif

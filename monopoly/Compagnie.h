@@ -4,14 +4,12 @@
 using namespace std;
 
 class Compagnie : public Propriete
-{private :
-	int nb_case;
-	string nom;
-	int achat;
+{
+private :
 	Compagnie* AutreCompagnie;
 
 public:
-	Compagnie(string Nom, int p, int idCase);
+	Compagnie(string Nom = "Nom", int p = 0, int idCase = 0);
 	virtual void arriverSur(Joueur* Joueuractuel);
 	//void addCompagnie();
 	void setAutreCompagnie(Compagnie * C1, Compagnie * C2);

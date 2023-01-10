@@ -165,6 +165,7 @@
     <ClInclude Include="Jeu.h" />
     <ClInclude Include="joueur.h" />
     <ClInclude Include="Parc.h" />
+    <ClInclude Include="Plateau.h" />
     <ClInclude Include="Prison.h" />
     <ClInclude Include="Propriete.h" />
     <ClInclude Include="Taxe.h" />

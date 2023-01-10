@@ -2,9 +2,26 @@
 #include <string>
 using namespace std;
 
+Terrain::Terrain() : Propriete("nom", 0, 0)
+{
+	Nom = "Terrain";
+	achat = 0;
+	loyer[0] = 0;
+	loyer[1] = 0;
+	loyer[2] = 0;
+	loyer[3] = 0;
+	loyer[4] = 0;
+	loyer[5] = 0;
+	prixmaison = 0;
+	nb_case = 0;
+	nbMaison = 0;
+	nbVoisin = 0;
+
+	groupe[0] = NULL;
+	groupe[1] = NULL;
+}
+
 Terrain::Terrain(string nom, int prix, int num_case, int terrainnu, int maison1, int maison2, int maison3, int maison4, int hotel, int prix_maison):Propriete(nom, prix, num_case) {
-	Nom = nom;
-	achat = prix;
 	loyer[0] = terrainnu;
 	loyer[1] = maison1;
 	loyer[2] = maison2;
@@ -12,9 +29,11 @@ Terrain::Terrain(string nom, int prix, int num_case, int terrainnu, int maison1,
 	loyer[4] = maison4;
 	loyer[5] = hotel;
 	prixmaison = prix_maison;
-	nb_case = num_case;
 	nbMaison = 0;
 	nbVoisin = 0;
+
+	groupe[0] = NULL;
+	groupe[1] = NULL;
 }
 
 void Terrain::arriverSur(Joueur* Joueuractuel){

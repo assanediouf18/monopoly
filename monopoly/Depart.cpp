@@ -4,7 +4,7 @@ Depart::Depart(std::string nom) : Case(nom)
 {
 }
 
-void Depart::getSuivant(Joueur& joueur)
+void Depart::arriverSur(Joueur& joueur)
 {
 	joueur.changeSolde(200);
 }

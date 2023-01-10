@@ -9,7 +9,7 @@ class Prison : public Case
 public:
 	Prison(std::string name);
 
-	void getSuivant(Joueur& joueur);
+	void arriverSur(Joueur& joueur);
 };
 
 #endif // !_PRISON_H_

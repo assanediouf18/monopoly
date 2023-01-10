@@ -8,7 +8,7 @@ class Taxe : public Case
 public:
 	Taxe(std::string nom, int taxe);
 
-	void getSuivant(Joueur& j);
+	void arriverSur(Joueur& j);
 
 private:
 	int prix;

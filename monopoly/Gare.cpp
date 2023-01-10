@@ -1,6 +1,9 @@
 #include "Gare.h"
 
 Gare::Gare(string nom, int prix, int idCase):Propriete(nom, prix, idCase) {
+	autres_gares[0] = NULL;
+	autres_gares[1] = NULL;
+	autres_gares[2] = NULL;
 }
 
 void Gare::acheter(Joueur * Joueuractuel){
@@ -63,17 +66,17 @@ void Gare::arriverSur(Joueur* joueur) {
 }
 
 
-void Gare::setAutresGares(Gare* G1, Gare* G2, Gare* G3) {
+void Gare::setAutreGares(Gare* G1, Gare* G2, Gare* G3) {
 	autres_gares[0] = G1;
 	autres_gares[1] = G2;
 	autres_gares[2] = G3;
 }
 
-void Gare::setAutresGares(Gare* moi, Gare* G1, Gare* G2, Gare* G3) {
+void Gare::setAutreGares(Gare* moi, Gare* G1, Gare* G2, Gare* G3) {
 	autres_gares[0] = G1;
 	autres_gares[1] = G2;
 	autres_gares[2] = G3;
-	G1->setAutresGares(moi, G2, G3);
-	G2->setAutresGares(moi, G1, G3);
-	G3->setAutresGares(moi, G2, G1);
+	G1->setAutreGares(moi, G2, G3);
+	G2->setAutreGares(moi, G1, G3);
+	G3->setAutreGares(moi, G2, G1);
 }
