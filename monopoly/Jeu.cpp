@@ -63,6 +63,21 @@ void Jeu::lancerPartie()
 	//Lancer les dés
 	//Le joueur qui a le max commence son index est first
 	int first = 0;
+	int max = 0;
+	for (int i = 0; i < nbJoueurs; i++) {
+		std::cout << joueurs[i].getPseudo() << " lance des dés : " << endl;
+		int de1 = getRandomNumber();
+		int de2 = getRandomNumber();
+		std::cout << "Dé 1 : " << de1 << " ; dé 2 : " << de2 << endl;
+		int total = de1 + de2;
+		if (total > max) {
+			max = total;
+			first = i;
+			std::cout << "Le score est de " << total << std::endl;
+		}
+	}
+
+	std::cout << "Avec un score de " << max << " " << joueurs[first].getPseudo() << " va commencer" << std::endl;
 	
 	int player = first;
 	while (getNbrJoueursEnJeu() > 1)
@@ -112,6 +127,7 @@ void Jeu::jouerTour(int index)
 
 		if (player->howManyDoubles() >= 3) {
 			//Le joueur va en prison
+			player->setPosition(Plateau::prisonLocation);
 		}
 		else {
 			int nbPas = de1 + de2;

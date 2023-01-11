@@ -9,6 +9,7 @@ Propriete::Propriete(string Nom, int Prix, int num_case):Case(Nom) {
 	nb_case = num_case;
 	estachetee = false;
 	esthypothequee = false;
+	Proprietaire = NULL;
 }
 
 void Propriete::acheter(Joueur * Joueuractuel){

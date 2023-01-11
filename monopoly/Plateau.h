@@ -27,7 +27,9 @@ public:
     //Ajouter une exception si index n'est pas dans les limites
     Case* operator[](int index);
 
-public:
+    static const int prisonLocation = 10;
+
+private:
     Terrain lesTerrains[22];
     Taxe lesTaxes[2];
     Chance lesChances[3];

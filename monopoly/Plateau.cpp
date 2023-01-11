@@ -68,7 +68,7 @@ Plateau::Plateau() : leParc("Parc"), leDepart("Depart") {
     liste_cases[7] = &lesChances[0];
     liste_cases[8] = &lesTerrains[3];
     liste_cases[9] = &lesTerrains[4];
-    liste_cases[10] = &lesPrisons[0];
+    liste_cases[10] = &lesPrisons[0]; //lesPrisons
     liste_cases[11] = &lesTerrains[5];
     liste_cases[12] = &lesCompagnies[0];
     liste_cases[13] = &lesTerrains[6];

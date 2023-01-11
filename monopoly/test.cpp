@@ -8,6 +8,7 @@ using namespace std;
 void testerJeu()
 {
 	Jeu global;
+	global.lancerPartie();
 }
 
 void testerPlateau()
