@@ -22,13 +22,12 @@ void Gare::acheter(Joueur * Joueuractuel){
 	}
 }
 
-void Gare::arriverSur(Joueur* joueur) {
-	Joueur Joueuractuel = *joueur;
+void Gare::arriverSur(Joueur& Joueuractuel) {
 	Joueur * Proprietaire=getProprietaire();
 	if (estachetee) {
-		if (joueur == Proprietaire) {
+		if (Joueuractuel == Proprietaire) {
 			cout << "Vous possedez cette gare, bravo" << endl;
-			hypothequer(joueur);
+			hypothequer(&Joueuractuel);
 		}
 		else {
 			if (getEsthypothequee()) { cout << "La gare est hypothequee" << endl; }
@@ -60,7 +59,7 @@ void Gare::arriverSur(Joueur* joueur) {
 		}
 	}
 	else {
-		acheter(joueur);
+		acheter(&Joueuractuel);
 	}
 	cout << "Votre solde actuel est de " << Joueuractuel.getSolde() << endl;
 }

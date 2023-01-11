@@ -42,7 +42,7 @@ void Propriete::hypothequer(Joueur * Joueuractuel){
 
 void Propriete::arriverSur(Joueur& joueur)
 {
-	std::cout << "Bienvenue sur la propriété " << this->Nom << std::endl;
+	std::cout << "Bienvenue sur la propriété " << this->getNom() << std::endl;
 }
 
 void Propriete::vendre(Joueur Joueuractuel) {

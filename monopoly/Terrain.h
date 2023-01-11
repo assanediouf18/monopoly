@@ -20,7 +20,9 @@ public:
 	Terrain(string Nom, int prix, int num_case, int terrainnu, int maison1, int maison2, int maison3, int maison4, int hotel, int prix_maison); 
 	int getNbMaison() { return nbMaison; };
 	int getLoyer() { return loyer[0]; };
-	virtual void arriverSur(Joueur* Joueuractuel);
+	
+	virtual void arriverSur(Joueur& Joueuractuel);
+	
 	void ajouterMaison(Joueur* Joueuractuel);
 	void setGroupe(Terrain * moi, Terrain * voisin);
 	void setGroupe(Terrain * moi, Terrain * voisin1, Terrain * voisin2);

@@ -31,16 +31,16 @@ void testerTerrain()
 	Terrain T1 = Terrain("Rue Lecourbe", 60, 3, 4, 20, 60, 180, 320, 450, 50);
 	Terrain T0 = Terrain("Boulevard de Belleville", 60, 1, 2, 10, 30, 90, 160, 250, 50);
 	T0.setGroupe(&T0, &T1);
-	T1.arriverSur(&J);
+	T1.arriverSur(J);
 	cout << std::boolalpha << T1.getEstachetee() << endl;
 	Joueur J2 = Joueur();
-	T1.arriverSur(&J2);
-	T1.arriverSur(&J);
-	T1.arriverSur(&J2);
-	T0.arriverSur(&J);
-	T1.arriverSur(&J2);
-	T0.arriverSur(&J);
-	T0.arriverSur(&J2);
+	T1.arriverSur(J2);
+	T1.arriverSur(J);
+	T1.arriverSur(J2);
+	T0.arriverSur(J);
+	T1.arriverSur(J2);
+	T0.arriverSur(J);
+	T0.arriverSur(J2);
 	
 }
 
@@ -57,7 +57,7 @@ void testerGare() {
 	Gare G = Gare("Saint Laz", 400, 5);
 	G.acheter(&J);
 	cout << std::boolalpha << G.getEstachetee() << endl;
-	G.arriverSur(&J);
+	G.arriverSur(J);
 }
 
 void testerCompagnie() {
