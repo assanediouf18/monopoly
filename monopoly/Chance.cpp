@@ -1,0 +1,12 @@
+#include <iostream>
+#include "Chance.h"
+
+Chance::Chance(std::string nom) : Case(nom)
+{
+}
+
+void Chance::arriverSur(Joueur& joueur)
+{
+	std::cout << "Bienvenue sur la case Chance" << std::endl;
+	//Piocher une carte chance et agir en conséquence
+}

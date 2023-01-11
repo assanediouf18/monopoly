@@ -5,7 +5,7 @@ Plateau::Plateau() : leParc("Parc"), leDepart("Depart") {
     lesTerrains[21] = Terrain("Rue de la Paix", 400, 39, 50, 200, 600, 1400, 1700, 2000, 200);
     lesTaxes[1] = Taxe("Taxe de Luxe", 100);
     lesTerrains[20] = Terrain("Avenue des Champs-Élysées", 350, 37, 35, 175, 500, 1100, 1300, 1500, 200);
-    //lesChances[2] = Chance("Chance");
+    lesChances[2] = Chance("Chance");
     lesGares[3] = Gare("Gare Saint Lazare", 200, 35);
     lesTerrains[19] = Terrain("Boulevard des Capucins", 320, 34, 28, 150, 450, 1000, 1200, 1400, 200);
     lesCommunautes[2] = Communaute("Caisse de Communauté");
@@ -19,7 +19,7 @@ Plateau::Plateau() : leParc("Parc"), leDepart("Depart") {
     lesGares[2] = Gare("Gare du Nord", 200, 25);
     lesTerrains[13] = Terrain("Avenue Henri-Martin", 240, 24, 20, 100, 300, 750, 925, 1100, 150);
     lesTerrains[12] = Terrain("Boulevard Malesherbes", 220, 23, 18, 90, 250, 700, 875, 1050, 150);
-    //lesChances[1] = Chance("Chance");
+    lesChances[1] = Chance("Chance");
     lesTerrains[11] = Terrain("Avenue Matignon", 220, 21, 18, 90, 250, 700, 875, 1050, 150);
     lesTerrains[10] = Terrain("Place Pigalle", 200, 19, 16, 80, 220, 600, 800, 1000, 100);
     lesTerrains[9] = Terrain("Boulevard Saint Michel", 180, 18, 14, 70, 200, 550, 750, 950, 100);
@@ -33,7 +33,7 @@ Plateau::Plateau() : leParc("Parc"), leDepart("Depart") {
     lesPrisons[0] = Prison("Prison");
     lesTerrains[4] = Terrain("Avenue de la République", 120, 9, 8, 40, 100, 300, 450, 600, 50);
     lesTerrains[3] = Terrain("Rue de Courcelles", 100, 8, 6, 30, 90, 270, 400, 550, 50);
-    //lesChances[0] = Chance("Chance");
+    lesChances[0] = Chance("Chance");
     lesTerrains[2] = Terrain("Rue de Vaugirard", 100, 6, 6, 30, 90, 270, 400, 550, 50);
     lesGares[0] = Gare("Gare Montparnasse", 200, 5);
     lesTaxes[0] = Taxe("Impôts sur le revenu", 200);
@@ -65,7 +65,7 @@ Plateau::Plateau() : leParc("Parc"), leDepart("Depart") {
     liste_cases[4] = &lesTaxes[0];
     liste_cases[5] = &lesGares[0];
     liste_cases[6] = &lesTerrains[2];
-    //liste_cases[7] = &lesChances[0];
+    liste_cases[7] = &lesChances[0];
     liste_cases[8] = &lesTerrains[3];
     liste_cases[9] = &lesTerrains[4];
     liste_cases[10] = &lesPrisons[0];
@@ -80,7 +80,7 @@ Plateau::Plateau() : leParc("Parc"), leDepart("Depart") {
     liste_cases[19] = &lesTerrains[10];
     liste_cases[20] = &leParc;
     liste_cases[21] = &lesTerrains[11];
-    //liste_cases[22] = &lesChances[1];
+    liste_cases[22] = &lesChances[1];
     liste_cases[23] = &lesTerrains[12];
     liste_cases[24] = &lesTerrains[13];
     liste_cases[25] = &lesGares[2];
@@ -94,7 +94,7 @@ Plateau::Plateau() : leParc("Parc"), leDepart("Depart") {
     liste_cases[33] = &lesCommunautes[2];
     liste_cases[34] = &lesTerrains[19];
     liste_cases[35] = &lesGares[3];
-    //liste_cases[36] = &lesChances[2];
+    liste_cases[36] = &lesChances[2];
     liste_cases[37] = &lesTerrains[20];
     liste_cases[38] = &lesTaxes[1];
     liste_cases[39] = &lesTerrains[21];

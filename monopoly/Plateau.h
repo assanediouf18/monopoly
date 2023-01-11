@@ -10,6 +10,7 @@
 #include "Parc.h"
 #include "Prison.h"
 #include "Communaute.h"
+#include "Chance.h"
 #include "Taxe.h"
 using namespace std;
 
@@ -26,10 +27,10 @@ public:
 private:
     Terrain lesTerrains[22];
     Taxe lesTaxes[2];
-    //Chance* lesChances;
+    Chance lesChances[3];
     Gare lesGares[4];
-    Communaute* lesCommunautes;
-    Prison* lesPrisons;
+    Communaute lesCommunautes[3];
+    Prison lesPrisons[2];
     Compagnie lesCompagnies[2];
     Parc leParc;
     Depart leDepart;

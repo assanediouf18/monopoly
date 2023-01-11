@@ -8,6 +8,12 @@ Prison::Prison(std::string name) : Case(name)
 
 void Prison::arriverSur(Joueur& joueur)
 {
+	if (this->getNom() == "Aller en prison") {
+		cout << joueur.getPseudo() << " va en prison" << endl;
+		//Bouger le joueur en prison
+		return;
+	}
+
 	cout << joueur.getPseudo() << " est en prison depuis " << joueur.getTempsPrison() + 1 << " tour(s)." << endl;
 	if (joueur.getTempsPrison() >= 0)
 	{
@@ -53,6 +59,4 @@ void Prison::arriverSur(Joueur& joueur)
 	}
 
 	joueur.setTempsPrison(joueur.getTempsPrison() + 1);
-
-	return;
 }

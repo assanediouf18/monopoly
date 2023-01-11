@@ -7,7 +7,7 @@
 class Prison : public Case
 {
 public:
-	Prison(std::string name);
+	Prison(std::string name = "Prison");
 
 	void arriverSur(Joueur& joueur);
 };

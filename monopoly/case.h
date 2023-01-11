@@ -13,7 +13,7 @@ public:
 
 	virtual void arriverSur(Joueur& joueur)=0;
 
-private:
+protected:
 	std::string nom;
 };
 
