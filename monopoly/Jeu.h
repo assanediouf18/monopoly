@@ -9,6 +9,7 @@
 #define JEU_H_
 
 #include <iostream>
+#include <cstdlib>
 #include "joueur.h"
 #include "Plateau.h"
 
@@ -20,6 +21,12 @@ private:
 	int nbJoueurs;
 	Joueur* joueurs;
 	Plateau board;
+	
+	/**
+	* Calcule un nombre aléatoire contenu entre 1 et 6
+	* Attention : utilise rand(), s'assurer d'avoir srand(time(0)) avant utilisation
+	**/
+	int getRandomNumber();
 
 public:
 	Jeu(std::string config = "0");
@@ -31,8 +38,6 @@ public:
 	int joueurSuivant(int JoeurActuel);
 	//void enchère(Propriete);
 	void jouerTour(int index);
-
-
 };
 
 

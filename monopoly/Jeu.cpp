@@ -1,6 +1,11 @@
 #include "Jeu.h"
 #include "malloc.h"
 
+int Jeu::getRandomNumber()
+{
+	return (rand() % 6) + 1;
+}
+
 Jeu::Jeu(std::string config) : board()
 {
 	joueurs = NULL;
@@ -76,10 +81,9 @@ void Jeu::terminerPartie()
 int Jeu::joueurSuivant(int actual)
 {
 	if (nbJoueurs < 2) return 0;
-	int next = actual + 1;
+	int next = (actual + 1) % nbJoueurs;
 	while (!joueurs[next].isStillPlaying()) {
-		next += 1;
-		next = next % nbJoueurs;
+		next = (next + 1) % nbJoueurs;
 	}
 	return next;
 }
@@ -92,27 +96,29 @@ void Jeu::jouerTour(int index)
 
 	//Gérer le cas prison
 
-	//Lancer les dés
-	int nbPas = 6;
-	/*
-	Bougez votre pion d’autant de cases que le nombre de points indiqué sur les dés et
-	dans le sens des aiguilles d’une montre.
-	La case où vous vous arrêterez déterminera ce que vous avez à faire.
-	*/
+	do {
+		std::cout << "Lancement des dés : " << endl;
+		int de1 = getRandomNumber();
+		int de2 = getRandomNumber();
+		std::cout << "Dé 1 : " << de1 << " ; dé 2 : " << de2 << endl;
 
-	board.deplacer(player, nbPas);
+		if (de1 == de2) {
+			player->has_a_double(1);
+			std::cout << player->getPseudo() << " a fait " << player->howManyDoubles() << " double(s)." << endl;
+		}
+		else if (player->howManyDoubles() > 0) {
+			player->has_a_double(-player->howManyDoubles()); //retour à 0 !
+		}
 
-	/*
-	Si vous passez par ou vous arrêtez sur la case DÉPART, vous recevez M200 de la Banque.
-	*/
+		if (player->howManyDoubles() >= 3) {
+			//Le joueur va en prison
+		}
+		else {
+			int nbPas = de1 + de2;
+			std::cout << player->getPseudo() << " avance de " << nbPas << " cases." << endl;
+			board.deplacer(player, nbPas);
+			board[player->getPosition()]->arriverSur(*player);
+		}
 
-	/*
-	Si vous faites un double aux dés, effectuez les opérations habituelles sur la case où vous vous arrêtez
-	puis relancez les dés(étapes 1 à 4).
-	Attention !Si vous faites trois doubles de suite, rendez - vous immédiatement en prison.
-	*/
-	board[player->getPosition()]->arriverSur(*player);
-	/*
-	Lorsque vous avez terminé votre tour, donnez les dés au joueur situé sur votre gauche.
-	*/
+	} while (player->howManyDoubles() > 0);
 }

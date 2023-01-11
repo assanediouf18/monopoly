@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 #include "case.h"
 #include "Gare.h"
 #include "Propriete.h"
@@ -6,7 +7,7 @@
 
 int main(int argc, char** argv)
 {
-	std::cout << "Vient on test jeu" << std::endl;
+	srand(time(NULL));
 	testerJeu();
 	return EXIT_SUCCESS;
 }
