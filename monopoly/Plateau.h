@@ -14,7 +14,7 @@
 #include "Taxe.h"
 using namespace std;
 
-const int NB_CASES = 0;
+const int NB_CASES = 40;
 
 class Plateau {
 public:
@@ -27,7 +27,7 @@ public:
     //Ajouter une exception si index n'est pas dans les limites
     Case* operator[](int index);
 
-private:
+public:
     Terrain lesTerrains[22];
     Taxe lesTaxes[2];
     Chance lesChances[3];

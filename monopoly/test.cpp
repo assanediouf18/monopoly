@@ -1,12 +1,18 @@
 #include "test.h"
 #include "Prison.h"
 #include "Jeu.h"
+#include "Plateau.h"
 
 using namespace std;
 
 void testerJeu()
 {
 	Jeu global;
+}
+
+void testerPlateau()
+{
+	Plateau board;
 }
 
 void indiquerJoueur()

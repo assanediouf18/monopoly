@@ -17,4 +17,5 @@ void testerPropriete();
 void testerTerrain();
 void testerCompagnie();
 void testerJeu();
+void testerPlateau();
 void indiquerJoueur();

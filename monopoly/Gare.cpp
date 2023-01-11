@@ -72,11 +72,20 @@ void Gare::setAutreGares(Gare* G1, Gare* G2, Gare* G3) {
 	autres_gares[2] = G3;
 }
 
-void Gare::setAutreGares(Gare* moi, Gare* G1, Gare* G2, Gare* G3) {
-	autres_gares[0] = G1;
-	autres_gares[1] = G2;
-	autres_gares[2] = G3;
-	G1->setAutreGares(moi, G2, G3);
-	G2->setAutreGares(moi, G1, G3);
-	G3->setAutreGares(moi, G2, G1);
+void Gare::setAutreGares(Gare* moi, Gare* voisin1, Gare* voisin2, Gare* voisin3) {
+	moi->autres_gares[0] = voisin1;
+	moi->autres_gares[1] = voisin2;
+	moi->autres_gares[2] = voisin3;
+
+	voisin1->autres_gares[0] = moi;
+	voisin1->autres_gares[1] = voisin2;
+	voisin1->autres_gares[2] = voisin3;
+
+	voisin2->autres_gares[0] = voisin1;
+	voisin2->autres_gares[1] = moi;
+	voisin2->autres_gares[2] = voisin3;
+
+	voisin3->autres_gares[0] = voisin1;
+	voisin3->autres_gares[1] = voisin2;
+	voisin3->autres_gares[2] = moi;
 }

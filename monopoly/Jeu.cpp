@@ -20,7 +20,7 @@ Jeu::Jeu(std::string config) : board()
 	}
 
 	joueurs = new Joueur[nbJoueurs];
-	
+
 	int startingMoney = 2 * 500 + 4 * 100 + 50 + 20 + 10 + 5 + 1;
 
 	for (int i = 0; i < nbJoueurs; i++)

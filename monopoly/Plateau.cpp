@@ -54,7 +54,7 @@ Plateau::Plateau() : leParc("Parc"), leDepart("Depart") {
     //Gares
     lesGares[0].setAutreGares(&lesGares[0], &lesGares[1], &lesGares[2], &lesGares[3]);
     //Compagnies
-    Compagnie *c1 = &lesCompagnies[0], *c2 = &lesCompagnies[1];
+    Compagnie* c1 = &lesCompagnies[0], * c2 = &lesCompagnies[1];
     lesCompagnies[0].setAutreCompagnie(c1, c2);
 
     //Stockage éléments dans liste
