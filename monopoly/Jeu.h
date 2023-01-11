@@ -16,21 +16,19 @@ using namespace std;
 
 class Jeu {
 
-
 private:
-	int nbrJoueurs;
-	Joueur joueurs[];
+	int nbJoueurs;
+	Joueur* joueurs;
 
 public:
-	jeu jeu(nbrJoueurs);
-	jeu ~jeu();
+	Jeu();//std::string config = "0");
+	//~Jeu();
 	int getNbrJoueursEnJeu();
 	void lancerPartie();
 	void terminerPartie();
 	int joueurSuivant(int JoeurActuel);
-	enchère(Propriete);
-	jouerTour(Joueur);
-	Jeu(config = "0")
+	//void enchère(Propriete);
+	void jouerTour(Joueur*);
 
 
 };

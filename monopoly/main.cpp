@@ -6,6 +6,7 @@
 
 int main(int argc, char** argv)
 {
-	std::cout << "Création de Plateau" << std::endl;
+	std::cout << "Vient on test jeu" << std::endl;
+	testerJeu();
 	return EXIT_SUCCESS;
 }

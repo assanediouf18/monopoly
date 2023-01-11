@@ -1,7 +1,21 @@
 #include "test.h"
 #include "Prison.h"
+#include "Jeu.h"
 
 using namespace std;
+
+void testerJeu()
+{
+	Jeu global;
+}
+
+void indiquerJoueur()
+{
+	Joueur A;
+	std::cin >> A;
+	cout << endl;
+	std::cout << A << endl;
+}
 
 void testerTerrain()
 {

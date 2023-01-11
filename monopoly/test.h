@@ -16,3 +16,5 @@ void testerGare();
 void testerPropriete();
 void testerTerrain();
 void testerCompagnie();
+void testerJeu();
+void indiquerJoueur();

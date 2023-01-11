@@ -56,7 +56,11 @@ public:
 	void changeSolde(int montant);
 	void setMesGares(int g) { int mesGares = g; };
 	int getMesGares() { return mesGares; };
-	bool operator ==(Joueur * J2);
+	
+	bool operator==(Joueur * J2);
+
+	friend std::ostream& operator<<(std::ostream& out, Joueur& v);
+	friend std::istream& operator>>(std::istream& out, Joueur& v);
 
 
 private:

@@ -6,6 +6,7 @@ Joueur::Joueur()
 	tpsPrison = 0;
 	position = 0;
 	doubled = 0;
+	solde = 0;
 	isPlaying = true;
 }
 
@@ -47,4 +48,22 @@ void Joueur::changeSolde(int montant)
 
 bool Joueur::operator ==(Joueur * J2) {
 	return (pseudo == J2->getPseudo());
+}
+
+std::ostream& operator<<(std::ostream& out, Joueur& j)
+{
+	out << "Nom du joueur : " << j.getPseudo() << std::endl;
+	out << "Solde : " << j.getSolde() << " M" << std::endl;
+	out << "Position : " << j.getPosition();
+	return out;
+}
+
+std::istream& operator>>(std::istream& in, Joueur& j)
+{
+	std::string pseudo;
+	std::cout << "Hello ! Nouveau joueur quel est ton pseudo ? ";
+	in >> pseudo;
+	j.pseudo = pseudo;
+	std::cout << "Okay bon courage " << pseudo << " !";
+	return in;
 }
