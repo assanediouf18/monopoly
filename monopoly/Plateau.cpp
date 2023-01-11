@@ -117,3 +117,8 @@ void Plateau::deplacer(Joueur* j, int nbPas) {
     }
 
 }
+
+Case* Plateau::operator[](int index)
+{
+    return liste_cases[index];
+}

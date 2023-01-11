@@ -24,6 +24,9 @@ public:
     //Je ne suis pas certain que la fonction case suivante soit utile sous cette forme
     //void caseSuivante(Case c);
 
+    //Ajouter une exception si index n'est pas dans les limites
+    Case* operator[](int index);
+
 private:
     Terrain lesTerrains[22];
     Taxe lesTaxes[2];
