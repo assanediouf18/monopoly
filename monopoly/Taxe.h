@@ -6,7 +6,7 @@
 class Taxe : public Case
 {
 public:
-	Taxe(std::string nom, int taxe);
+	Taxe(std::string nom = "Taxe", int taxe = 0);
 
 	void arriverSur(Joueur& j);
 

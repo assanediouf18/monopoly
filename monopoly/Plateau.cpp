@@ -104,13 +104,16 @@ Plateau::Plateau() : leParc("Parc"), leDepart("Depart") {
 void Plateau::caseSuivante(Case c) {
 
 }
-
-void Plateau::deplacer(Joueur& j, int nbPas) {
-    int position = j.getPosition();
-    int newPos = position + nbPas;
-    if (newPos > 39) {
-        newPos = newPos - 39;
+*/
+void Plateau::deplacer(Joueur* j, int nbPas) {
+    int position = j->getPosition();
+    int newPos = (position + nbPas) % NB_CASES;
+    //déplacer le joueur
+    j->setPosition(newPos);
+    //Donner 200 billets au joueur s'il est passé par la case départ
+    if (newPos < position)
+    {
+        j->changeSolde(200);
     }
-    j.setPosition(newPos);
 
-}*/
+}
