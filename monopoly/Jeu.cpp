@@ -32,7 +32,6 @@ Jeu::Jeu(std::string config) : board()
 		joueurs[i].setPosition(0);
 
 		std::cout << joueurs[i] << std::endl;
-		if (i == 0) joueurs[i].setTempsPrison(0);
 	}
 }
 

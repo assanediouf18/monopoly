@@ -10,7 +10,7 @@ void Prison::arriverSur(Joueur& joueur)
 {
 	if (this->getNom() == "Aller en prison") {
 		cout << joueur.getPseudo() << " va en prison" << endl;
-		joueur.setTempsPrison(0); //le joueur est envoyé en prison après lors de jouerTour
+		joueur.setTempsPrison(0); //le joueur est envoyé en prison après lors de jouerTour dans jeu
 		return;
 	}
 
