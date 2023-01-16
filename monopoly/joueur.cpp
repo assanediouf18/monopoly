@@ -3,7 +3,7 @@
 Joueur::Joueur()
 {
 	pseudo = "Pseudo basique";
-	tpsPrison = 0;
+	tpsPrison = -1;
 	position = 0;
 	doubled = 0;
 	solde = 0;

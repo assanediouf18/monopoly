@@ -10,7 +10,13 @@ void Prison::arriverSur(Joueur& joueur)
 {
 	if (this->getNom() == "Aller en prison") {
 		cout << joueur.getPseudo() << " va en prison" << endl;
+		joueur.setTempsPrison(0);
 		//Bouger le joueur en prison
+		return;
+	}
+
+	if (joueur.getTempsPrison() < 0) {
+		std::cout << "Bienvenue sur la case prison." << std::endl;
 		return;
 	}
 
