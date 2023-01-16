@@ -13,4 +13,4 @@ Pour pouvoir contribueer il faudra néanmoins relier votre compte GitHub a visua
  - [X] ~~Modifier jouerTour pour prendre le temps~~
  - [X] ~~Ajouter du choix dans jouerTour (hypotheque, contruction maison/hotel)~~
  - [X] ~~Donner plus d'indications au joueur (solde)~~
- - [] Ajouter les exceptions
+ - [ ] Ajouter les exceptions
