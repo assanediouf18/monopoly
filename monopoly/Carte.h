@@ -8,25 +8,32 @@
 #ifndef CARTE_H_
 #define CARTE_H_
 
-
-
-
 #include <iostream>
 using namespace std;
 
 class Carte {
 
 private:
-	string Consigne;
+	string consigne;
 	int id;
-	int ImpactTreso;
-	int id_carteSuivante;
+	int impactTreso;
+	int idCartePlateau;
+	int x;
+	int y;
+	int z;
+	int a;
 
 public:
 
-	Carte();
-	void set();
-	void get();
+	Carte(int idCarte, int int1, int int2, int int3, int int4, int int5, int impactPlateau, string str);
+	void setId(int i) {id = i;};
+	void setImpact(int i) { impactTreso = i; };
+	void setIdCartePlateau(int i) { idCartePlateau = i; };
+	void setConsigne(string str) { consigne = str; };
+	int getId() { return id; };
+	int getImpact() { return impactTreso; };
+	int getIdCartePlateau() { return idCartePlateau; };
+	string getConsigne() {return Consigne;};
 };
 
 

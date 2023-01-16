@@ -42,7 +42,6 @@ void Terrain::arriverSur(Joueur& J){
 	if (estachetee==true) {
 		if (Joueuractuel == Proprietaire) {
 			cout << "Vous possedez ce terrain, bravo" << endl;
-			hypothequer(Joueuractuel);
 		}
 		else {
 			if (getEsthypothequee()) {
