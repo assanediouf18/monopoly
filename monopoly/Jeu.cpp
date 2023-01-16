@@ -142,6 +142,11 @@ void Jeu::jouerTour(int index)
 
 	std::cout << "C'est au tour de " << player->getPseudo() << " !" << std::endl;
 
+	//Gérer le cas prison
+	if (player->getTempsPrison() > 0 && player->getPosition() != 10) {
+		player->setPosition(10);
+	}
+
 	do {
 		std::cout << "1 - Lancer les dés" << std::endl;
 		std::cout << "2 - Construire" << std::endl;
@@ -181,6 +186,4 @@ void Jeu::jouerTour(int index)
 			break;
 		}
 	} while (!hasPlayed);
-
-	//Gérer le cas prison
 }
