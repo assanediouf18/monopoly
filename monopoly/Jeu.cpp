@@ -21,7 +21,7 @@ Jeu::Jeu(std::string config) : board()
 
 	joueurs = new Joueur[nbJoueurs];
 
-	int startingMoney = 2 * 500 + 4 * 100 + 50 + 20 + 10 + 5 + 1;
+	int startingMoney = 2 * 500 + 4 * 100 + 50 + 20 + 2 * 10 + 5 + 5;
 
 	for (int i = 0; i < nbJoueurs; i++)
 	{
@@ -60,12 +60,14 @@ void Jeu::lancerPartie()
 	std::cout << "La partie commence, bon courage à tous !" << std::endl;
 	std::cout << "Chacun va jeter les dés, celui qui aura le score le plus élevé commencera la partie." << std::endl;
 
-	//Lancer les dés
-	//Le joueur qui a le max commence son index est first
 	int first = 0;
 	int max = 0;
 	for (int i = 0; i < nbJoueurs; i++) {
-		std::cout << joueurs[i].getPseudo() << " lance des dés : " << endl;
+		std::cout << joueurs[i].getPseudo() << " appuies sur une touche pour lancer des dés. " << endl;
+		
+		std::string validation;
+		std::cin >> validation;
+
 		int de1 = getRandomNumber();
 		int de2 = getRandomNumber();
 		std::cout << "Dé 1 : " << de1 << " ; dé 2 : " << de2 << endl;
@@ -103,14 +105,8 @@ int Jeu::joueurSuivant(int actual)
 	return next;
 }
 
-void Jeu::jouerTour(int index)
+void Jeu::lancerDe(Joueur* player)
 {
-	Joueur* player = &joueurs[index];
-	
-	std::cout << "C'est au tour de " << player->getPseudo() << " !" << std::endl;
-
-	//Gérer le cas prison
-
 	do {
 		std::cout << "Lancement des dés : " << endl;
 		int de1 = getRandomNumber();
@@ -137,4 +133,54 @@ void Jeu::jouerTour(int index)
 		}
 
 	} while (player->howManyDoubles() > 0);
+}
+
+void Jeu::jouerTour(int index)
+{
+	Joueur* player = &joueurs[index];
+	bool hasPlayed = false, diceRolled = false;
+
+	std::cout << "C'est au tour de " << player->getPseudo() << " !" << std::endl;
+
+	do {
+		std::cout << "1 - Lancer les dés" << std::endl;
+		std::cout << "2 - Construire" << std::endl;
+		std::cout << "3 - Hypothéquer" << std::endl;
+		std::cout << "4 - Vendre" << std::endl;
+		std::cout << "5 - Voir son profil" << std::endl;
+		std::cout << "6 - Passer son tour" << std::endl;
+		std::cout << "Choisis ton option : ";
+
+		std::string choice;
+		std::cin >> choice;
+		char c = choice[0];
+
+		switch (c) {
+		case '1':
+			if (!diceRolled) {
+				lancerDe(player);
+				diceRolled = true;
+			}
+			else {
+				std::cout << "Vous avez déjà jeté les dés" << std::endl;
+			}
+			break;
+		case '5':
+			std::cout << (*player) << std::endl;
+			std::cout << "Nom de la case : " << board[player->getPosition()]->getNom() << std::endl;
+			break;
+		case '6':
+			if (!diceRolled) {
+				lancerDe(player);
+				diceRolled = true;
+			}
+			hasPlayed = true;
+			break;
+		default:
+			std::cout << "Cette option n'est pas disponible" << std::endl;
+			break;
+		}
+	} while (!hasPlayed);
+
+	//Gérer le cas prison
 }

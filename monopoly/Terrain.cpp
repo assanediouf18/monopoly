@@ -37,6 +37,7 @@ Terrain::Terrain(string nom, int prix, int num_case, int terrainnu, int maison1,
 }
 
 void Terrain::arriverSur(Joueur& J){
+	Propriete::arriverSur(J);
 	Joueur* Joueuractuel = &J;
 	Proprietaire = getProprietaire();
 	if (estachetee==true) {

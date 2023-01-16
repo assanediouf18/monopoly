@@ -23,6 +23,7 @@ void Gare::acheter(Joueur * Joueuractuel){
 }
 
 void Gare::arriverSur(Joueur& Joueuractuel) {
+	Propriete::arriverSur(Joueuractuel);
 	Joueur * Proprietaire=getProprietaire();
 	if (estachetee) {
 		if (Joueuractuel == Proprietaire) {

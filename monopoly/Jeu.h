@@ -27,6 +27,8 @@ private:
 	* Attention : utilise rand(), s'assurer d'avoir srand(time(0)) avant utilisation
 	**/
 	int getRandomNumber();
+	void lancerDe(Joueur* player);
+	//void menu(Joueur* j);
 
 public:
 	Jeu(std::string config = "0");
