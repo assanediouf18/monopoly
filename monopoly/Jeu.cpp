@@ -32,6 +32,7 @@ Jeu::Jeu(std::string config) : board()
 		joueurs[i].setPosition(0);
 
 		std::cout << joueurs[i] << std::endl;
+		if (i == 0) joueurs[i].setTempsPrison(0);
 	}
 }
 
@@ -143,8 +144,12 @@ void Jeu::jouerTour(int index)
 	std::cout << "C'est au tour de " << player->getPseudo() << " !" << std::endl;
 
 	//Gérer le cas prison
-	if (player->getTempsPrison() > 0 && player->getPosition() != 10) {
-		player->setPosition(10);
+	if (player->getTempsPrison() >= 0) {
+		diceRolled = true;
+		if (player->getPosition() != 10) {
+			player->setPosition(10);
+		}
+		board[player->getPosition()]->arriverSur(*player);
 	}
 
 	do {
@@ -153,7 +158,7 @@ void Jeu::jouerTour(int index)
 		std::cout << "3 - Hypothéquer" << std::endl;
 		std::cout << "4 - Vendre" << std::endl;
 		std::cout << "5 - Voir son profil" << std::endl;
-		std::cout << "6 - Passer son tour" << std::endl;
+		std::cout << "6 - Finir son tour" << std::endl;
 		std::cout << "Choisis ton option : ";
 
 		std::string choice;
@@ -167,7 +172,7 @@ void Jeu::jouerTour(int index)
 				diceRolled = true;
 			}
 			else {
-				std::cout << "Vous avez déjà jeté les dés" << std::endl;
+				std::cout << "Cette option n'est pas disponible" << std::endl;
 			}
 			break;
 		case '5':
