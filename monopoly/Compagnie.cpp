@@ -7,10 +7,11 @@ Compagnie::Compagnie(string Nom, int p, int idCase):Propriete(Nom, p, idCase){
 }
 
 
-void Compagnie::arriverSur(Joueur* joueur) {
+void Compagnie::arriverSur(Joueur& j, Banque& bank) {
 	int d1 = rand() % 6 + 1;
 	int d2 = rand() % 6 + 1; // lancer des deux dés
 	int loyer;
+	Joueur* joueur = &j;
 	Joueur Joueuractuel = *joueur;
 	if (joueur == Proprietaire) {
 		if (Joueuractuel == AutreCompagnie->getProprietaire()) {
@@ -27,6 +28,7 @@ void Compagnie::arriverSur(Joueur* joueur) {
 		cout << "Vous etes debite de " << loyer << " euros" << endl;
 	}
 	Joueuractuel.setSolde(Joueuractuel.getSolde() - loyer);
+	//bank.recevoir(loyer, Joueuractuel);
 	cout << "Vous avez un solde de " << Joueuractuel.getSolde() << " euros" << endl;
 
 

@@ -12,35 +12,33 @@ Propriete::Propriete(string Nom, int Prix, int num_case):Case(Nom) {
 	Proprietaire = NULL;
 }
 
-void Propriete::acheter(Joueur * Joueuractuel){
+void Propriete::acheter(Joueur * Joueuractuel, Banque& bank){
 	std::string avisJoueur;
 	cout << "Cette propriete n'a pas de proprietaire, voulez-vous l'acheter pour " << achat<< " euros ? Repondez soit 'Oui' soit 'Non'" << endl;
 	cin >> avisJoueur;
 	if (avisJoueur == "Oui") {
 			Proprietaire = Joueuractuel;
-			Joueuractuel->setSolde(Joueuractuel->getSolde() - getAchat());
+			bank.recevoir(getAchat(), *Joueuractuel);
 			setEstachetee(true);
 			cout << "Vous etes le nouveau proprietaire, felicitations ! " << endl;
 	}
 }
 
 
-void Propriete::hypothequer(Joueur * Joueuractuel){
+void Propriete::hypothequer(Joueur * Joueuractuel, Banque& bank){
 	if (getEstachetee()) {
 		std::string avisJoueur;
 		cout << "Voulez-vous hypothequer votre bien? Répondez 'Oui' si vous le voulez. (avec la majuscule !)" << endl;
 		cin >> avisJoueur;
 		if (avisJoueur == "Oui") {
-			Joueuractuel->setSolde(Joueuractuel->getSolde() - getHypotheque());
+			bank.recevoir(getHypotheque(), *Joueuractuel);
 			setEsthypothequee(true);
 			cout << "Vous avez bien hypothequer votre Propriete" << endl;
 		}
-		else {}
 	}
-	else {}
 }
 
-void Propriete::arriverSur(Joueur& joueur)
+void Propriete::arriverSur(Joueur& joueur, Banque& bank)
 {
 	std::cout << "Bienvenue sur la propriété " << this->getNom() << std::endl;
 }

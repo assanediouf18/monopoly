@@ -8,7 +8,7 @@ class Chance : public Case
 public:
 	Chance(std::string nom = "Chance");
 
-	virtual void arriverSur(Joueur& joueur);
+	virtual void arriverSur(Joueur& joueur, Banque& bank);
 };
 
 #endif

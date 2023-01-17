@@ -12,6 +12,7 @@
 #include <cstdlib>
 #include "joueur.h"
 #include "Plateau.h"
+#include "banque.h"
 
 using namespace std;
 
@@ -21,6 +22,7 @@ private:
 	int nbJoueurs;
 	Joueur* joueurs;
 	Plateau board;
+	Banque bank;
 	
 	/**
 	* Calcule un nombre aléatoire contenu entre 1 et 6
