@@ -1,29 +1,21 @@
-
+#ifndef _BANQUE_H__
+#define _BANQUE_H__
 
 #include "joueur.h"
 using namespace std;
 
 class Banque {
 public:
-    Banque() {
-        solde = 100000; // initialiser l'argent de la banque
-    }
+    Banque();
 
-    int get_Solde() {
-        return solde;
-    }
+    int get_Solde() { return solde; }
 
-    void payer(int montant, Joueur& joueur) {
-        solde -= montant;
-        joueur.changeSolde(montant);
-    }
+    void payer(int montant, Joueur& joueur);
 
-    void recevoir(int montant, Joueur& joueur) {
-        solde += montant;
-        joueur.changeSolde(montant);
-    }
+    void recevoir(int montant, Joueur& joueur);
 
 private:
     int solde;
 };
 
+#endif;
