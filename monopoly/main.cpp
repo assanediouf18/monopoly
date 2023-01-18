@@ -8,7 +8,7 @@
 int main(int argc, char** argv)
 {
 	srand(time(NULL));
-	testerJeu();
-	//testerProprieteJoueur();
+	//testerJeu();
+	testerProprieteJoueur();
 	return EXIT_SUCCESS;
 }

@@ -46,31 +46,26 @@ void Joueur::changeSolde(int montant)
 	setSolde(solde + montant);
 }
 
-/*
-void Joueur::addProperty(Propriete* bought)
+void Joueur::addProperty(int boughtPtyPos)
 {
-	properties.push_back(bought);
+	propertiesPos.push_back(boughtPtyPos);
 }
 
-void Joueur::removeProperty(Propriete* bought)
+void Joueur::removeProperty(int removePtyPos)
 {
-	Propriete* item = properties[0];
-	int i = 1;
-	while (i < properties.size() && item != bought)
+	int lastIndex = propertiesPos.size() - 1;
+	int item = propertiesPos[0];
+	int removeItemIndex = 0;
+	while (removeItemIndex < lastIndex && item != removePtyPos)
 	{
-		item = properties[i];
-		i++;
+		removeItemIndex++;
+		item = propertiesPos[removeItemIndex];
 	}
-	
-	if (i == properties.size()) return;
-
-	for (int j = i + 1; j < properties.size(); j++)
-	{
-		properties[j - 1] = properties[j];
- 	}
-	properties.pop_back();
+	if (item != removePtyPos) return;
+	propertiesPos[removeItemIndex] = propertiesPos[lastIndex];
+	propertiesPos.pop_back();
 }
-*/
+
 bool Joueur::operator ==(Joueur * J2) {
 	return (pseudo == J2->getPseudo());
 }
@@ -79,15 +74,6 @@ std::ostream& operator<<(std::ostream& out, Joueur& j)
 {
 	out << "Nom du joueur : " << j.getPseudo() << std::endl;
 	out << "Solde : " << j.getSolde() << " M" << std::endl;
-	/*
-	if (j.getProprietes().size() > 0) {
-		out << "Vous possédez :" << std::endl;
-		for (int i = 0; i < j.getProprietes().size(); i++)
-		{
-			out << j.getProprietes()[i]->getNom() << std::endl;
-		}
-	}
-	*/
 	return out;
 }
 

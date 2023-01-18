@@ -3,7 +3,42 @@
 
 using namespace std;
 
+void testerProprieteJoueur()
+{
+	Terrain paix("Rue de la Paix", 400, 39, 50, 200, 600, 1400, 1700, 2000, 200);
+	Terrain elysees("Avenue des Champs-Élysées", 350, 37, 35, 175, 500, 1100, 1300, 1500, 200);
+	Gare lazare("Gare Saint Lazare", 200, 35);
 
+	Joueur j;
+	j.addProperty(paix.getNb_case());
+	j.addProperty(elysees.getNb_case());
+	j.addProperty(lazare.getNb_case());
+
+	std::vector<int> properties = j.getProprietes();
+	for (int i = 0; i < properties.size(); i++)
+	{
+		cout << properties[i] << endl;
+	}
+	cout << "On s'attend à voir 39, 37 et 35" << endl;
+	
+	cout << "le joueur perd la rue de la paix" << endl;
+	j.removeProperty(paix.getNb_case());
+	properties = j.getProprietes();
+	for (int i = 0; i < properties.size(); i++)
+	{
+		cout << properties[i] << endl;
+	}
+	cout << "On s'attend à voir 37 et 35" << endl;
+	
+	cout << "le joueur perd la propriété 45" << endl;
+	j.removeProperty(45);
+	properties = j.getProprietes();
+	for (int i = 0; i < properties.size(); i++)
+	{
+		cout << properties[i] << endl;
+	}
+	cout << "On s'attend à voir 37 et 35" << endl;
+}
 
 void testerJeu()
 {
