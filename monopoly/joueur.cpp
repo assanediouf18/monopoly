@@ -1,6 +1,6 @@
 #include "joueur.h"
 
-Joueur::Joueur()
+Joueur::Joueur()// : properties()
 {
 	pseudo = "Pseudo basique";
 	tpsPrison = -1;
@@ -46,6 +46,31 @@ void Joueur::changeSolde(int montant)
 	setSolde(solde + montant);
 }
 
+/*
+void Joueur::addProperty(Propriete* bought)
+{
+	properties.push_back(bought);
+}
+
+void Joueur::removeProperty(Propriete* bought)
+{
+	Propriete* item = properties[0];
+	int i = 1;
+	while (i < properties.size() && item != bought)
+	{
+		item = properties[i];
+		i++;
+	}
+	
+	if (i == properties.size()) return;
+
+	for (int j = i + 1; j < properties.size(); j++)
+	{
+		properties[j - 1] = properties[j];
+ 	}
+	properties.pop_back();
+}
+*/
 bool Joueur::operator ==(Joueur * J2) {
 	return (pseudo == J2->getPseudo());
 }
@@ -54,7 +79,15 @@ std::ostream& operator<<(std::ostream& out, Joueur& j)
 {
 	out << "Nom du joueur : " << j.getPseudo() << std::endl;
 	out << "Solde : " << j.getSolde() << " M" << std::endl;
-	out << "Position : " << j.getPosition();
+	/*
+	if (j.getProprietes().size() > 0) {
+		out << "Vous possédez :" << std::endl;
+		for (int i = 0; i < j.getProprietes().size(); i++)
+		{
+			out << j.getProprietes()[i]->getNom() << std::endl;
+		}
+	}
+	*/
 	return out;
 }
 

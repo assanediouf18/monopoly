@@ -1,14 +1,16 @@
-#pragma once
+#ifndef _PROPRIETE_H_
+#define _PROPRIETE_H_
+
+#include <iostream>
+#include <string>
 #include "joueur.h"
 #include "case.h"
-#include <string>
-#include <stdio.h>
-#include <stdlib.h>
+
 using namespace std;
 
 class Propriete : public Case{
 protected:
-	Joueur * Proprietaire;
+	Joueur* Proprietaire;
 	int achat;
 	int hypotheque;
 	int nb_case;
@@ -34,3 +36,4 @@ public:
 
 };
 
+#endif // !_PROPRIETE_H_
