@@ -128,7 +128,7 @@ void Jeu::lancerDe(Joueur* player)
 		else {
 			int nbPas = de1 + de2;
 			std::cout << player->getPseudo() << " avance de " << nbPas << " cases." << endl;
-			board.deplacer(player, nbPas);
+			board.deplacer(player, nbPas, bank);
 			board[player->getPosition()]->arriverSur(*player, bank);
 		}
 

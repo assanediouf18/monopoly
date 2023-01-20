@@ -105,7 +105,7 @@ void Plateau::caseSuivante(Case c) {
 
 }
 */
-void Plateau::deplacer(Joueur* j, int nbPas) {
+void Plateau::deplacer(Joueur* j, int nbPas, Banque& bank) {
     int position = j->getPosition();
     int newPos = (position + nbPas) % NB_CASES;
     //déplacer le joueur
@@ -113,7 +113,7 @@ void Plateau::deplacer(Joueur* j, int nbPas) {
     //Donner 200 billets au joueur s'il est passé par la case départ
     if (newPos < position)
     {
-        j->changeSolde(200);
+        bank.payer(200, *j);
     }
 
 }

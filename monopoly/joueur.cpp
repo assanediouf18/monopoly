@@ -1,6 +1,6 @@
 #include "joueur.h"
 
-Joueur::Joueur()// : properties()
+Joueur::Joueur()
 {
 	pseudo = "Pseudo basique";
 	tpsPrison = -1;
