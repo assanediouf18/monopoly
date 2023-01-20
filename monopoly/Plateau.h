@@ -12,6 +12,7 @@
 #include "Communaute.h"
 #include "Chance.h"
 #include "Taxe.h"
+#include "ListeCarte.h"
 using namespace std;
 
 const int NB_CASES = 40;
@@ -29,12 +30,13 @@ public:
 
     static const int prisonLocation = 10;
 
+
 private:
     Terrain lesTerrains[22];
     Taxe lesTaxes[2];
-    Chance lesChances[3];
+    Chance Case_chance;
     Gare lesGares[4];
-    Communaute lesCommunautes[3];
+    Communaute Case_communaute;
     Prison lesPrisons[2];
     Compagnie lesCompagnies[2];
     Parc leParc;

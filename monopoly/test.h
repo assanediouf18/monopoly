@@ -19,3 +19,4 @@ void testerCompagnie();
 void testerJeu();
 void testerPlateau();
 void indiquerJoueur();
+void testerChance();

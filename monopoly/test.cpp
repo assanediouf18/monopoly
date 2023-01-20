@@ -68,3 +68,7 @@ void testerCompagnie() {
 	Compagnie C2=Compagnie("Compagnie de distribution des eaux", 150, 28);
 	C1.arriverSur(&J);
 }
+
+void testerChance() {
+
+}

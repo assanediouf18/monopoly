@@ -13,10 +13,10 @@ int id_carteSuivante;
 Carte::Carte(int idCarte, int int1, int int2, int int3, int int4, int int5, int impactPlateau, string str) {
 	consigne = str;
 	id = idCarte;
-	x = int1;
+	a = int1;
 	impactTreso = int2;
-	y = int3;
-	z = int4;
-	a = int5;
-	idCartePlateau = impactPlateau;
+	prisonOuPas = int3;
+	b = int4;
+	c = int5;
+	idCasePlateau = impactPlateau;
 }

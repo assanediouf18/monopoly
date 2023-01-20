@@ -2,6 +2,8 @@
 #define JOUEUR_H
 
 #include <iostream>
+#include "ListeCarte.h"
+#include "Carte.h"
 
 /***
 * Classe Joueur
@@ -62,6 +64,9 @@ public:
 	friend std::ostream& operator<<(std::ostream& out, Joueur& v);
 	friend std::istream& operator>>(std::istream& out, Joueur& v);
 
+	void addCarte(Carte, ListeCarte);
+	void utiliserCarte();
+
 
 private:
 	std::string pseudo;
@@ -71,6 +76,9 @@ private:
 	bool isPlaying;
 	int doubled; //Combien de fois le joueur a fait un double ?
 	int mesGares;
+	int nbCartePrison;
+	Carte cartesPrison[2];
+	ListeCarte listeOrigine[2];
 };
 
 #endif

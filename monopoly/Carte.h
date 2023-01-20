@@ -17,23 +17,25 @@ private:
 	string consigne;
 	int id;
 	int impactTreso;
-	int idCartePlateau;
-	int x;
-	int y;
-	int z;
+	int idCasePlateau;
+	int prisonOuPas;
 	int a;
+	int b;
+	int c;
 
 public:
 
-	Carte(int idCarte, int int1, int int2, int int3, int int4, int int5, int impactPlateau, string str);
-	void setId(int i) {id = i;};
-	void setImpact(int i) { impactTreso = i; };
-	void setIdCartePlateau(int i) { idCartePlateau = i; };
+	Carte(int idCarte, int aCarte, int montant, int prisonOUPasCarte, int bCarte, int cCarte, int impactPlateau, string str);
+	void setId(int idCarte) {id = idCarte;};
+	void setImpact(int montant) { impactTreso = montant; };
+	void setIdCasePlateau(int impactPlateau) { idCasePlateau = impactPlateau; };
 	void setConsigne(string str) { consigne = str; };
+	void setPrisonOuPas(int prisonOUPasCarte) { prisonOuPas = prisonOUPasCarte; };
 	int getId() { return id; };
 	int getImpact() { return impactTreso; };
-	int getIdCartePlateau() { return idCartePlateau; };
-	string getConsigne() {return Consigne;};
+	int getIdCasePlateau() { return idCasePlateau; };
+	string getConsigne() {return consigne;};
+	int getPrisonOuPas() { return prisonOuPas; };
 };
 
 

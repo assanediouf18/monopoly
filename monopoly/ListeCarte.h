@@ -1,22 +1,16 @@
 #pragma once
 #include <iostream>
 #include "Carte.h"
+#include "NoeudListeCarte.h"
 using namespace std;
 
-class ListeCarte {
+class ListeCarte{
 private:
-	Carte* tas;
-	Carte* defausse;
-	string str;
-	Carte liste_carte_chance[15];
-	Carte liste_carte_communaute[13];
-
+	NoeudListeCarte* tete = NULL;
+	NoeudListeCarte* queue = NULL;
 
 public:
 	ListeCarte();
-	void tirer();
-	void melanger();
-	void defausser(Carte* carte);
-
-
+	Carte tirer();
+	void defausser(Carte);
 };

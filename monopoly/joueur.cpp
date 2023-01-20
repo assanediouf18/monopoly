@@ -67,3 +67,18 @@ std::istream& operator>>(std::istream& in, Joueur& j)
 	std::cout << "Okay bon courage " << pseudo << " !";
 	return in;
 }
+
+void Joueur::addCarte(Carte carte, ListeCarte listeCarte) {
+	if (nbCartePrison < 2) {
+		cartesPrison[nbCartePrison] = carte;
+		listeOrigine[nbCartePrison] = listeCarte;
+		nbCartePrison++;
+	};
+}
+
+void Joueur::utiliserCarte() {
+	if (nbCartePrison > 0) {
+		listeOrigine[nbCartePrison - 1].defausser(cartesPrison[nbCartePrison - 1]);
+		nbCartePrison--;
+	};
+}
