@@ -9,6 +9,5 @@ int main(int argc, char** argv)
 {
 	srand(time(NULL));
 	testerJeu();
-	//Push
 	return EXIT_SUCCESS;
 }
