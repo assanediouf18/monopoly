@@ -12,6 +12,8 @@
 #include "Gare.h"
 #include "Compagnie.h"
 
+void testerChargementJeu();
+void testerLectureJeu();
 void testerSauvegardeJeu();
 void testerProprieteJoueur();
 void testerGare();

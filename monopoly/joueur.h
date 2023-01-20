@@ -30,6 +30,7 @@ public:
 	* Défini la nouvelle position du joueur
 	***/
 	void setPosition(int newPos);
+	void setPseudo(std::string newPseudo) { pseudo = newPseudo; };
 	/***
 	* Déplace le joueur de nbPas par rapport à sa position actuelle.
 	* nbPas peut être négatif

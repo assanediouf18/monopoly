@@ -3,6 +3,15 @@
 
 using namespace std;
 
+void testerChargementJeu()
+{
+	std::cout << "Test de chargement de fichier de sauvegarde" << endl;
+	std::cout << "Chargement de exemple.txt" << endl;
+	std::string filename = "exemple.txt";
+	Jeu global(filename);
+	global.lancerPartie();
+}
+
 void testerSauvegardeJeu()
 {
 	Jeu global;
@@ -16,7 +25,18 @@ void testerSauvegardeJeu()
 	string deleteCmd = "rm " + filename + " && ls";
 	cout << "On supprime le fichier " << filename << " :" << endl;
 	system(deleteCmd.c_str());
+}
 
+void testerLectureJeu()
+{
+	Jeu global;
+	string filename = "exemple.txt";
+	cout << "S'il n'y a pas eu de message d'erreurs, " << filename << " vient d'apparaitre : " << endl;
+	system("ls");
+	cout << "Ouverture de " << filename << " :" << endl;
+	string catCmd = "cat " + filename;
+	system(catCmd.c_str());
+	global.read(filename);
 }
 
 void testerProprieteJoueur()

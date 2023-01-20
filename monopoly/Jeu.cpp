@@ -11,6 +11,13 @@ Jeu::Jeu(std::string config) : board(), bank()
 {
 	joueurs = NULL;
 	nbJoueurs = 0;
+	first = -1;
+
+	if (config != "0")
+	{
+		read(config);
+		return;
+	}
 
 	std::cout << "Combien de joueurs êtes-vous ?";
 	std::cin >> nbJoueurs;
@@ -61,26 +68,28 @@ void Jeu::lancerPartie()
 	std::cout << "La partie commence, bon courage à tous !" << std::endl;
 	std::cout << "Chacun va jeter les dés, celui qui aura le score le plus élevé commencera la partie." << std::endl;
 
-	int first = 0;
-	int max = 0;
-	for (int i = 0; i < nbJoueurs; i++) {
-		std::cout << joueurs[i].getPseudo() << " appuies sur une touche pour lancer des dés. " << endl;
-		
-		std::string validation;
-		std::cin >> validation;
+	if (first < 0)
+	{
+		int max = 0;
+		for (int i = 0; i < nbJoueurs; i++) {
+			std::cout << joueurs[i].getPseudo() << " appuies sur une touche pour lancer des dés. " << endl;
 
-		int de1 = getRandomNumber();
-		int de2 = getRandomNumber();
-		std::cout << "Dé 1 : " << de1 << " ; dé 2 : " << de2 << endl;
-		int total = de1 + de2;
-		if (total > max) {
-			max = total;
-			first = i;
-			std::cout << "Le score est de " << total << std::endl;
+			std::string validation;
+			std::cin >> validation;
+
+			int de1 = getRandomNumber();
+			int de2 = getRandomNumber();
+			std::cout << "Dé 1 : " << de1 << " ; dé 2 : " << de2 << endl;
+			int total = de1 + de2;
+			if (total > max) {
+				max = total;
+				first = i;
+				std::cout << "Le score est de " << total << std::endl;
+			}
 		}
-	}
 
-	std::cout << "Avec un score de " << max << " " << joueurs[first].getPseudo() << " va commencer" << std::endl;
+		std::cout << "Avec un score de " << max << " " << joueurs[first].getPseudo() << " va commencer" << std::endl;
+	}
 	
 	int player = first;
 	while (getNbrJoueursEnJeu() > 1)
@@ -223,6 +232,32 @@ void Jeu::saveBoard(std::ofstream& saveFile)
 	}
 }
 
+void Jeu::getPlayers(std::ifstream& readFile)
+{
+	readFile >> nbJoueurs;
+	joueurs = new Joueur[nbJoueurs];
+	for (int i = 0; i < nbJoueurs; i++)
+	{
+		std::string pseudo;
+		readFile >> pseudo;
+		int solde = 0, position = 0, nbPte = 0;
+		readFile >> solde;
+		readFile >> position;
+		joueurs[i].setPseudo(pseudo);
+		joueurs[i].setSolde(solde);
+		joueurs[i].setPosition(position);
+		readFile >> nbPte;
+		for (int j = 0; j < nbPte; j++)
+		{
+			int ptyNb = 0;
+			readFile >> ptyNb;
+			joueurs[i].addProperty(ptyNb);
+			//Indiquer à la pté qui est son propriétaire
+		}
+		cout << joueurs[i] << endl;
+	}
+}
+
 void Jeu::save(std::string filename, int actualPlayer)
 {
 	std::ofstream saveFile(filename, ios::out | ios::trunc);
@@ -233,6 +268,23 @@ void Jeu::save(std::string filename, int actualPlayer)
 		saveBoard(saveFile);
 		saveFile << actualPlayer << endl;
 		saveFile.close();
+	}
+	catch (const std::exception& e)
+	{
+		cout << "Désolé l'opération de sauvegarde n'a pas fonctionnée..." << endl;
+	}
+}
+
+void Jeu::read(std::string filename)
+{
+	std::ifstream configFile(filename, ios::in);
+	try
+	{
+		cout << "J'ai ouvert " << filename << endl;
+		getPlayers(configFile);
+		//Pour les ptés idem
+		configFile >> first;
+		configFile.close();
 	}
 	catch (const std::exception& e)
 	{
