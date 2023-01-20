@@ -72,6 +72,9 @@ public:
 	void addCarte(Carte*, ListeCarte*);
 	void utiliserCarte();
 
+	void setMode(std::string);
+	std::string getMode() { return mode; };
+
 
 private:
 	std::string pseudo;
@@ -85,6 +88,7 @@ private:
 	int nbCartePrison;
 	ListeCarte* listeOrigine[2];
 	Carte* cartesPrison[2];
+	std::string mode;
 };
 
 #endif

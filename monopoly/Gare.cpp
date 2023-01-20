@@ -11,7 +11,7 @@ void Gare::acheter(Joueur * Joueuractuel, Banque& bank){
 	else {
 		string avisJoueur;
 		cout << "Cette gare n'a pas de proprietaire, voulez-vous l'acheter pour " << getAchat() << " euros ? Repondez soit 'Oui' soit 'Non'" << endl;
-		cin >> avisJoueur;
+		avisJoueur = choixAchat(Joueuractuel);
 		if (avisJoueur == "Oui") {
 			setProprietaire(Joueuractuel);
 			bank.recevoir(getAchat(), *Joueuractuel);

@@ -18,6 +18,8 @@ protected:
 	bool esthypothequee;
 	string Nom;
 
+	std::string choixAchat(Joueur* j);
+
 public:
 	Propriete(string Nom, int Prix, int nb_case);
 	int getAchat() { return achat; };

@@ -3,6 +3,21 @@
 #include "case.h"
 using namespace std;
 
+std::string Propriete::choixAchat(Joueur* player)
+{
+	std::string avisJoueur;
+	if (player->getMode() == "Manuel") {
+		std::cin >> avisJoueur;
+	}
+	else if (player->getMode() == "Aléatoire") {
+		avisJoueur = (rand() % 2) == 0 ? "Non" : "Oui";
+	}
+	else if (player->getMode() == "Automatique") {
+		avisJoueur = "Oui";
+	}
+	return avisJoueur;
+}
+
 Propriete::Propriete(string Nom, int Prix, int num_case):Case(Nom) {
 	achat=Prix;
 	hypotheque = achat / 2;
@@ -15,7 +30,7 @@ Propriete::Propriete(string Nom, int Prix, int num_case):Case(Nom) {
 void Propriete::acheter(Joueur * Joueuractuel, Banque& bank){
 	std::string avisJoueur;
 	cout << "Cette propriete n'a pas de proprietaire, voulez-vous l'acheter pour " << achat<< " euros ? Repondez soit 'Oui' soit 'Non'" << endl;
-	cin >> avisJoueur;
+	avisJoueur = choixAchat(Joueuractuel);
 	if (avisJoueur == "Oui") {
 			Proprietaire = Joueuractuel;
 			bank.recevoir(getAchat(), *Joueuractuel);

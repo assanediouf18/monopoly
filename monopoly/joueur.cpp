@@ -9,6 +9,7 @@ Joueur::Joueur() : propertiesPos()
 	solde = 0;
 	isPlaying = true;
 	nbCartePrison = 0;
+	mode = "Manuel";
 }
 
 void Joueur::setPosition(int newPos)
@@ -101,4 +102,11 @@ void Joueur::utiliserCarte() {
 		listeOrigine[nbCartePrison - 1]->defausser(cartesPrison[nbCartePrison - 1]);
 		nbCartePrison--;
 	};
+}
+
+//ajout Samy
+
+void Joueur::setMode(std::string newMode)
+{
+	mode = newMode;
 }

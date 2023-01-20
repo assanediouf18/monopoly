@@ -65,6 +65,15 @@ void Jeu::lancerPartie()
 		return;
 	}
 
+	std::cout << "Avant de commencer, veuillez déclarer le mode de chaque joueur : Aléatoire, Automatique ou Manuel" << std::endl;
+	for (int i = 0; i < nbJoueurs; i++)
+	{
+		std::cout << "Quelle est le mode du joueur " << joueurs[i].getPseudo() << " ? " << std::endl;
+		std::string mode;
+		std::cin >> mode;
+		joueurs[i].setMode(mode);
+	}
+
 	std::cout << "La partie commence, bon courage a tous !" << std::endl;
 	std::cout << "Chacun va jeter les des, celui qui aura le score le plus eleve commencera la partie." << std::endl;
 
@@ -72,10 +81,13 @@ void Jeu::lancerPartie()
 	{
 		int max = 0;
 		for (int i = 0; i < nbJoueurs; i++) {
-			std::cout << joueurs[i].getPseudo() << " appuies sur une touche pour lancer des dés. " << endl;
+			if (joueurs[i].getMode() == "Manuel")
+			{
+				std::cout << joueurs[i].getPseudo() << " appuies sur une touche pour lancer des dés. " << endl;
 
-			std::string validation;
-			std::cin >> validation;
+				std::string validation;
+				std::cin >> validation;
+			}
 
 			int de1 = getRandomNumber();
 			int de2 = getRandomNumber();
@@ -174,10 +186,25 @@ void Jeu::jouerTour(int index)
 		std::cout << "6 - Finir son tour" << std::endl;
 		std::cout << "7 - Sauvegarder la partie" << std::endl;
 		std::cout << "Choisis ton option : ";
-
-		std::string choice;
-		std::cin >> choice;
-		char c = choice[0];
+		
+		char c = '6';
+		if (player->getMode() == "Manuel")
+		{
+			std::string choice;
+			std::cin >> choice;
+			c = choice[0];
+		}
+		else if (player->getMode() == "Aléatoire")
+		{
+			int de = getRandomNumber();
+			c = (char)de;
+			std::cout << "Action numéro :" << c << endl;
+		}
+		else if (player->getMode() == "Automatique")
+		{
+			c = '6';
+			std::cout << "Action numéro : " << c << endl;
+		}
 
 		switch (c) {
 		case '1':
