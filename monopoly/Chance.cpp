@@ -49,7 +49,7 @@ void Chance::arriverSur(Joueur& joueur, Banque& bank)
     }
 
     if (carteTiree->getReculeDe3Cases()) {
-        joueur.setPosition(joueur.getPosition()-3)
+        joueur.setPosition(joueur.getPosition() - 3);
     }
 
     if (carteTiree->getPrisonOuPas()) {
