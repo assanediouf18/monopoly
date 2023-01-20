@@ -8,6 +8,6 @@
 int main(int argc, char** argv)
 {
 	srand(time(NULL));
-	testerJeu();
+	testerSauvegardeJeu();
 	return EXIT_SUCCESS;
 }

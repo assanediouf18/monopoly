@@ -22,6 +22,7 @@ public:
 	int getLoyer() { return loyer[0]; };
 	
 	virtual void arriverSur(Joueur& Joueuractuel, Banque& bank);
+	virtual std::string print();
 	
 	void ajouterMaison(Joueur* Joueuractuel);
 	void setGroupe(Terrain * moi, Terrain * voisin);

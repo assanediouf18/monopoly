@@ -3,6 +3,22 @@
 
 using namespace std;
 
+void testerSauvegardeJeu()
+{
+	Jeu global;
+	string filename = "exemple.txt";
+	global.save(filename, 0);
+	cout << "S'il n'y a pas eu de message d'erreurs, "<< filename <<" vient d'apparaitre : " << endl;
+	system("ls");
+	cout << "Ouverture de " << filename << " :" << endl;
+	string catCmd = "cat " + filename;
+	system(catCmd.c_str());
+	string deleteCmd = "rm " + filename + " && ls";
+	cout << "On supprime le fichier " << filename << " :" << endl;
+	system(deleteCmd.c_str());
+
+}
+
 void testerProprieteJoueur()
 {
 	Terrain paix("Rue de la Paix", 400, 39, 50, 200, 600, 1400, 1700, 2000, 200);

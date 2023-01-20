@@ -1,3 +1,4 @@
+#include <fstream>
 #include "Jeu.h"
 #include "malloc.h"
 
@@ -190,4 +191,51 @@ void Jeu::jouerTour(int index)
 			break;
 		}
 	} while (!hasPlayed);
+}
+
+
+void Jeu::savePlayers(std::ofstream& saveFile)
+{
+	saveFile << nbJoueurs << endl;
+
+	for (int i = 0; i < nbJoueurs; i++)
+	{
+		Joueur j = joueurs[i];
+		saveFile << j.getPseudo() << endl;
+		saveFile << j.getSolde() << endl;
+		saveFile << j.getPosition() << endl;
+		std::vector<int> ptes = j.getProprietes();
+		saveFile << ptes.size() << endl;
+		for (int j = 0; j < ptes.size(); j++)
+		{
+			saveFile << ptes[j] << endl;
+		}
+	}
+}
+
+void Jeu::saveBoard(std::ofstream& saveFile)
+{
+	saveFile << nbJoueurs << endl;
+
+	for (int i = 0; i < NB_CASES; i++)
+	{
+		saveFile << board[i]->print() << endl;
+	}
+}
+
+void Jeu::save(std::string filename, int actualPlayer)
+{
+	std::ofstream saveFile(filename, ios::out | ios::trunc);
+	try
+	{
+		cout << "J'ai ouvert " << filename << endl;
+		savePlayers(saveFile);
+		saveBoard(saveFile);
+		saveFile << actualPlayer << endl;
+		saveFile.close();
+	}
+	catch (const std::exception& e)
+	{
+		cout << "Désolé l'opération de sauvegarde n'a pas fonctionnée..." << endl;
+	}
 }
