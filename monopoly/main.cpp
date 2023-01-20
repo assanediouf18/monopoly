@@ -10,7 +10,7 @@ int main(int argc, char** argv)
 {
 	srand(time(NULL));
 	std::string config("0"), choice;
-	bool choose = false;
+	bool choose = true;
 	std::cout << "Voulez vous continuer une partie sauvegardée ?" << std::endl;
 
 	do {
@@ -22,13 +22,12 @@ int main(int argc, char** argv)
 		case '1':
 			std::cout << "Entrez le nom de votre fichier de sauvegarde : ";
 			cin >> config;
-			choose = true;
 			break;
 		case '2':
-			choose = true;
 			break;
 		default:
 			std::cout << "Cette commande n'est pas reconnue..." << endl;
+			choose = false;
 			break;
 		}
 	} while (!choose);
