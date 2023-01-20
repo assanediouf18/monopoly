@@ -21,7 +21,7 @@ Chance::Chance(std::string nom) : Case(nom)
     liste_carte_chance.defausser(Carte(16, 0, 0, 1, 0, 0, -1, "Vous êtes libéré de prison. Cette carte peut être conservée jusqu'à ce qu'elle soit utilisée."));
 }
 
-void Chance::arriverSur(Joueur& joueur)
+void Chance::arriverSur(Joueur& joueur, Banque& bank)
 {
 	std::cout << "Bienvenue sur la case Chance" << std::endl;
 	Carte carteTiree = liste_carte_chance.tirer();

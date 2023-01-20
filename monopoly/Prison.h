@@ -9,7 +9,7 @@ class Prison : public Case
 public:
 	Prison(std::string name = "Prison");
 
-	void arriverSur(Joueur& joueur);
+	void arriverSur(Joueur& joueur, Banque& bank);
 };
 
 #endif // !_PRISON_H_

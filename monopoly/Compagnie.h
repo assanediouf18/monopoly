@@ -10,7 +10,7 @@ private :
 
 public:
 	Compagnie(string Nom = "Nom", int p = 0, int idCase = 0);
-	virtual void arriverSur(Joueur* Joueuractuel);
+	virtual void arriverSur(Joueur& Joueuractuel, Banque& bank);
 	//void addCompagnie();
 	void setAutreCompagnie(Compagnie * C1, Compagnie * C2);
 	void setAutreCompagnie(Compagnie* C1);

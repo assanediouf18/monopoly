@@ -18,7 +18,7 @@ Communaute::Communaute(std::string nom) : Case(nom)
     liste_carte_communaute.defausser(Carte(14, 0, 0, 1, 0, 0, -1, "Vous êtes libéré de prison. Cette carte peut être conservée jusqu'à ce qu'elle soit utilisée."));
 }
 
-void Communaute::arriverSur(Joueur& joueur)
+void Communaute::arriverSur(Joueur& joueur, Banque& bank)
 {
 	std::cout << joueur.getPseudo() << " pioche une carte communauté." << std::endl;
     Carte carteTiree = liste_carte_communaute.tirer();

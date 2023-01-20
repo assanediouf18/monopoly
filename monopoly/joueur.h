@@ -1,9 +1,10 @@
-#ifndef JOUEUR_H
-#define JOUEUR_H
+#ifndef _JOUEUR_H
+#define _JOUEUR_H
 
 #include <iostream>
 #include "ListeCarte.h"
 #include "Carte.h"
+#include <vector>
 
 /***
 * Classe Joueur
@@ -24,6 +25,7 @@ public:
 	* Retourne combien de fois le joueur a fait un double
 	***/
 	int howManyDoubles() { return doubled; };
+	std::vector<int> getProprietes() { return propertiesPos; };
 
 	/***
 	* ATTENTION : Ajouter de quoi vérifier que le joueur ne sort pas du plateau (dans plateau par exemple)
@@ -58,6 +60,8 @@ public:
 	void changeSolde(int montant);
 	void setMesGares(int g) { int mesGares = g; };
 	int getMesGares() { return mesGares; };
+	void addProperty(int boughtPtyPos);
+	void removeProperty(int removePtyPos);
 	
 	bool operator==(Joueur * J2);
 
@@ -76,9 +80,6 @@ private:
 	bool isPlaying;
 	int doubled; //Combien de fois le joueur a fait un double ?
 	int mesGares;
-	int nbCartePrison;
-	Carte cartesPrison[2];
-	ListeCarte listeOrigine[2];
 };
 
 #endif

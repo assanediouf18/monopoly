@@ -12,6 +12,7 @@
 #include <cstdlib>
 #include "joueur.h"
 #include "Plateau.h"
+#include "banque.h"
 
 using namespace std;
 
@@ -21,12 +22,15 @@ private:
 	int nbJoueurs;
 	Joueur* joueurs;
 	Plateau board;
+	Banque bank;
 	
 	/**
 	* Calcule un nombre aléatoire contenu entre 1 et 6
 	* Attention : utilise rand(), s'assurer d'avoir srand(time(0)) avant utilisation
 	**/
 	int getRandomNumber();
+	void lancerDe(Joueur* player);
+	//void menu(Joueur* j);
 
 public:
 	Jeu(std::string config = "0");

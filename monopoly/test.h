@@ -8,10 +8,11 @@
 #include "case.h"
 #include "joueur.h"
 #include "Terrain.h"
-#include "Propriete.h"
+//#include "Propriete.h"
 #include "Gare.h"
 #include "Compagnie.h"
 
+void testerProprieteJoueur();
 void testerGare();
 void testerPropriete();
 void testerTerrain();

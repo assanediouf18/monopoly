@@ -6,11 +6,16 @@ Prison::Prison(std::string name) : Case(name)
 {
 }
 
-void Prison::arriverSur(Joueur& joueur)
+void Prison::arriverSur(Joueur& joueur, Banque& bank)
 {
 	if (this->getNom() == "Aller en prison") {
 		cout << joueur.getPseudo() << " va en prison" << endl;
-		//Bouger le joueur en prison
+		joueur.setTempsPrison(0); //le joueur est envoyé en prison après lors de jouerTour dans jeu
+		return;
+	}
+
+	if (joueur.getTempsPrison() < 0) {
+		std::cout << "Bienvenue sur la case prison." << std::endl;
 		return;
 	}
 
@@ -28,7 +33,7 @@ void Prison::arriverSur(Joueur& joueur)
 		if (joueur.getTempsPrison() >= 2)
 		{
 			cout << joueur.getPseudo() << " paie 50 billets à la banque et sort de prison." << endl;
-			joueur.changeSolde(-50);
+			bank.recevoir(50, joueur);
 			joueur.setTempsPrison(-1);
 			return;
 		}
@@ -46,8 +51,7 @@ void Prison::arriverSur(Joueur& joueur)
 		{
 		case 1:
 			joueur.setTempsPrison(-1);
-			joueur.changeSolde(-50);
-			return;
+			bank.recevoir(50, joueur);
 			break;
 		case 2:
 			//Demander aux joueurs si quelqu'un veut vendre une carte

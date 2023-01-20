@@ -6,7 +6,7 @@ Gare::Gare(string nom, int prix, int idCase):Propriete(nom, prix, idCase) {
 	autres_gares[2] = NULL;
 }
 
-void Gare::acheter(Joueur * Joueuractuel){
+void Gare::acheter(Joueur * Joueuractuel, Banque& bank){
 	if (estachetee) {}
 	else {
 		string avisJoueur;
@@ -14,20 +14,22 @@ void Gare::acheter(Joueur * Joueuractuel){
 		cin >> avisJoueur;
 		if (avisJoueur == "Oui") {
 			setProprietaire(Joueuractuel);
-			Joueuractuel->setSolde(Joueuractuel->getSolde() - achat);
+			bank.recevoir(getAchat(), *Joueuractuel);
 			setEstachetee(true);
 			Joueuractuel->setMesGares(Joueuractuel->getMesGares() + 1);
 			cout << "Vous etes le nouveau proprietaire, felicitations ! " << endl;
+			cout << Joueuractuel->getPseudo() << " a désormais un solde de " << Joueuractuel->getSolde() << endl;
 		}
 	}
 }
 
-void Gare::arriverSur(Joueur& Joueuractuel) {
+void Gare::arriverSur(Joueur& Joueuractuel, Banque& bank) {
+	Propriete::arriverSur(Joueuractuel, bank);
 	Joueur * Proprietaire=getProprietaire();
 	if (estachetee) {
 		if (Joueuractuel == Proprietaire) {
 			cout << "Vous possedez cette gare, bravo" << endl;
-			hypothequer(&Joueuractuel);
+			hypothequer(&Joueuractuel, bank);
 		}
 		else {
 			if (getEsthypothequee()) { cout << "La gare est hypothequee" << endl; }
@@ -59,7 +61,7 @@ void Gare::arriverSur(Joueur& Joueuractuel) {
 		}
 	}
 	else {
-		acheter(&Joueuractuel);
+		acheter(&Joueuractuel, bank);
 	}
 	cout << "Votre solde actuel est de " << Joueuractuel.getSolde() << endl;
 }

@@ -13,7 +13,7 @@ public:
 	/***
 	* Donne 200 billets au joueur sans vérifier si celui-ci est en début de partie et à fait un double.
 	***/
-	void arriverSur(Joueur& joueur);
+	void arriverSur(Joueur& joueur, Banque& bank);
 };
 
 #endif // !_DEPART_H_
