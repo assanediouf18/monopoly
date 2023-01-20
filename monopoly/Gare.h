@@ -11,7 +11,7 @@ private:
 
 public:
 	Gare(string nom = "Nom", int prix = 0, int idCase = 0);
-	virtual void acheter(Joueur * Joueuractuel);
+	virtual void acheter(Joueur * Joueuractuel, Banque& bank);
 	virtual void arriverSur(Joueur& joueur, Banque& bank);
 	void setAutreGares(Gare* G1, Gare* G2, Gare* G3);
 	void setAutreGares(Gare* moi, Gare* G1, Gare* G2, Gare* G3);

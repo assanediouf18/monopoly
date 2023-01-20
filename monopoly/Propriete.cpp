@@ -21,6 +21,7 @@ void Propriete::acheter(Joueur * Joueuractuel, Banque& bank){
 			bank.recevoir(getAchat(), *Joueuractuel);
 			setEstachetee(true);
 			cout << "Vous etes le nouveau proprietaire, felicitations ! " << endl;
+			cout << Joueuractuel->getPseudo() << " a désormais un solde de " << Joueuractuel->getSolde() << endl;
 	}
 }
 

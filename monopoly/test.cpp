@@ -92,7 +92,7 @@ void testerGare() {
 	Banque* bank = new Banque();
 	cout << "votre pseudo est" << J.getPseudo() << endl;
 	Gare G = Gare("Saint Laz", 400, 5);
-	G.acheter(&J);
+	G.acheter(&J, *bank);
 	cout << std::boolalpha << G.getEstachetee() << endl;
 	G.arriverSur(J, *bank);
 	delete bank;
