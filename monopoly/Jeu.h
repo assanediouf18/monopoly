@@ -37,6 +37,7 @@ private:
 	***/
 	void saveBoard(std::ofstream& saveFile);
 	void getPlayers(std::ifstream& readFile);
+	void getBoard(std::ifstream& readFile);
 
 public:
 	Jeu(std::string config = "0");

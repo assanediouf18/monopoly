@@ -7,7 +7,7 @@ void testerChargementJeu()
 {
 	std::cout << "Test de chargement de fichier de sauvegarde" << endl;
 	std::cout << "Chargement de exemple.txt" << endl;
-	std::string filename = "exemple.txt";
+	std::string filename = "Partie1";
 	Jeu global(filename);
 	global.lancerPartie();
 }

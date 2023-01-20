@@ -168,6 +168,7 @@ void Jeu::jouerTour(int index)
 		std::cout << "4 - Vendre" << std::endl;
 		std::cout << "5 - Voir son profil" << std::endl;
 		std::cout << "6 - Finir son tour" << std::endl;
+		std::cout << "7 - Sauvegarder la partie" << std::endl;
 		std::cout << "Choisis ton option : ";
 
 		std::string choice;
@@ -194,6 +195,20 @@ void Jeu::jouerTour(int index)
 				diceRolled = true;
 			}
 			hasPlayed = true;
+			break;
+		case '7':
+		{
+			cout << "Bienvenue sur la sauvegarde, entrez le nom de votre sauvegarde." << endl;
+			cout << "Tapez \"0\" pour annuler." << endl;
+			cout << "Nom de la sauvegarde : ";
+			std::string filename;
+			std::cout << endl;
+			cin >> filename;
+			if (filename != "0")
+			{
+				save(filename, index);
+			}
+		}
 			break;
 		default:
 			std::cout << "Cette option n'est pas disponible" << std::endl;
@@ -252,9 +267,21 @@ void Jeu::getPlayers(std::ifstream& readFile)
 			int ptyNb = 0;
 			readFile >> ptyNb;
 			joueurs[i].addProperty(ptyNb);
+			joueurs[i].setTempsPrison(-1); // Changer ce code par la lecture du temps en prison
 			//Indiquer à la pté qui est son propriétaire
 		}
 		cout << joueurs[i] << endl;
+	}
+}
+
+void Jeu::getBoard(std::ifstream& readFile)
+{
+	//A améliorer
+	for (int i = 0; i < NB_CASES; i++)
+	{
+		std::string nbMaisons = "";
+		readFile >> nbMaisons;
+		cout << board[i]->getNom() << " a " << nbMaisons << " maisons" << endl;
 	}
 }
 
@@ -263,7 +290,6 @@ void Jeu::save(std::string filename, int actualPlayer)
 	std::ofstream saveFile(filename, ios::out | ios::trunc);
 	try
 	{
-		cout << "J'ai ouvert " << filename << endl;
 		savePlayers(saveFile);
 		saveBoard(saveFile);
 		saveFile << actualPlayer << endl;
@@ -280,9 +306,9 @@ void Jeu::read(std::string filename)
 	std::ifstream configFile(filename, ios::in);
 	try
 	{
-		cout << "J'ai ouvert " << filename << endl;
 		getPlayers(configFile);
-		//Pour les ptés idem
+		//Creuser pour les ptés
+		getBoard(configFile);
 		configFile >> first;
 		configFile.close();
 	}
