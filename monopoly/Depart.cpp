@@ -4,7 +4,7 @@ Depart::Depart(std::string nom) : Case(nom)
 {
 }
 
-void Depart::arriverSur(Joueur& joueur)
+void Depart::arriverSur(Joueur& joueur, Banque& bank)
 {
-	joueur.changeSolde(200);
+	bank.payer(200, joueur);
 }

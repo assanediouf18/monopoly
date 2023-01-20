@@ -36,14 +36,14 @@ Terrain::Terrain(string nom, int prix, int num_case, int terrainnu, int maison1,
 	groupe[1] = NULL;
 }
 
-void Terrain::arriverSur(Joueur& J){
-	Propriete::arriverSur(J);
+void Terrain::arriverSur(Joueur& J, Banque& bank){
+	Propriete::arriverSur(J, bank);
 	Joueur* Joueuractuel = &J;
 	Proprietaire = getProprietaire();
 	if (estachetee==true) {
 		if (Joueuractuel == Proprietaire) {
 			cout << "Vous possedez ce terrain, bravo" << endl;
-			hypothequer(Joueuractuel);
+			hypothequer(Joueuractuel, bank);
 		}
 		else {
 			if (getEsthypothequee()) {
@@ -57,7 +57,7 @@ void Terrain::arriverSur(Joueur& J){
 		}
 	}
 	else {
-		acheter(Joueuractuel);
+		acheter(Joueuractuel, bank);
 	}
 }
 

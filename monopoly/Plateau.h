@@ -11,6 +11,7 @@
 #include "Prison.h"
 #include "Communaute.h"
 #include "Chance.h"
+#include "banque.h"
 #include "Taxe.h"
 using namespace std;
 
@@ -20,9 +21,7 @@ class Plateau {
 public:
 	Plateau();
 
-    void deplacer(Joueur* j, int nbPas);
-    //Je ne suis pas certain que la fonction case suivante soit utile sous cette forme
-    //void caseSuivante(Case c);
+    void deplacer(Joueur* j, int nbPas, Banque& bank);
 
     //Ajouter une exception si index n'est pas dans les limites
     Case* operator[](int index);

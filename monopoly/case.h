@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "joueur.h"
+#include "banque.h"
 
 class Case
 {
@@ -11,7 +12,7 @@ public:
 
 	std::string getNom() { return nom; };
 
-	virtual void arriverSur(Joueur& joueur)=0;
+	virtual void arriverSur(Joueur& joueur, Banque& bank)=0;
 
 protected:
 	std::string nom;

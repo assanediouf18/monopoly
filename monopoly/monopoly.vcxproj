@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="banque.cpp" />
     <ClCompile Include="case.cpp" />
     <ClCompile Include="Chance.cpp" />
     <ClCompile Include="Communaute.cpp" />
@@ -157,6 +158,7 @@
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="banque.h" />
     <ClInclude Include="Carte.h" />
     <ClInclude Include="case.h" />
     <ClInclude Include="Chance.h" />

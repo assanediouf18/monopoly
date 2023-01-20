@@ -1,9 +1,44 @@
 #include "test.h"
-#include "Prison.h"
 #include "Jeu.h"
-#include "Plateau.h"
 
 using namespace std;
+
+void testerProprieteJoueur()
+{
+	Terrain paix("Rue de la Paix", 400, 39, 50, 200, 600, 1400, 1700, 2000, 200);
+	Terrain elysees("Avenue des Champs-Élysées", 350, 37, 35, 175, 500, 1100, 1300, 1500, 200);
+	Gare lazare("Gare Saint Lazare", 200, 35);
+
+	Joueur j;
+	j.addProperty(paix.getNb_case());
+	j.addProperty(elysees.getNb_case());
+	j.addProperty(lazare.getNb_case());
+
+	std::vector<int> properties = j.getProprietes();
+	for (int i = 0; i < properties.size(); i++)
+	{
+		cout << properties[i] << endl;
+	}
+	cout << "On s'attend à voir 39, 37 et 35" << endl;
+	
+	cout << "le joueur perd la rue de la paix" << endl;
+	j.removeProperty(paix.getNb_case());
+	properties = j.getProprietes();
+	for (int i = 0; i < properties.size(); i++)
+	{
+		cout << properties[i] << endl;
+	}
+	cout << "On s'attend à voir 37 et 35" << endl;
+	
+	cout << "le joueur perd la propriété 45" << endl;
+	j.removeProperty(45);
+	properties = j.getProprietes();
+	for (int i = 0; i < properties.size(); i++)
+	{
+		cout << properties[i] << endl;
+	}
+	cout << "On s'attend à voir 37 et 35" << endl;
+}
 
 void testerJeu()
 {
@@ -28,19 +63,20 @@ void testerTerrain()
 {
 	cout << "Test de la classe Terrain" << endl;
 	Joueur J = Joueur();
+	Banque* bank = new Banque();
 	Terrain T1 = Terrain("Rue Lecourbe", 60, 3, 4, 20, 60, 180, 320, 450, 50);
 	Terrain T0 = Terrain("Boulevard de Belleville", 60, 1, 2, 10, 30, 90, 160, 250, 50);
 	T0.setGroupe(&T0, &T1);
-	T1.arriverSur(J);
+	T1.arriverSur(J, (*bank));
 	cout << std::boolalpha << T1.getEstachetee() << endl;
 	Joueur J2 = Joueur();
-	T1.arriverSur(J2);
-	T1.arriverSur(J);
-	T1.arriverSur(J2);
-	T0.arriverSur(J);
-	T1.arriverSur(J2);
-	T0.arriverSur(J);
-	T0.arriverSur(J2);
+	T1.arriverSur(J2, (*bank));
+	T1.arriverSur(J, *bank);
+	T1.arriverSur(J2, *bank);
+	T0.arriverSur(J, *bank);
+	T1.arriverSur(J2, *bank);
+	T0.arriverSur(J, *bank);
+	T0.arriverSur(J2, *bank);
 	
 }
 
@@ -53,18 +89,22 @@ void testerPropriete() {
 void testerGare() {
 	cout << "Test de la classe Gare" << endl;
 	Joueur J = Joueur();
+	Banque* bank = new Banque();
 	cout << "votre pseudo est" << J.getPseudo() << endl;
 	Gare G = Gare("Saint Laz", 400, 5);
-	G.acheter(&J);
+	G.acheter(&J, *bank);
 	cout << std::boolalpha << G.getEstachetee() << endl;
-	G.arriverSur(J);
+	G.arriverSur(J, *bank);
+	delete bank;
 }
 
 void testerCompagnie() {
 	cout << "Test de la classe Compagnie" << endl;
 	Joueur J = Joueur();
+	Banque* bank = new Banque();
 	cout << "votre pseudo est" << J.getPseudo() << endl;
 	Compagnie C1=Compagnie("Compagnie de distribution d'électricité", 150, 12);
 	Compagnie C2=Compagnie("Compagnie de distribution des eaux", 150, 28);
-	C1.arriverSur(&J);
+	C1.arriverSur(J, *bank);
+	delete bank;
 }

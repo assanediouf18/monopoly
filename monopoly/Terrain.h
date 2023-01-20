@@ -21,7 +21,7 @@ public:
 	int getNbMaison() { return nbMaison; };
 	int getLoyer() { return loyer[0]; };
 	
-	virtual void arriverSur(Joueur& Joueuractuel);
+	virtual void arriverSur(Joueur& Joueuractuel, Banque& bank);
 	
 	void ajouterMaison(Joueur* Joueuractuel);
 	void setGroupe(Terrain * moi, Terrain * voisin);

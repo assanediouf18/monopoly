@@ -6,7 +6,7 @@ int Jeu::getRandomNumber()
 	return (rand() % 6) + 1;
 }
 
-Jeu::Jeu(std::string config) : board()
+Jeu::Jeu(std::string config) : board(), bank()
 {
 	joueurs = NULL;
 	nbJoueurs = 0;
@@ -128,8 +128,8 @@ void Jeu::lancerDe(Joueur* player)
 		else {
 			int nbPas = de1 + de2;
 			std::cout << player->getPseudo() << " avance de " << nbPas << " cases." << endl;
-			board.deplacer(player, nbPas);
-			board[player->getPosition()]->arriverSur(*player);
+			board.deplacer(player, nbPas, bank);
+			board[player->getPosition()]->arriverSur(*player, bank);
 		}
 
 	} while (player->howManyDoubles() > 0);
@@ -148,7 +148,7 @@ void Jeu::jouerTour(int index)
 		if (player->getPosition() != 10) {
 			player->setPosition(10);
 		}
-		board[player->getPosition()]->arriverSur(*player);
+		board[player->getPosition()]->arriverSur(*player, bank);
 	}
 
 	do {
