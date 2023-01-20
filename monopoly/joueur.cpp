@@ -1,6 +1,6 @@
 #include "joueur.h"
 
-Joueur::Joueur()
+Joueur::Joueur() : propertiesPos()
 {
 	pseudo = "Pseudo basique";
 	tpsPrison = -1;
@@ -8,6 +8,7 @@ Joueur::Joueur()
 	doubled = 0;
 	solde = 0;
 	isPlaying = true;
+	nbCartePrison = 0;
 }
 
 void Joueur::setPosition(int newPos)
@@ -87,7 +88,7 @@ std::istream& operator>>(std::istream& in, Joueur& j)
 	return in;
 }
 
-void Joueur::addCarte(Carte carte, ListeCarte listeCarte) {
+void Joueur::addCarte(Carte* carte, ListeCarte* listeCarte) {
 	if (nbCartePrison < 2) {
 		cartesPrison[nbCartePrison] = carte;
 		listeOrigine[nbCartePrison] = listeCarte;
@@ -97,7 +98,7 @@ void Joueur::addCarte(Carte carte, ListeCarte listeCarte) {
 
 void Joueur::utiliserCarte() {
 	if (nbCartePrison > 0) {
-		listeOrigine[nbCartePrison - 1].defausser(cartesPrison[nbCartePrison - 1]);
+		listeOrigine[nbCartePrison - 1]->defausser(cartesPrison[nbCartePrison - 1]);
 		nbCartePrison--;
 	};
 }

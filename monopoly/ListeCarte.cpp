@@ -3,11 +3,7 @@
 ListeCarte::ListeCarte(){
 	}
 
-Carte ListeCarte::tirer(){
-	if (tete == NULL) {
-		return;
-	}
-
+Carte* ListeCarte::tirer(){
 	if (tete == queue) {
 		return tete->getCarteCourante();
 	}
@@ -18,14 +14,14 @@ Carte ListeCarte::tirer(){
 	return anciennne_tete->getCarteCourante();
 }
 
-void ListeCarte::defausser(Carte carte){
-	NoeudListeCarte n1 = NoeudListeCarte(carte);
+void ListeCarte::defausser(Carte* carte){
+	NoeudListeCarte* n1 = new NoeudListeCarte(carte);
 	
 	if (queue == NULL) {
-		tete = &n1;
-		queue = &n1;
+		tete = n1;
+		queue = n1;
 	}
 
-	queue->setCarteSuivante(&n1);
-	queue = &n1;
+	queue->setCarteSuivante(n1);
+	queue = n1;
 }

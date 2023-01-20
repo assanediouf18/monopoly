@@ -13,7 +13,7 @@ public:
 	/***
 	* ATTENTION : il reste a donner la carte au joueur lorsque la classe ListeCarte sera prête !
 	***/
-	void arriverSur(Joueur& joueur);
+	void arriverSur(Joueur& joueur, Banque& bank);
 
 private:
 	ListeCarte liste_carte_communaute;

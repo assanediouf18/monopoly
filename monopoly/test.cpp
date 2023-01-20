@@ -110,5 +110,8 @@ void testerCompagnie() {
 }
 
 void testerChance() {
-
+	Joueur j1 = Joueur();
+	Banque b = Banque();
+	Chance caseChance = Chance("Chance");
+	caseChance.arriverSur(j1, b);
 }

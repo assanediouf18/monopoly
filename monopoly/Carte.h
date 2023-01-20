@@ -19,23 +19,25 @@ private:
 	int impactTreso;
 	int idCasePlateau;
 	int prisonOuPas;
-	int a;
+	int reculeDe3Cases;
 	int b;
 	int c;
 
 public:
 
-	Carte(int idCarte, int aCarte, int montant, int prisonOUPasCarte, int bCarte, int cCarte, int impactPlateau, string str);
+	Carte(int idCarte = 0, int reculeDe3Cases = 0, int montant = 0, int prisonOUPasCarte = 0, int bCarte = 0, int cCarte = 0, int impactPlateau = 0, string str = "");
 	void setId(int idCarte) {id = idCarte;};
 	void setImpact(int montant) { impactTreso = montant; };
 	void setIdCasePlateau(int impactPlateau) { idCasePlateau = impactPlateau; };
 	void setConsigne(string str) { consigne = str; };
 	void setPrisonOuPas(int prisonOUPasCarte) { prisonOuPas = prisonOUPasCarte; };
+	void setReculeDe3Cases(int reculeDe3CasesCarte) { reculeDe3Cases = reculeDe3CasesCarte; };
 	int getId() { return id; };
 	int getImpact() { return impactTreso; };
 	int getIdCasePlateau() { return idCasePlateau; };
 	string getConsigne() {return consigne;};
 	int getPrisonOuPas() { return prisonOuPas; };
+	int getReculeDe3Cases() { return reculeDe3Cases; };
 };
 
 

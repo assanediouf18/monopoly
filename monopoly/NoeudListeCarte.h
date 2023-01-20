@@ -5,13 +5,13 @@ using namespace std;
 
 class NoeudListeCarte{
 private :
-	Carte carte_courante;
+	Carte* carte_courante;
 	NoeudListeCarte* carte_suivante = NULL;
 
 public :
-	NoeudListeCarte(Carte);
+	NoeudListeCarte(Carte*);
 
-	Carte getCarteCourante() {
+	Carte* getCarteCourante() {
 		return carte_courante;
 	};
 

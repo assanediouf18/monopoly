@@ -68,7 +68,7 @@ public:
 	friend std::ostream& operator<<(std::ostream& out, Joueur& v);
 	friend std::istream& operator>>(std::istream& out, Joueur& v);
 
-	void addCarte(Carte, ListeCarte);
+	void addCarte(Carte*, ListeCarte*);
 	void utiliserCarte();
 
 
@@ -80,6 +80,10 @@ private:
 	bool isPlaying;
 	int doubled; //Combien de fois le joueur a fait un double ?
 	int mesGares;
+	std::vector<int> propertiesPos;
+	int nbCartePrison;
+	ListeCarte* listeOrigine[2];
+	Carte* cartesPrison[2];
 };
 
 #endif

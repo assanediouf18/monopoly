@@ -11,6 +11,6 @@ private:
 
 public:
 	ListeCarte();
-	Carte tirer();
-	void defausser(Carte);
+	Carte* tirer();
+	void defausser(Carte*);
 };

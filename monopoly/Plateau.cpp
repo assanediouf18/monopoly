@@ -10,7 +10,7 @@ Plateau::Plateau() : leParc("Parc"), leDepart("Depart") {
     //création de toutes les cases
     lesTerrains[21] = Terrain("Rue de la Paix", 400, 39, 50, 200, 600, 1400, 1700, 2000, 200);
     lesTaxes[1] = Taxe("Taxe de Luxe", 100);
-    lesTerrains[20] = Terrain("Avenue des Champs-Élysées", 350, 37, 35, 175, 500, 1100, 1300, 1500, 200);
+    lesTerrains[20] = Terrain("Avenue des Champs-Elysees", 350, 37, 35, 175, 500, 1100, 1300, 1500, 200);
     lesGares[3] = Gare("Gare Saint Lazare", 200, 35);
     lesTerrains[19] = Terrain("Boulevard des Capucins", 320, 34, 28, 150, 450, 1000, 1200, 1400, 200);
     lesTerrains[18] = Terrain("Avenue Foch", 300, 32, 26, 130, 390, 900, 1100, 1275, 200);
@@ -19,7 +19,7 @@ Plateau::Plateau() : leParc("Parc"), leDepart("Depart") {
     lesTerrains[16] = Terrain("Rue de la Fayette", 280, 29, 24, 120, 360, 850, 1025, 1200, 150);
     lesCompagnies[1] = Compagnie("Compagnie de distribution des eaux", 150, 28);
     lesTerrains[15] = Terrain("Place de la Bourse", 260, 27, 22, 110, 330, 800, 975, 1150, 150);
-    lesTerrains[14] = Terrain("Faubourg Saint-Honoré", 260, 26, 22, 110, 330, 800, 975, 1150, 150);
+    lesTerrains[14] = Terrain("Faubourg Saint-Honore", 260, 26, 22, 110, 330, 800, 975, 1150, 150);
     lesGares[2] = Gare("Gare du Nord", 200, 25);
     lesTerrains[13] = Terrain("Avenue Henri-Martin", 240, 24, 20, 100, 300, 750, 925, 1100, 150);
     lesTerrains[12] = Terrain("Boulevard Malesherbes", 220, 23, 18, 90, 250, 700, 875, 1050, 150);
@@ -30,14 +30,14 @@ Plateau::Plateau() : leParc("Parc"), leDepart("Depart") {
     lesGares[1] = Gare("Gare de Lyon", 200, 15);
     lesTerrains[7] = Terrain("Rue de Paradis", 160, 14, 12, 60, 180, 500, 700, 900, 100);
     lesTerrains[6] = Terrain("Avenue de Neuilly", 140, 13, 10, 50, 150, 450, 625, 750, 100);
-    lesCompagnies[0] = Compagnie("Compagnie de distribution d'électricité", 150, 12);
+    lesCompagnies[0] = Compagnie("Compagnie de distribution d'electricite", 150, 12);
     lesTerrains[5] = Terrain("Boulevard de la Villette", 140, 11, 10, 50, 150, 450, 625, 750, 100);
     lesPrisons[0] = Prison("Prison");
-    lesTerrains[4] = Terrain("Avenue de la République", 120, 9, 8, 40, 100, 300, 450, 600, 50);
+    lesTerrains[4] = Terrain("Avenue de la Republique", 120, 9, 8, 40, 100, 300, 450, 600, 50);
     lesTerrains[3] = Terrain("Rue de Courcelles", 100, 8, 6, 30, 90, 270, 400, 550, 50);
     lesTerrains[2] = Terrain("Rue de Vaugirard", 100, 6, 6, 30, 90, 270, 400, 550, 50);
     lesGares[0] = Gare("Gare Montparnasse", 200, 5);
-    lesTaxes[0] = Taxe("Impôts sur le revenu", 200);
+    lesTaxes[0] = Taxe("Impots sur le revenu", 200);
     lesTerrains[1] = Terrain("Rue Lecourbe", 60, 3, 4, 20, 60, 180, 320, 450, 50);
     lesTerrains[0] = Terrain("Boulevard de Belleville", 60, 1, 2, 10, 30, 90, 160, 250, 50);
 

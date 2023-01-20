@@ -11,11 +11,11 @@ Jeu::Jeu(std::string config) : board(), bank()
 	joueurs = NULL;
 	nbJoueurs = 0;
 
-	std::cout << "Combien de joueurs êtes-vous ?";
+	std::cout << "Combien de joueurs etes-vous ?";
 	std::cin >> nbJoueurs;
 
 	if (nbJoueurs <= 1) {
-		cout << "Désolé, le Monopoly se joue au moins à deux..." << endl;
+		cout << "Desole, le Monopoly se joue au moins a deux..." << endl;
 		return;
 	}
 
@@ -57,20 +57,20 @@ void Jeu::lancerPartie()
 		return;
 	}
 
-	std::cout << "La partie commence, bon courage à tous !" << std::endl;
-	std::cout << "Chacun va jeter les dés, celui qui aura le score le plus élevé commencera la partie." << std::endl;
+	std::cout << "La partie commence, bon courage a tous !" << std::endl;
+	std::cout << "Chacun va jeter les des, celui qui aura le score le plus eleve commencera la partie." << std::endl;
 
 	int first = 0;
 	int max = 0;
 	for (int i = 0; i < nbJoueurs; i++) {
-		std::cout << joueurs[i].getPseudo() << " appuies sur une touche pour lancer des dés. " << endl;
+		std::cout << joueurs[i].getPseudo() << " appuies sur une touche pour lancer des des. " << endl;
 		
 		std::string validation;
 		std::cin >> validation;
 
 		int de1 = getRandomNumber();
 		int de2 = getRandomNumber();
-		std::cout << "Dé 1 : " << de1 << " ; dé 2 : " << de2 << endl;
+		std::cout << "De 1 : " << de1 << " ; de 2 : " << de2 << endl;
 		int total = de1 + de2;
 		if (total > max) {
 			max = total;
@@ -108,10 +108,10 @@ int Jeu::joueurSuivant(int actual)
 void Jeu::lancerDe(Joueur* player)
 {
 	do {
-		std::cout << "Lancement des dés : " << endl;
+		std::cout << "Lancement des des : " << endl;
 		int de1 = getRandomNumber();
 		int de2 = getRandomNumber();
-		std::cout << "Dé 1 : " << de1 << " ; dé 2 : " << de2 << endl;
+		std::cout << "De 1 : " << de1 << " ; de 2 : " << de2 << endl;
 
 		if (de1 == de2) {
 			player->has_a_double(1);
@@ -129,7 +129,11 @@ void Jeu::lancerDe(Joueur* player)
 			int nbPas = de1 + de2;
 			std::cout << player->getPseudo() << " avance de " << nbPas << " cases." << endl;
 			board.deplacer(player, nbPas, bank);
+			int pos = player->getPosition();
 			board[player->getPosition()]->arriverSur(*player, bank);
+			if (player->getPosition() != pos) {
+				board[player->getPosition()]->arriverSur(*player, bank);
+			}
 		}
 
 	} while (player->howManyDoubles() > 0);
@@ -152,9 +156,9 @@ void Jeu::jouerTour(int index)
 	}
 
 	do {
-		std::cout << "1 - Lancer les dés" << std::endl;
+		std::cout << "1 - Lancer les des" << std::endl;
 		std::cout << "2 - Construire" << std::endl;
-		std::cout << "3 - Hypothéquer" << std::endl;
+		std::cout << "3 - Hypothequer" << std::endl;
 		std::cout << "4 - Vendre" << std::endl;
 		std::cout << "5 - Voir son profil" << std::endl;
 		std::cout << "6 - Finir son tour" << std::endl;
