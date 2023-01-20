@@ -17,6 +17,7 @@ protected:
 	bool estachetee;
 	bool esthypothequee;
 	string Nom;
+
 public:
 	Propriete(string Nom, int Prix, int nb_case);
 	int getAchat() { return achat; };
@@ -33,7 +34,6 @@ public:
 	virtual void arriverSur(Joueur& joueur, Banque& bank);
 	void vendre(Joueur Joueuractuel);
 	/*** fonctions destinées à être virtuelles qd on les definira dans Compagnie Terrain et Gare ! ***/
-
 };
 
 #endif // !_PROPRIETE_H_

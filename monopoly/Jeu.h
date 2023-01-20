@@ -19,7 +19,7 @@ using namespace std;
 class Jeu {
 
 private:
-	int nbJoueurs;
+	int nbJoueurs, first;
 	Joueur* joueurs;
 	Plateau board;
 	Banque bank;
@@ -31,6 +31,13 @@ private:
 	int getRandomNumber();
 	void lancerDe(Joueur* player);
 	//void menu(Joueur* j);
+	void savePlayers(std::ofstream& saveFile);
+	/***
+	* Sauvegarde le nombre de maisons et le nombre d'hotels pour chaque ptés
+	***/
+	void saveBoard(std::ofstream& saveFile);
+	void getPlayers(std::ifstream& readFile);
+	void getBoard(std::ifstream& readFile);
 
 public:
 	Jeu(std::string config = "0");
@@ -42,6 +49,9 @@ public:
 	int joueurSuivant(int JoeurActuel);
 	//void enchère(Propriete);
 	void jouerTour(int index);
+	//sauvegarde le jeu dans filename
+	void save(std::string filename, int actualPlayer);
+	void read(std::string filename);
 };
 
 
