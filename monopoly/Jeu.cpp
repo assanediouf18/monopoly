@@ -381,7 +381,7 @@ std::string Jeu::saleChoice(Joueur* player, std::string saleType)
 	cout << "Bienvenue dans le menu " << saleType << " de vos proprietes " << player->getPseudo() << endl;
 	cout << "(pour en sortir tapez q)" << endl;
 	printPlayerProperties(player);
-	cout << "Tapez le numero de la propriete voulue pour la selectionner : ";
+	cout << "Tapez le numero d'une propriete pour la selectionner : ";
 	std::string choice;
 	cin >> choice;
 	return choice;
@@ -401,14 +401,7 @@ void Jeu::sale(int pIndex)
 		int index = stoi(choice);
 		std::vector<int> ptes = player->getProprietes();
 		int boardLocation = ptes[index];
-		cout << "A qui voulez-vous vendre " << board[boardLocation]->getNom() << " ?" << endl;
-		for (int i = 0; i < nbJoueurs; i++)
-		{
-			//Afficher les joueurs
-		}
-		//Choisir un joueur
-		//Vérifier qu'il a les moyens
-		//Faire la vente
+		board[boardLocation]->vendre(player, bank);
 	}
 	catch (const std::exception& e)
 	{

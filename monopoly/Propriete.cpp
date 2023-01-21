@@ -52,7 +52,6 @@ void Propriete::hypothequer(Joueur * Joueuractuel, Banque& bank){
 		avisJoueur = choixAchat(Joueuractuel);
 		if (avisJoueur == "Oui") {
 			bank.recevoir(getHypotheque(), *Joueuractuel);
-			Joueuractuel->removeProperty(nb_case);
 			setEsthypothequee(true);
 			cout << "Vous avez bien hypothequer votre Propriete" << endl;
 		}
@@ -64,8 +63,19 @@ void Propriete::arriverSur(Joueur& joueur, Banque& bank)
 	std::cout << "Bienvenue sur la propriete " << this->getNom() << std::endl;
 }
 
-void Propriete::vendre(Joueur Joueuractuel) {
-
+void Propriete::vendre(Joueur* Joueuractuel, Banque& bank) {
+	if (getEstachetee()) {
+		std::string avisJoueur;
+		cout << "Voulez-vous vendre votre bien? Répondez 'Oui' si vous le voulez. (avec la majuscule !)" << endl;
+		avisJoueur = choixAchat(Joueuractuel);
+		if (avisJoueur == "Oui") {
+			bank.recevoir(getAchat(), *Joueuractuel);
+			setEstachetee(false);
+			Proprietaire = NULL;
+			Joueuractuel->removeProperty(nb_case);
+			cout << "Vous avez bien vendu votre propriete" << endl;
+		}
+	}
 }
 
 

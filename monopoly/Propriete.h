@@ -34,7 +34,7 @@ public:
 	virtual void acheter(Joueur * Joueuractuel, Banque& bank);
 	void hypothequer(Joueur * Joueuractuel, Banque& bank);
 	virtual void arriverSur(Joueur& joueur, Banque& bank);
-	void vendre(Joueur Joueuractuel);
+	void vendre(Joueur* Joueuractuel, Banque& bank);
 	/*** fonctions destinées à être virtuelles qd on les definira dans Compagnie Terrain et Gare ! ***/
 };
 
