@@ -40,6 +40,11 @@ void Joueur::setTempsPrison(int newTps)
 void Joueur::setSolde(int newSolde)
 {
 	solde = newSolde;
+	if (solde < 0 && propertiesPos.size() == 0)
+	{
+		cout << pseudo << " est en faillite !" << endl;
+		isPlaying = false;
+	}
 }
 
 void Joueur::changeSolde(int montant)
@@ -68,7 +73,7 @@ void Joueur::removeProperty(int removePtyPos)
 }
 
 bool Joueur::operator ==(Joueur * J2) {
-	return (pseudo == J2->getPseudo());
+	return (pseudo == J2->getPseudo()) && (solde == J2->solde);
 }
 
 std::ostream& operator<<(std::ostream& out, Joueur& j)

@@ -43,18 +43,22 @@ void Prison::arriverSur(Joueur& joueur, Banque& bank)
 		cout << "2 - Acheter une carte prison" << endl; //Proposer au joueur de l'utiliser s'il en possède une + proposer seulement si la carte est piochée ?
 		cout << "3 - Continuer son tour" << endl;
 
-		int choice;
+		std::string choice;
 		std::cout << "Choix de " << joueur.getPseudo() << " : ";
 		std::cin >> choice;
+		char c = choice[0];
 
-		switch (choice)
+		switch (c)
 		{
-		case 1:
-			joueur.setTempsPrison(-1);
+		case '1':
+		{
+			joueur.getOutOfPrison();
 			bank.recevoir(50, joueur);
-			cout << joueur.getPseudo() << " sort prison." << endl;
+			cout << joueur.getPseudo() << " sort de prison." << endl;
+			return;
+		}
 			break;
-		case 2:
+		case '2':
 			//Demander aux joueurs si quelqu'un veut vendre une carte
 			break;
 		default:

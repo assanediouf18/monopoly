@@ -39,6 +39,7 @@ Jeu::Jeu(std::string config) : board(), bank()
 
 		joueurs[i].changeSolde(startingMoney);
 		joueurs[i].setPosition(0);
+		joueurs[i].setTempsPrison(0);
 
 		std::cout << joueurs[i] << std::endl;
 	}
@@ -157,6 +158,7 @@ void Jeu::lancerDe(Joueur* player)
 			if (player->isInPrison())
 			{
 				std::cout << player->getPseudo() << " est en prison et ne peut pas bouger..." << endl;
+				std::cout << player->getTempsPrison() << endl;
 				return;
 			}
 			int nbPas = de1 + de2;
