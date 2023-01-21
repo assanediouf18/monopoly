@@ -210,6 +210,15 @@ void Jeu::jouerTour(int index)
 				std::cout << "Cette option n'est pas disponible" << std::endl;
 			}
 			break;
+		case '2':
+			if (player->hasProperties())
+			{
+				build(index);
+			}
+			else {
+				std::cout << "Cette option n'est pas disponible" << std::endl;
+			}
+			break;
 		case '3':
 			if (player->hasProperties())
 			{
@@ -408,6 +417,29 @@ void Jeu::sale(int pIndex)
 		cout << "Une erreur est survenue, vous quittez le menu de vente." << endl;
 	}
 	cout << "Vous quittez le menu de vente." << endl;
+}
+
+void Jeu::build(int pIndex)
+{
+	Joueur* player = &joueurs[pIndex];
+	std::string choice = saleChoice(player, "construction");
+	if (choice == "q" || choice == "Q")
+	{
+		cout << "Vous quittez le menu construction." << endl;
+		return;
+	}
+	try
+	{
+		int index = stoi(choice);
+		std::vector<int> ptes = player->getProprietes();
+		int boardLocation = ptes[index];
+		board[boardLocation]->construire(player, bank);
+	}
+	catch (const std::exception& e)
+	{
+		cout << "Une erreur est survenue, vous quittez le menu construction." << endl;
+	}
+	cout << "Vous quittez le menu construction." << endl;
 }
 
 void Jeu::hypotheque(int pIndex)

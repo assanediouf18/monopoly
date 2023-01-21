@@ -13,6 +13,7 @@ public:
 	std::string getNom() { return nom; };
 
 	virtual std::string print();
+	virtual void construire(Joueur* Joueuractuel, Banque& bank) { "Il est impossible de construire sur cette case."; };
 	virtual void vendre(Joueur* Joueuractuel, Banque& bank) { "Cette case n'est pas à vendre."; };
 	virtual void hypothequer(Joueur* Joueuractuel, Banque& bank) { "Cette case ne peut pas être hypothequee."; };
 	virtual void arriverSur(Joueur& joueur, Banque& bank)=0;

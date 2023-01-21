@@ -45,6 +45,7 @@ private:
 
 	std::string saleChoice(Joueur* player, std::string saleType);
 	void sale(int pIndex);
+	void build(int pIndex);
 	void hypotheque(int pIndex);
 
 public:

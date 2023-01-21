@@ -24,7 +24,8 @@ public:
 	virtual void arriverSur(Joueur& Joueuractuel, Banque& bank);
 	virtual std::string print();
 	
-	void ajouterMaison(Joueur* Joueuractuel);
+	void ajouterMaison(Joueur* Joueuractuel, Banque& bank);
+	void construire(Joueur* Joueuractuel, Banque& bank);
 	void setGroupe(Terrain * moi, Terrain * voisin);
 	void setGroupe(Terrain * moi, Terrain * voisin1, Terrain * voisin2);
 	bool groupeEntier(Joueur* Joueuractuel);

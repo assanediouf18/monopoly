@@ -66,10 +66,10 @@ std::string Terrain::print()
 	return std::to_string(nbMaison);
 }
 
-void Terrain::ajouterMaison(Joueur* Joueuractuel)
+void Terrain::ajouterMaison(Joueur* Joueuractuel, Banque& bank)
 {
 	if (groupeEntier(Joueuractuel)) {
-		Joueuractuel->setSolde(Joueuractuel->getSolde() - prixmaison);
+		bank.recevoir(prixmaison, *Joueuractuel);
 		nbMaison++;
 		if (nbMaison == 5) {
 			cout << "Vous possedez desormais un hotel a " << Nom << endl;
@@ -78,6 +78,27 @@ void Terrain::ajouterMaison(Joueur* Joueuractuel)
 			cout << "Vous venez d'acheter une maison a " << Nom << " qui a maintenant " << nbMaison << " maisons." << endl;
 		}
 	}
+	else {
+		cout << "Pour pouvoir construire il faut posséder un groupe et ";
+		cout << "il faut que la différences entre le nombre de maisons d'un groupe soit d'au plus 1..." << endl;
+	}
+}
+
+void Terrain::construire(Joueur* Joueuractuel, Banque& bank)
+{
+	if (nbMaison >= 5)
+	{
+		cout << "Il n'est pas possible de construire davantage ici..." << endl;
+		cout << "Mais invitez vos amis à séjourner dans votre hotel !" << endl;
+		return;
+	}
+	std::string building = (nbMaison == 4) ? "un hotel" : "une maison";
+	std::string avisJoueur;
+	cout << "Voulez-vous construire " << building << " ? Répondez 'Oui' si vous le voulez. (avec la majuscule !)" << endl;
+	avisJoueur = choixAchat(Joueuractuel);
+	if (avisJoueur == "Oui") {
+		ajouterMaison(Joueuractuel, bank);
+	};
 }
 
 bool Terrain::groupeEntier(Joueur* Joueuractuel)
