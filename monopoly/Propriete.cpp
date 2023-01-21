@@ -52,6 +52,7 @@ void Propriete::hypothequer(Joueur * Joueuractuel, Banque& bank){
 		avisJoueur = choixAchat(Joueuractuel);
 		if (avisJoueur == "Oui") {
 			bank.recevoir(getHypotheque(), *Joueuractuel);
+			Joueuractuel->removeProperty(nb_case);
 			setEsthypothequee(true);
 			cout << "Vous avez bien hypothequer votre Propriete" << endl;
 		}

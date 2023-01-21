@@ -210,6 +210,24 @@ void Jeu::jouerTour(int index)
 				std::cout << "Cette option n'est pas disponible" << std::endl;
 			}
 			break;
+		case '3':
+			if (player->hasProperties())
+			{
+				hypotheque(index);
+			}
+			else {
+				std::cout << "Cette option n'est pas disponible" << std::endl;
+			}
+			break;
+		case '4':
+			if (player->hasProperties())
+			{
+				sale(index);
+			}
+			else {
+				std::cout << "Cette option n'est pas disponible" << std::endl;
+			}
+			break;
 		case '5':
 			showPlayer(player);
 			break;
@@ -333,23 +351,93 @@ char Jeu::getPlayerAction(Joueur* player)
 	return c;
 }
 
-void Jeu::showPlayer(Joueur* player)
+void Jeu::printPlayerProperties(Joueur* player)
 {
-	std::cout << "----------------------------------------------------" << endl;
-	std::cout << (*player) << std::endl;
-	std::cout << "Position : " << board[player->getPosition()]->getNom() << std::endl;
 	std::vector<int> ptes = player->getProprietes();
-	
 	if (ptes.size() > 0)
 	{
 		std::cout << ptes.size() << " proprietes :" << endl;
 		for (int i = 0; i < ptes.size(); i++)
 		{
-			std::cout << " - " << board[ptes[i]]->getNom() << endl;
+			std::cout << " " << i << " - " << board[ptes[i]]->getNom() << endl;
 		}
 	}
+	else {
+		cout << "Vous n'avez pas de proprietes..." << endl;
+	}
+}
 
+void Jeu::showPlayer(Joueur* player)
+{
 	std::cout << "----------------------------------------------------" << endl;
+	std::cout << (*player) << std::endl;
+	std::cout << "Position : " << board[player->getPosition()]->getNom() << std::endl;
+	printPlayerProperties(player);
+	std::cout << "----------------------------------------------------" << endl;
+}
+
+std::string Jeu::saleChoice(Joueur* player, std::string saleType)
+{
+	cout << "Bienvenue dans le menu " << saleType << " de vos proprietes " << player->getPseudo() << endl;
+	cout << "(pour en sortir tapez q)" << endl;
+	printPlayerProperties(player);
+	cout << "Tapez le numero de la propriete voulue pour la selectionner : ";
+	std::string choice;
+	cin >> choice;
+	return choice;
+}
+
+void Jeu::sale(int pIndex)
+{
+	Joueur* player = &joueurs[pIndex];
+	std::string choice = saleChoice(player, "vente");
+	if (choice == "q" || choice == "Q")
+	{
+		cout << "Vous quittez le menu de vente." << endl;
+		return;
+	}
+	try
+	{
+		int index = stoi(choice);
+		std::vector<int> ptes = player->getProprietes();
+		int boardLocation = ptes[index];
+		cout << "A qui voulez-vous vendre " << board[boardLocation]->getNom() << " ?" << endl;
+		for (int i = 0; i < nbJoueurs; i++)
+		{
+			//Afficher les joueurs
+		}
+		//Choisir un joueur
+		//Vérifier qu'il a les moyens
+		//Faire la vente
+	}
+	catch (const std::exception& e)
+	{
+		cout << "Une erreur est survenue, vous quittez le menu de vente." << endl;
+	}
+	cout << "Vous quittez le menu de vente." << endl;
+}
+
+void Jeu::hypotheque(int pIndex)
+{
+	Joueur* player = &joueurs[pIndex];
+	std::string choice = saleChoice(player, "hypotheque");
+	if (choice == "q" || choice == "Q")
+	{
+		cout << "Vous quittez le menu hypotheque." << endl;
+		return;
+	}
+	try
+	{
+		int index = stoi(choice);
+		std::vector<int> ptes = player->getProprietes();
+		int boardLocation = ptes[index];
+		board[boardLocation]->hypothequer(player, bank);
+	}
+	catch (const std::exception& e)
+	{
+		cout << "Une erreur est survenue, vous quittez le menu hypotheque." << endl;
+	}
+	cout << "Vous quittez le menu hypotheque." << endl;
 }
 
 void Jeu::save(std::string filename, int actualPlayer)

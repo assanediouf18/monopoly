@@ -40,8 +40,12 @@ private:
 	void getBoard(std::ifstream& readFile);
 
 	char getPlayerAction(Joueur* player);
-
+	void printPlayerProperties(Joueur* player);
 	void showPlayer(Joueur* player);
+
+	std::string saleChoice(Joueur* player, std::string saleType);
+	void sale(int pIndex);
+	void hypotheque(int pIndex);
 
 public:
 	Jeu(std::string config = "0");

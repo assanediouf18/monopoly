@@ -23,6 +23,7 @@ public:
 	bool isInPrison() { return tpsPrison >= 0; };
 	void getOutOfPrison() { tpsPrison = -1; };
 	bool isStillPlaying() { return isPlaying; };
+	bool hasProperties() { return propertiesPos.size() > 0; };
 	/***
 	* Retourne combien de fois le joueur a fait un double
 	***/
