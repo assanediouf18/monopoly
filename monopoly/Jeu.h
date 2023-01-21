@@ -35,9 +35,7 @@ private:
 	/***
 	* Sauvegarde le nombre de maisons et le nombre d'hotels pour chaque ptés
 	***/
-	void saveBoard(std::ofstream& saveFile);
 	void getPlayers(std::ifstream& readFile);
-	void getBoard(std::ifstream& readFile);
 
 	char getPlayerAction(Joueur* player);
 	void printPlayerProperties(Joueur* player);

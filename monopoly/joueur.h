@@ -19,6 +19,7 @@ public:
 	std::string getPseudo() { return pseudo; };
 	int getTempsPrison() { return tpsPrison; };
 	int getPosition() { return position; };
+	int getNbProprete() { return propertiesPos.size(); }
 	int getSolde() { return solde; };
 	bool isInPrison() { return tpsPrison >= 0; };
 	void getOutOfPrison() { tpsPrison = -1; };

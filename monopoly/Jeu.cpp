@@ -251,6 +251,7 @@ void Jeu::jouerTour(int index)
 		{
 			cout << "Bienvenue sur la sauvegarde, entrez le nom de votre sauvegarde." << endl;
 			cout << "Tapez \"0\" pour annuler." << endl;
+			cout << "Attention la sauvegarde n'enregistrera pas les cartes que vous possédez." << endl;
 			cout << "Nom de la sauvegarde : ";
 			std::string filename;
 			std::cout << endl;
@@ -279,22 +280,13 @@ void Jeu::savePlayers(std::ofstream& saveFile)
 		saveFile << j.getPseudo() << endl;
 		saveFile << j.getSolde() << endl;
 		saveFile << j.getPosition() << endl;
+		saveFile << j.getTempsPrison() << endl;
 		std::vector<int> ptes = j.getProprietes();
 		saveFile << ptes.size() << endl;
 		for (int j = 0; j < ptes.size(); j++)
 		{
 			saveFile << ptes[j] << endl;
 		}
-	}
-}
-
-void Jeu::saveBoard(std::ofstream& saveFile)
-{
-	saveFile << nbJoueurs << endl;
-
-	for (int i = 0; i < NB_CASES; i++)
-	{
-		saveFile << board[i]->print() << endl;
 	}
 }
 
@@ -306,33 +298,23 @@ void Jeu::getPlayers(std::ifstream& readFile)
 	{
 		std::string pseudo;
 		readFile >> pseudo;
-		int solde = 0, position = 0, nbPte = 0;
+		int solde = 0, position = 0, nbPte = 0, tpsPrison = -1;
 		readFile >> solde;
 		readFile >> position;
+		readFile >> tpsPrison;
 		joueurs[i].setPseudo(pseudo);
 		joueurs[i].setSolde(solde);
 		joueurs[i].setPosition(position);
+		joueurs[i].setTempsPrison(tpsPrison);
 		readFile >> nbPte;
 		for (int j = 0; j < nbPte; j++)
 		{
 			int ptyNb = 0;
 			readFile >> ptyNb;
 			joueurs[i].addProperty(ptyNb);
-			joueurs[i].setTempsPrison(-1); // Changer ce code par la lecture du temps en prison
-			//Indiquer à la pté qui est son propriétaire
+			board[ptyNb]->setProprietaire(&joueurs[i]);
 		}
-		cout << joueurs[i] << endl;
-	}
-}
-
-void Jeu::getBoard(std::ifstream& readFile)
-{
-	//A améliorer
-	for (int i = 0; i < NB_CASES; i++)
-	{
-		std::string nbMaisons = "";
-		readFile >> nbMaisons;
-		cout << board[i]->getNom() << " a " << nbMaisons << " maisons" << endl;
+		showPlayer(&joueurs[i]);
 	}
 }
 
@@ -392,7 +374,20 @@ std::string Jeu::saleChoice(Joueur* player, std::string saleType)
 	printPlayerProperties(player);
 	cout << "Tapez le numero d'une propriete pour la selectionner : ";
 	std::string choice;
-	cin >> choice;
+	if (player->getMode() == "Manuel")
+	{
+		cin >> choice;
+	}
+	else if (player->getMode() == "Automatique")
+	{
+		choice = "q";
+	}
+	else if (player->getMode() == "Aleatoire")
+	{
+		int max = player->getNbProprete() + 1;
+		int de = rand() % (max) + 1;
+		choice = (de == max) ? "q" : std::to_string(de);
+	}
 	return choice;
 }
 
@@ -471,7 +466,7 @@ void Jeu::save(std::string filename, int actualPlayer)
 	try
 	{
 		savePlayers(saveFile);
-		saveBoard(saveFile);
+		board.save(saveFile);
 		saveFile << actualPlayer << endl;
 		saveFile.close();
 	}
@@ -487,8 +482,7 @@ void Jeu::read(std::string filename)
 	try
 	{
 		getPlayers(configFile);
-		//Creuser pour les ptés
-		getBoard(configFile);
+		board.load(configFile);
 		configFile >> first;
 		configFile.close();
 	}

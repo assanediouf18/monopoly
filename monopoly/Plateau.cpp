@@ -114,6 +114,36 @@ void Plateau::deplacer(Joueur* j, int nbPas, Banque& bank) {
 
 }
 
+void Plateau::save(std::ofstream& saveFile)
+{
+    //terrains
+    for (int i = 0; i < 22; i++)
+    {
+        saveFile << lesTerrains[i].getNbMaison() << endl;
+    }
+    //communaute
+    //chance
+}
+
+void Plateau::load(std::ifstream& loadFile)
+{
+    //Tout lire dans le même ordre que dans save
+    try
+    {
+        for (int i = 0; i < 22; i++)
+        {
+            int nbMaisons;
+            loadFile >> nbMaisons;
+            lesTerrains[i].setNbMaison(nbMaisons);
+        }
+    }
+    catch (const std::exception& e)
+    {
+        cout << "Erreur dans le chargement du plateau..." << endl;
+        exit(EXIT_FAILURE);
+    }
+}
+
 Case* Plateau::operator[](int index)
 {
     return liste_cases[index];

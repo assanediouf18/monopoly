@@ -2,6 +2,8 @@
 #define PLATEAU_H
 
 #include <iostream>
+#include <fstream>
+#include <string>
 #include "Terrain.h"
 #include "Gare.h"
 #include "case.h"
@@ -23,6 +25,8 @@ public:
 	Plateau();
 
     void deplacer(Joueur* j, int nbPas, Banque& bank);
+    void save(std::ofstream& saveFile);
+    void load(std::ifstream& loadFile);
 
     //Ajouter une exception si index n'est pas dans les limites
     Case* operator[](int index);
