@@ -115,6 +115,21 @@ bool Terrain::groupeEntier(Joueur* Joueuractuel)
 	return possedeTout;
 }
 
+void Terrain::vendre(Joueur* player, Banque& bank)
+{
+	if (nbMaison == 0) return Propriete::vendre(player, bank);
+	if (getEstachetee()) {
+		std::string avisJoueur;
+		std::string building = (nbMaison == 4) ? "hotel" : "maison";
+		cout << "Voulez-vous vendre votre "<< building << " ? Répondez 'Oui' si vous le voulez. (avec la majuscule !)" << endl;
+		avisJoueur = choixAchat(player);
+		if (avisJoueur == "Oui") {
+			bank.recevoir(prixmaison, *player);
+			cout << "Vous avez bien vendu votre " << building << endl;
+		}
+	}
+}
+
 void Terrain::setGroupe(Terrain * moi, Terrain * voisin){
 	groupe[0] = voisin;
 	nbVoisin = 1;

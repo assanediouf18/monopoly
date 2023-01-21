@@ -29,6 +29,7 @@ public:
 	void setGroupe(Terrain * moi, Terrain * voisin);
 	void setGroupe(Terrain * moi, Terrain * voisin1, Terrain * voisin2);
 	bool groupeEntier(Joueur* Joueuractuel);
+	void vendre(Joueur* player, Banque& bank);
 	void setGroupe(Terrain* voisin);
 };
 
