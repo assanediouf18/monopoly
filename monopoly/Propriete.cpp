@@ -37,10 +37,10 @@ void Propriete::acheter(Joueur * Joueuractuel, Banque& bank){
 			setEstachetee(true);
 			Joueuractuel->addProperty(nb_case);
 			cout << "Vous etes le nouveau proprietaire, felicitations ! " << endl;
-			cout << Joueuractuel->getPseudo() << " a désormais un solde de " << Joueuractuel->getSolde() << endl;
+			cout << Joueuractuel->getPseudo() << " a desormais un solde de " << Joueuractuel->getSolde() << endl;
 	}
 	else {
-		std::cout << Joueuractuel->getPseudo() << " n'achète pas." << endl;
+		std::cout << Joueuractuel->getPseudo() << " n'achete pas." << endl;
 	}
 }
 
@@ -66,10 +66,10 @@ void Propriete::arriverSur(Joueur& joueur, Banque& bank)
 void Propriete::vendre(Joueur* Joueuractuel, Banque& bank) {
 	if (getEstachetee()) {
 		std::string avisJoueur;
-		cout << "Voulez-vous vendre votre bien? Répondez 'Oui' si vous le voulez. (avec la majuscule !)" << endl;
+		cout << "Voulez-vous vendre votre bien pour "<< getAchat() / 2 << " ? Répondez 'Oui' si vous le voulez. (avec la majuscule !)" << endl;
 		avisJoueur = choixAchat(Joueuractuel);
 		if (avisJoueur == "Oui") {
-			bank.recevoir(getAchat(), *Joueuractuel);
+			bank.recevoir(getAchat() / 2, *Joueuractuel);
 			setEstachetee(false);
 			Proprietaire = NULL;
 			Joueuractuel->removeProperty(nb_case);

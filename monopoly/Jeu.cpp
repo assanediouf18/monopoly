@@ -39,7 +39,6 @@ Jeu::Jeu(std::string config) : board(), bank()
 
 		joueurs[i].changeSolde(startingMoney);
 		joueurs[i].setPosition(0);
-		joueurs[i].setTempsPrison(0);
 
 		std::cout << joueurs[i] << std::endl;
 	}
@@ -388,7 +387,15 @@ std::string Jeu::saleChoice(Joueur* player, std::string saleType)
 	{
 		int max = player->getNbProprete() + 1;
 		int de = rand() % (max) + 1;
-		choice = (de == max) ? "q" : std::to_string(de);
+		try
+		{
+			choice = (de == max) ? "q" : std::to_string(de);
+		}
+		catch (const std::exception&)
+		{
+			cout << "Une erreur est survenue" << endl;
+			choice = 'q';
+		}
 	}
 	return choice;
 }

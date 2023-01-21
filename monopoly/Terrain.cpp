@@ -43,7 +43,6 @@ void Terrain::arriverSur(Joueur& J, Banque& bank){
 	if (estachetee==true) {
 		if (Joueuractuel == Proprietaire) {
 			cout << "Vous possedez ce terrain, bravo" << endl;
-			hypothequer(Joueuractuel, bank);
 		}
 		else {
 			if (getEsthypothequee()) {
@@ -58,6 +57,28 @@ void Terrain::arriverSur(Joueur& J, Banque& bank){
 	}
 	else {
 		acheter(Joueuractuel, bank);
+		if (estachetee)
+		{
+			cout << "Voici le titre de propriete de " << getNom() << endl;
+			cout << "Le loyer sera de : " << endl;
+			cout << " - Terrain nu : " << loyer[0] << " M" << endl;
+			for (int i = 0; i < 5; i++)
+			{
+				cout << " - Avec " << i << " maison(s) : " << loyer[i] << " M" << endl;
+			}
+			cout << " - Avec un hotel : " << loyer[5] << " M" << endl;
+			cout << "Prix de construction d'une maison : " << prixmaison << " M" << endl;
+			cout << "Prix de construction d'un hotel : " << prixmaison << " M" << endl;
+			cout << "Autres proprietes du meme groupe :" << endl;
+			for (int i = 0; i < nbVoisin; i++)
+			{
+				cout << " - " << groupe[i]->getNom() << endl;
+				if (groupe[i]->getEstachetee())
+				{
+					cout << "	Le propriétaire de ce terrain est " << groupe[i]->getProprietaire()->getPseudo() << endl;
+				}
+			}
+		}
 	}
 }
 
@@ -124,7 +145,8 @@ void Terrain::vendre(Joueur* player, Banque& bank)
 		cout << "Voulez-vous vendre votre "<< building << " ? Répondez 'Oui' si vous le voulez. (avec la majuscule !)" << endl;
 		avisJoueur = choixAchat(player);
 		if (avisJoueur == "Oui") {
-			bank.recevoir(prixmaison, *player);
+			if(nbMaison < 5) bank.recevoir(prixmaison / 2, *player);
+			nbMaison--;
 			cout << "Vous avez bien vendu votre " << building << endl;
 		}
 	}
