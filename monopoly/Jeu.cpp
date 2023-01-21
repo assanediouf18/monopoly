@@ -340,13 +340,15 @@ void Jeu::showPlayer(Joueur* player)
 	std::cout << "Position : " << board[player->getPosition()]->getNom() << std::endl;
 	std::vector<int> ptes = player->getProprietes();
 	
-	if (ptes.size() == 0) return;
-
-	std::cout << ptes.size() << " proprietes :" << endl;
-	for (int i = 0; i < ptes.size(); i++)
+	if (ptes.size() > 0)
 	{
-		std::cout << " - " << board[ptes[i]]->getNom() << endl;
+		std::cout << ptes.size() << " proprietes :" << endl;
+		for (int i = 0; i < ptes.size(); i++)
+		{
+			std::cout << " - " << board[ptes[i]]->getNom() << endl;
+		}
 	}
+
 	std::cout << "----------------------------------------------------" << endl;
 }
 
