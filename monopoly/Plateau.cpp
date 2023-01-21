@@ -2,10 +2,10 @@
 
 Plateau::Plateau() : leParc("Parc"), leDepart("Depart") {
     //création de la case Chance
-    Chance Case_chance = Chance("Chance");
+    case_chance = Chance("Chance");
 
     //création de la case Caisse de Communauté
-    Communaute Case_communaute = Communaute("Caisse de Communauté");
+    case_communaute = Communaute("Caisse de Communauté");
 
     //création de toutes les cases
     lesTerrains[21] = Terrain("Rue de la Paix", 400, 39, 50, 200, 600, 1400, 1700, 2000, 200);
@@ -60,12 +60,12 @@ Plateau::Plateau() : leParc("Parc"), leDepart("Depart") {
     //Stockage éléments dans liste
     liste_cases[0] = &leDepart;
     liste_cases[1] = &lesTerrains[0];
-    liste_cases[2] = &Case_communaute;
+    liste_cases[2] = &case_communaute;
     liste_cases[3] = &lesTerrains[1];
     liste_cases[4] = &lesTaxes[0];
     liste_cases[5] = &lesGares[0];
     liste_cases[6] = &lesTerrains[2];
-    liste_cases[7] = &Case_chance;
+    liste_cases[7] = &case_chance;
     liste_cases[8] = &lesTerrains[3];
     liste_cases[9] = &lesTerrains[4];
     liste_cases[10] = &lesPrisons[0]; //lesPrisons
@@ -75,12 +75,12 @@ Plateau::Plateau() : leParc("Parc"), leDepart("Depart") {
     liste_cases[14] = &lesTerrains[7];
     liste_cases[15] = &lesGares[1];
     liste_cases[16] = &lesTerrains[8];
-    liste_cases[17] = &Case_communaute;
+    liste_cases[17] = &case_communaute;
     liste_cases[18] = &lesTerrains[9];
     liste_cases[19] = &lesTerrains[10];
     liste_cases[20] = &leParc;
     liste_cases[21] = &lesTerrains[11];
-    liste_cases[22] = &Case_chance;
+    liste_cases[22] = &case_chance;
     liste_cases[23] = &lesTerrains[12];
     liste_cases[24] = &lesTerrains[13];
     liste_cases[25] = &lesGares[2];
@@ -91,20 +91,16 @@ Plateau::Plateau() : leParc("Parc"), leDepart("Depart") {
     liste_cases[30] = &lesPrisons[1];
     liste_cases[31] = &lesTerrains[17];
     liste_cases[32] = &lesTerrains[18];
-    liste_cases[33] = &Case_communaute;
+    liste_cases[33] = &case_communaute;
     liste_cases[34] = &lesTerrains[19];
     liste_cases[35] = &lesGares[3];
-    liste_cases[36] = &Case_chance;
+    liste_cases[36] = &case_chance;
     liste_cases[37] = &lesTerrains[20];
     liste_cases[38] = &lesTaxes[1];
     liste_cases[39] = &lesTerrains[21];
 }
 
-/*
-void Plateau::caseSuivante(Case c) {
 
-}
-*/
 void Plateau::deplacer(Joueur* j, int nbPas, Banque& bank) {
     int position = j->getPosition();
     int newPos = (position + nbPas) % NB_CASES;

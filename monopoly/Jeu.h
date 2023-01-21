@@ -25,7 +25,7 @@ private:
 	Banque bank;
 	
 	/**
-	* Calcule un nombre aléatoire contenu entre 1 et 6
+	* Calcule un nombre Aleatoire contenu entre 1 et 6
 	* Attention : utilise rand(), s'assurer d'avoir srand(time(0)) avant utilisation
 	**/
 	int getRandomNumber();
@@ -38,6 +38,10 @@ private:
 	void saveBoard(std::ofstream& saveFile);
 	void getPlayers(std::ifstream& readFile);
 	void getBoard(std::ifstream& readFile);
+
+	char getPlayerAction(Joueur* player);
+
+	void showPlayer(Joueur* player);
 
 public:
 	Jeu(std::string config = "0");

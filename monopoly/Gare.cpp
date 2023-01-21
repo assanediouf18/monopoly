@@ -16,9 +16,13 @@ void Gare::acheter(Joueur * Joueuractuel, Banque& bank){
 			setProprietaire(Joueuractuel);
 			bank.recevoir(getAchat(), *Joueuractuel);
 			setEstachetee(true);
+			Joueuractuel->addProperty(nb_case);
 			Joueuractuel->setMesGares(Joueuractuel->getMesGares() + 1);
 			cout << "Vous etes le nouveau proprietaire, felicitations ! " << endl;
 			cout << Joueuractuel->getPseudo() << " a désormais un solde de " << Joueuractuel->getSolde() << endl;
+		}
+		else {
+			std::cout << Joueuractuel->getPseudo() << " n'achète pas." << endl;
 		}
 	}
 }
@@ -63,7 +67,6 @@ void Gare::arriverSur(Joueur& Joueuractuel, Banque& bank) {
 	else {
 		acheter(&Joueuractuel, bank);
 	}
-	cout << "Votre solde actuel est de " << Joueuractuel.getSolde() << endl;
 }
 
 

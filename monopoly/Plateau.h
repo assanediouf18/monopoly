@@ -33,9 +33,9 @@ public:
 private:
     Terrain lesTerrains[22];
     Taxe lesTaxes[2];
-    Chance Case_chance;
+    Chance case_chance;
     Gare lesGares[4];
-    Communaute Case_communaute;
+    Communaute case_communaute;
     Prison lesPrisons[2];
     Compagnie lesCompagnies[2];
     Parc leParc;

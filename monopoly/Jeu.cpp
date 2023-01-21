@@ -1,4 +1,5 @@
 #include <fstream>
+#include <string>
 #include "Jeu.h"
 #include "malloc.h"
 
@@ -65,7 +66,7 @@ void Jeu::lancerPartie()
 		return;
 	}
 
-	std::cout << "Avant de commencer, veuillez déclarer le mode de chaque joueur : Aléatoire, Automatique ou Manuel" << std::endl;
+	std::cout << "Avant de commencer, veuillez déclarer le mode de chaque joueur : Aleatoire, Automatique ou Manuel" << std::endl;
 	for (int i = 0; i < nbJoueurs; i++)
 	{
 		std::cout << "Quelle est le mode du joueur " << joueurs[i].getPseudo() << " ? " << std::endl;
@@ -166,6 +167,7 @@ void Jeu::jouerTour(int index)
 	Joueur* player = &joueurs[index];
 	bool hasPlayed = false, diceRolled = false;
 
+	std::cout << "##############################################################" << endl;
 	std::cout << "C'est au tour de " << player->getPseudo() << " !" << std::endl;
 
 	//Gérer le cas prison
@@ -185,26 +187,8 @@ void Jeu::jouerTour(int index)
 		std::cout << "5 - Voir son profil" << std::endl;
 		std::cout << "6 - Finir son tour" << std::endl;
 		std::cout << "7 - Sauvegarder la partie" << std::endl;
-		std::cout << "Choisis ton option : ";
 		
-		char c = '6';
-		if (player->getMode() == "Manuel")
-		{
-			std::string choice;
-			std::cin >> choice;
-			c = choice[0];
-		}
-		else if (player->getMode() == "Aléatoire")
-		{
-			int de = getRandomNumber();
-			c = (char)de;
-			std::cout << "Action numéro :" << c << endl;
-		}
-		else if (player->getMode() == "Automatique")
-		{
-			c = '6';
-			std::cout << "Action numéro : " << c << endl;
-		}
+		char c = getPlayerAction(player);
 
 		switch (c) {
 		case '1':
@@ -217,8 +201,7 @@ void Jeu::jouerTour(int index)
 			}
 			break;
 		case '5':
-			std::cout << (*player) << std::endl;
-			std::cout << "Nom de la case : " << board[player->getPosition()]->getNom() << std::endl;
+			showPlayer(player);
 			break;
 		case '6':
 			if (!diceRolled) {
@@ -316,6 +299,48 @@ void Jeu::getBoard(std::ifstream& readFile)
 	}
 }
 
+char Jeu::getPlayerAction(Joueur* player)
+{
+	char c = '6';
+	if (player->getMode() == "Manuel")
+	{
+		std::cout << "Choisis ton option : ";
+		std::string choice;
+		std::cin >> choice;
+		c = choice[0];
+	}
+	else if (player->getMode() == "Aleatoire")
+	{
+		int de = getRandomNumber();
+		c = std::to_string(de)[0];
+		std::cout << "Résultat du lancé de dés : " << de << endl;
+		std::cout << "Action numéro :" << c << endl;
+	}
+	else if (player->getMode() == "Automatique")
+	{
+		c = '6';
+		std::cout << "Action numéro : " << c << endl;
+	}
+	return c;
+}
+
+void Jeu::showPlayer(Joueur* player)
+{
+	std::cout << "----------------------------------------------------" << endl;
+	std::cout << (*player) << std::endl;
+	std::cout << "Position : " << board[player->getPosition()]->getNom() << std::endl;
+	std::vector<int> ptes = player->getProprietes();
+	
+	if (ptes.size() == 0) return;
+
+	std::cout << ptes.size() << " propriétés :" << endl;
+	for (int i = 0; i < ptes.size(); i++)
+	{
+		std::cout << " - " << board[ptes[i]]->getNom() << endl;
+	}
+	std::cout << "----------------------------------------------------" << endl;
+}
+
 void Jeu::save(std::string filename, int actualPlayer)
 {
 	std::ofstream saveFile(filename, ios::out | ios::trunc);
@@ -328,7 +353,7 @@ void Jeu::save(std::string filename, int actualPlayer)
 	}
 	catch (const std::exception& e)
 	{
-		cout << "Désolé l'opération de sauvegarde n'a pas fonctionnée..." << endl;
+		cout << "Desole l'operation de sauvegarde n'a pas fonctionnee..." << endl;
 	}
 }
 

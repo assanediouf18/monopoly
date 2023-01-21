@@ -75,7 +75,7 @@ bool Joueur::operator ==(Joueur * J2) {
 std::ostream& operator<<(std::ostream& out, Joueur& j)
 {
 	out << "Nom du joueur : " << j.getPseudo() << std::endl;
-	out << "Solde : " << j.getSolde() << " M" << std::endl;
+	out << "Solde : " << j.getSolde() << " M";
 	return out;
 }
 
