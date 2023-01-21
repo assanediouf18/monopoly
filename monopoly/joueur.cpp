@@ -34,7 +34,6 @@ void Joueur::resetDoubles()
 
 void Joueur::setTempsPrison(int newTps)
 {
-	if (newTps < 0) newTps = 0;
 	tpsPrison = newTps;
 }
 

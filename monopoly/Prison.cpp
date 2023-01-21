@@ -52,11 +52,13 @@ void Prison::arriverSur(Joueur& joueur, Banque& bank)
 		case 1:
 			joueur.setTempsPrison(-1);
 			bank.recevoir(50, joueur);
+			cout << joueur.getPseudo() << " sort prison." << endl;
 			break;
 		case 2:
 			//Demander aux joueurs si quelqu'un veut vendre une carte
 			break;
 		default:
+			cout << joueur.getPseudo() << " reste en prison." << endl;
 			break;
 		}
 

@@ -20,6 +20,8 @@ public:
 	int getTempsPrison() { return tpsPrison; };
 	int getPosition() { return position; };
 	int getSolde() { return solde; };
+	bool isInPrison() { return tpsPrison >= 0; };
+	void getOutOfPrison() { tpsPrison = -1; };
 	bool isStillPlaying() { return isPlaying; };
 	/***
 	* Retourne combien de fois le joueur a fait un double

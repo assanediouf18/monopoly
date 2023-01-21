@@ -20,7 +20,7 @@ Jeu::Jeu(std::string config) : board(), bank()
 		return;
 	}
 
-	std::cout << "Combien de joueurs êtes-vous ?";
+	std::cout << "Combien de joueurs etes-vous ?";
 	std::cin >> nbJoueurs;
 
 	if (nbJoueurs <= 1) {
@@ -66,7 +66,7 @@ void Jeu::lancerPartie()
 		return;
 	}
 
-	std::cout << "Avant de commencer, veuillez déclarer le mode de chaque joueur : Aleatoire, Automatique ou Manuel" << std::endl;
+	std::cout << "Avant de commencer, veuillez declarer le mode de chaque joueur : Aleatoire, Automatique ou Manuel" << std::endl;
 	for (int i = 0; i < nbJoueurs; i++)
 	{
 		std::cout << "Quelle est le mode du joueur " << joueurs[i].getPseudo() << " ? " << std::endl;
@@ -84,7 +84,7 @@ void Jeu::lancerPartie()
 		for (int i = 0; i < nbJoueurs; i++) {
 			if (joueurs[i].getMode() == "Manuel")
 			{
-				std::cout << joueurs[i].getPseudo() << " appuies sur une touche pour lancer des dés. " << endl;
+				std::cout << joueurs[i].getPseudo() << " appuies sur une touche pour lancer des des. " << endl;
 
 				std::string validation;
 				std::cin >> validation;
@@ -92,7 +92,7 @@ void Jeu::lancerPartie()
 
 			int de1 = getRandomNumber();
 			int de2 = getRandomNumber();
-			std::cout << "Dé 1 : " << de1 << " ; dé 2 : " << de2 << endl;
+			std::cout << "De 1 : " << de1 << " ; de 2 : " << de2 << endl;
 			int total = de1 + de2;
 			if (total > max) {
 				max = total;
@@ -139,6 +139,11 @@ void Jeu::lancerDe(Joueur* player)
 		if (de1 == de2) {
 			player->has_a_double(1);
 			std::cout << player->getPseudo() << " a fait " << player->howManyDoubles() << " double(s)." << endl;
+			if (player->isInPrison())
+			{
+				std::cout << player->getPseudo() << " sort de prison !" << endl;
+				player->getOutOfPrison();
+			}
 		}
 		else if (player->howManyDoubles() > 0) {
 			player->has_a_double(-player->howManyDoubles()); //retour à 0 !
@@ -149,6 +154,11 @@ void Jeu::lancerDe(Joueur* player)
 			player->setPosition(Plateau::prisonLocation);
 		}
 		else {
+			if (player->isInPrison())
+			{
+				std::cout << player->getPseudo() << " est en prison et ne peut pas bouger..." << endl;
+				return;
+			}
 			int nbPas = de1 + de2;
 			std::cout << player->getPseudo() << " avance de " << nbPas << " cases." << endl;
 			board.deplacer(player, nbPas, bank);
@@ -172,7 +182,7 @@ void Jeu::jouerTour(int index)
 
 	//Gérer le cas prison
 	if (player->getTempsPrison() >= 0) {
-		diceRolled = true;
+		//diceRolled = true;
 		if (player->getPosition() != 10) {
 			player->setPosition(10);
 		}
@@ -313,13 +323,12 @@ char Jeu::getPlayerAction(Joueur* player)
 	{
 		int de = getRandomNumber();
 		c = std::to_string(de)[0];
-		std::cout << "Résultat du lancé de dés : " << de << endl;
-		std::cout << "Action numéro :" << c << endl;
+		std::cout << "Action numero :" << c << endl;
 	}
 	else if (player->getMode() == "Automatique")
 	{
 		c = '6';
-		std::cout << "Action numéro : " << c << endl;
+		std::cout << "Action numero : " << c << endl;
 	}
 	return c;
 }
@@ -333,7 +342,7 @@ void Jeu::showPlayer(Joueur* player)
 	
 	if (ptes.size() == 0) return;
 
-	std::cout << ptes.size() << " propriétés :" << endl;
+	std::cout << ptes.size() << " proprietes :" << endl;
 	for (int i = 0; i < ptes.size(); i++)
 	{
 		std::cout << " - " << board[ptes[i]]->getNom() << endl;
