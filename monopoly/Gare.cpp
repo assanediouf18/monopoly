@@ -65,6 +65,7 @@ void Gare::arriverSur(Joueur& Joueuractuel, Banque& bank) {
 				}
 				else {
 					cout << "Cette gare n'a pas de proprietaire donc vous ne payez pas de loyer." << endl;
+					acheter(&Joueuractuel, bank);
 				}
 			}
 		}

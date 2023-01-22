@@ -18,6 +18,7 @@ int main(int argc, char** argv)
 		std::cout << "2 - Non" << std::endl;
 		cin >> choice;
 		char c = choice[0];
+		choose = true;
 		switch (c) {
 		case '1':
 			std::cout << "Entrez le nom de votre fichier de sauvegarde : ";
