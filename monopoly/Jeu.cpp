@@ -437,7 +437,7 @@ void Jeu::sale(int pIndex)
 		std::vector<int> ptes = player->getProprietes();
 		if (index < 0 || index > ptes.size())
 		{
-			cout << "Cette selection ne correspond e aucune propriete..." << endl;
+			cout << "Cette selection ne correspond a aucune propriete..." << endl;
 			cout << "Vous quittez le menu vente." << endl;
 			return;
 		}
