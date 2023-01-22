@@ -118,7 +118,7 @@ void Jeu::terminerPartie()
 	if (getNbrJoueursEnJeu() > 1) return;
 	int winner = joueurSuivant(0);
 	cout << "Bravo a " << joueurs[winner].getPseudo() << " !" << endl;
-	cout << "Il remporte la partie avec un solde final de " << joueurs[winner].getSolde() << endl;
+	cout << joueurs[winner].getPseudo() << " remporte la partie avec un solde final de " << joueurs[winner].getSolde() << endl;
 }
 
 int Jeu::joueurSuivant(int actual)
@@ -126,6 +126,12 @@ int Jeu::joueurSuivant(int actual)
 	if (nbJoueurs < 2) return 0;
 	int next = (actual + 1) % nbJoueurs;
 	while (!joueurs[next].isStillPlaying()) {
+		std::vector<int> ptes = joueurs[next].getProprietes();
+		if (ptes.size() > 0)
+		{
+			//Retire les ptés du joueur en question
+			board.recupProprietes(ptes, bank);
+		}
 		next = (next + 1) % nbJoueurs;
 	}
 	return next;
