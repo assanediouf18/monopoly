@@ -5,15 +5,13 @@
 #include "Propriete.h"
 #include "test.h"
 #include "Jeu.h";
-#include <Windows.h>
 
 int main(int argc, char** argv)
 {
-	SetConsoleOutputCP(1252);
 	srand(time(NULL));
 	std::string config("0"), choice;
 	bool choose = true;
-	std::wcout << "Voulez vous continuer une partie sauvegardée ?" << std::endl;
+	std::cout << "Voulez vous continuer une partie sauvegardee ?" << std::endl;
 
 	do {
 		std::cout << "1 - Oui" << std::endl;
