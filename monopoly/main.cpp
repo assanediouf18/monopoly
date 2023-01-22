@@ -11,7 +11,7 @@ int main(int argc, char** argv)
 	srand(time(NULL));
 	std::string config("0"), choice;
 	bool choose = true;
-	std::cout << "Voulez vous continuer une partie sauvegardée ?" << std::endl;
+	std::cout << "Voulez vous continuer une partie sauvegardee ?" << std::endl;
 
 	do {
 		std::cout << "1 - Oui" << std::endl;

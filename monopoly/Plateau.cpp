@@ -5,7 +5,7 @@ Plateau::Plateau() : leParc("Parc"), leDepart("Depart") {
     case_chance = Chance("Chance");
 
     //création de la case Caisse de Communauté
-    case_communaute = Communaute("Caisse de Communauté");
+    case_communaute = Communaute("Caisse de Communaute");
 
     //création de toutes les cases
     lesTerrains[21] = Terrain("Rue de la Paix", 400, 39, 50, 200, 600, 1400, 1700, 2000, 200);

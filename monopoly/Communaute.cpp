@@ -39,7 +39,7 @@ void Communaute::arriverSur(Joueur& joueur, Banque& bank)
     std::cout << "L'enonce de la carte dit :" << std::endl;
     std::cout << carteTiree->getConsigne() << std::endl;
     
-    //Faire la fonction 'payer'
+    bank.payer(carteTiree->getImpact(), joueur);
 
     if (carteTiree->getIdCasePlateau() >= 0) {
         joueur.setPosition(carteTiree->getIdCasePlateau());

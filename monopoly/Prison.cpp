@@ -32,7 +32,7 @@ void Prison::arriverSur(Joueur& joueur, Banque& bank)
 		//Ou après 3 tours de prison, payer 50 euros à la banque et sortir
 		if (joueur.getTempsPrison() >= 2)
 		{
-			cout << joueur.getPseudo() << " paie 50 billets à la banque et sort de prison." << endl;
+			cout << joueur.getPseudo() << " paie 50 billets a la banque et sort de prison." << endl;
 			bank.recevoir(50, joueur);
 			joueur.setTempsPrison(-1);
 			return;
