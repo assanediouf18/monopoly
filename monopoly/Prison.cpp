@@ -1,4 +1,5 @@
 #include "Prison.h"
+#include <string>
 
 using namespace std;
 
@@ -44,8 +45,28 @@ void Prison::arriverSur(Joueur& joueur, Banque& bank)
 		cout << "3 - Continuer son tour" << endl;
 
 		std::string choice;
-		std::cout << "Choix de " << joueur.getPseudo() << " : ";
-		std::cin >> choice;
+		if (joueur.getMode() == "Manuel")
+		{
+			std::cout << "Choix de " << joueur.getPseudo() << " : ";
+			cin >> choice;
+		}
+		else if (joueur.getMode() == "Automatique")
+		{
+			choice = "1";
+		}
+		else if (joueur.getMode() == "Aleatoire")
+		{
+			int de = (rand() % 3) + 1;
+			try
+			{
+				choice = std::to_string(de);
+			}
+			catch (const std::exception&)
+			{
+				cout << "Une erreur est survenue" << endl;
+				choice = '3';
+			}
+		}
 		char c = choice[0];
 
 		switch (c)
