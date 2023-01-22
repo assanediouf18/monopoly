@@ -130,7 +130,7 @@ int Jeu::joueurSuivant(int actual)
 		if (ptes.size() > 0)
 		{
 			//Retire les ptés du joueur en question
-			board.recupProprietes(ptes, bank);
+			board.recupProprietes(ptes);
 		}
 		next = (next + 1) % nbJoueurs;
 	}

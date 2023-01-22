@@ -144,7 +144,7 @@ void Plateau::load(std::ifstream& loadFile)
     }
 }
 
-void Plateau::recupProprietes(std::vector<int> ptes, Banque& bank)
+void Plateau::recupProprietes(std::vector<int> ptes)
 {
     for (int pIndex = ptes.size() - 1; pIndex >= 0; pIndex--)
     {
@@ -158,6 +158,15 @@ void Plateau::recupProprietes(std::vector<int> ptes, Banque& bank)
                 lesTerrains[i].setNbMaison(0);
                 lesTerrains[i].setProprietaire(NULL);
                 lesTerrains[i].setEstachetee(false);
+            }
+        }
+        for (int i = 0; i < 4; i++)
+        {
+            if (lesGares[i].getNb_case() == nbRecup)
+            {
+                lesGares[i].getProprietaire()->removeProperty(nbRecup);
+                lesGares[i].setProprietaire(NULL);
+                lesGares[i].setEstachetee(false);
             }
         }
         for (int i = 0; i < 2; i++)
