@@ -269,7 +269,6 @@ void Jeu::jouerTour(int index)
 				}
 				else {
 					hasPlayed = true;
-					cout << "Tu ne devrais pas être ici" << endl;
 				}
 			}
 			else {
