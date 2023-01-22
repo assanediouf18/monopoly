@@ -360,6 +360,10 @@ char Jeu::getPlayerAction(Joueur* player)
 	else if (player->getMode() == "Automatique")
 	{
 		c = '6';
+		if (player->getSolde() < 0)
+		{
+			c = '4';
+		}
 		std::cout << "Action numero : " << c << endl;
 	}
 	return c;
@@ -404,6 +408,13 @@ std::string Jeu::saleChoice(Joueur* player, std::string saleType)
 	else if (player->getMode() == "Automatique")
 	{
 		choice = "q";
+		if (player->getSolde() < 0)
+		{
+			if (saleType == "vente" || saleType == "hypotheque")
+			{
+				choice = "0";
+			}
+		}
 	}
 	else if (player->getMode() == "Aleatoire")
 	{
@@ -412,7 +423,6 @@ std::string Jeu::saleChoice(Joueur* player, std::string saleType)
 		try
 		{
 			choice = (de >= max) ? "q" : std::to_string(de);
-			cout << player->getPseudo() << " a choisi " << choice << " et le max est " << max << endl;
 		}
 		catch (const std::exception&)
 		{
