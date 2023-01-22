@@ -27,8 +27,7 @@ void Compagnie::arriverSur(Joueur& j, Banque& bank) {
 		loyer = (d1 + d2) * 4; ;
 		cout << "Vous etes debite de " << loyer << " euros" << endl;
 	}
-	Joueuractuel.setSolde(Joueuractuel.getSolde() - loyer);
-	//bank.recevoir(loyer, Joueuractuel);
+	bank.recevoir(loyer, Joueuractuel);
 	cout << "Vous avez un solde de " << Joueuractuel.getSolde() << " euros" << endl;
 
 

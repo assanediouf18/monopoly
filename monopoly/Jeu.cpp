@@ -133,6 +133,10 @@ int Jeu::joueurSuivant(int actual)
 
 void Jeu::lancerDe(Joueur* player)
 {
+	if (!player->isStillPlaying()) {
+		cout << "J'ai bien peur que la partie ne soit terminée pour toi..." << endl;
+		return;
+	}
 	do {
 		std::cout << "Lancement des des : " << endl;
 		int de1 = getRandomNumber();
@@ -184,9 +188,7 @@ void Jeu::jouerTour(int index)
 	std::cout << "##############################################################" << endl;
 	std::cout << "C'est au tour de " << player->getPseudo() << " !" << std::endl;
 
-	//Gérer le cas prison
 	if (player->getTempsPrison() >= 0) {
-		//diceRolled = true;
 		if (player->getPosition() != 10) {
 			player->setPosition(10);
 		}
@@ -201,6 +203,8 @@ void Jeu::jouerTour(int index)
 		std::cout << "5 - Voir son profil" << std::endl;
 		std::cout << "6 - Finir son tour" << std::endl;
 		std::cout << "7 - Sauvegarder la partie" << std::endl;
+
+		cout << "'''''''''''solde = " << player->getSolde() << " M'''''''''''''''''''" << endl;
 		
 		char c = getPlayerAction(player);
 
@@ -215,7 +219,7 @@ void Jeu::jouerTour(int index)
 			}
 			break;
 		case '2':
-			if (player->hasProperties())
+			if (player->hasProperties() && player->getSolde() > 0)
 			{
 				build(index);
 			}
@@ -245,18 +249,27 @@ void Jeu::jouerTour(int index)
 			showPlayer(player);
 			break;
 		case '6':
+		{
 			if (!diceRolled) {
 				lancerDe(player);
 				diceRolled = true;
 			}
-			if (player->getSolde() < 0 && player->hasProperties())
+			if (player->getSolde() < 0)
 			{
-				cout << "Pas si vite ! Hypothequez ou vendez pour rester dans la partie, votre solde est de ";
-				cout << player->getSolde() << " M" << endl;
+				if (player->hasProperties())
+				{
+					cout << "Pas si vite ! Hypothequez ou vendez pour rester dans la partie, votre solde est de ";
+					cout << player->getSolde() << " M" << endl;
+				}
+				else {
+					hasPlayed = true;
+					cout << "Tu ne devrais pas être ici" << endl;
+				}
 			}
 			else {
 				hasPlayed = true;
 			}
+		}
 			break;
 		case '7':
 		{
@@ -422,6 +435,11 @@ void Jeu::sale(int pIndex)
 	{
 		int index = stoi(choice);
 		std::vector<int> ptes = player->getProprietes();
+		if (index < 0 || index >= ptes.size())
+		{
+			cout << "Impossible" << endl;
+			return;
+		}
 		int boardLocation = ptes[index];
 		board[boardLocation]->vendre(player, bank);
 	}

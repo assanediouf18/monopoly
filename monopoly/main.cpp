@@ -31,9 +31,9 @@ int main(int argc, char** argv)
 			break;
 		}
 	} while (!choose);
-	
+
 	Jeu game(config);
-	
+
 	game.lancerPartie();
 
 	return EXIT_SUCCESS;

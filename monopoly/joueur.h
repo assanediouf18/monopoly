@@ -20,10 +20,10 @@ public:
 	int getTempsPrison() { return tpsPrison; };
 	int getPosition() { return position; };
 	int getNbProprete() { return propertiesPos.size(); }
-	int getSolde() { return solde; };
+	int getSolde();
 	bool isInPrison() { return tpsPrison >= 0; };
 	void getOutOfPrison() { tpsPrison = -1; };
-	bool isStillPlaying() { return isPlaying; };
+	bool isStillPlaying();
 	bool hasProperties() { return propertiesPos.size() > 0; };
 	/***
 	* Retourne combien de fois le joueur a fait un double

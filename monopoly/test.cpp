@@ -3,6 +3,24 @@
 
 using namespace std;
 
+void testerJoueurRestant()
+{
+	Joueur player;
+	cin >> player;
+	cout << player << endl;
+	player.addProperty(39);
+	player.changeSolde(-100);
+	std::string joueEncore = (player.isStillPlaying()) ? "Oui" : "Non";
+	cout << "Est-ce que le joueur joue encore ? " << joueEncore << endl;
+	cout << "On s'attend à voir Oui" << endl;
+
+	cout << player.getPseudo() << " vend sa dernière propriete..." << endl;
+	player.removeProperty(39);
+	joueEncore = (player.isStillPlaying()) ? "Oui" : "Non";
+	cout << "Est-ce que le joueur joue encore ? " << joueEncore << endl;
+	cout << "On s'attend à voir Non" << endl;
+}
+
 void testerChargementJeu()
 {
 	std::cout << "Test de chargement de fichier de sauvegarde" << endl;

@@ -68,11 +68,11 @@ void Propriete::vendre(Joueur* Joueuractuel, Banque& bank) {
 		cout << "Voulez-vous vendre votre bien pour "<< getAchat() / 2 << " ? Répondez 'Oui' si vous le voulez. (avec la majuscule !)" << endl;
 		avisJoueur = choixAchat(Joueuractuel);
 		if (avisJoueur == "Oui") {
-			bank.payer(getAchat() / 2, *Joueuractuel);
 			setEstachetee(false);
 			Proprietaire = NULL;
 			Joueuractuel->removeProperty(nb_case);
 			cout << "Vous avez bien vendu votre propriete" << endl;
+			bank.payer(getAchat() / 2, *Joueuractuel);
 		}
 	}
 }

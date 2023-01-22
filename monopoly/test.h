@@ -12,6 +12,7 @@
 #include "Gare.h"
 #include "Compagnie.h"
 
+void testerJoueurRestant();
 void testerChargementJeu();
 void testerLectureJeu();
 void testerSauvegardeJeu();

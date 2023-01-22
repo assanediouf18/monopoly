@@ -12,6 +12,17 @@ Joueur::Joueur() : propertiesPos()
 	mode = "Manuel";
 }
 
+int Joueur::getSolde()
+{
+	isPlaying = !(solde < 0 && (propertiesPos.size() == 0));
+	return solde;
+}
+
+bool Joueur::isStillPlaying()
+{
+	return isPlaying;
+}
+
 void Joueur::setPosition(int newPos)
 {
 	position = newPos;
@@ -48,7 +59,7 @@ void Joueur::setSolde(int newSolde)
 			isPlaying = false;
 		}
 		else {
-			cout << "Attention " << pseudo << ", ton solde est négatif." << endl;
+			cout << "Attention " << pseudo << ", ton solde est negatif." << endl;
 			cout << "Hypotheques ou vend pour rester dans la partie !" << endl;
 		}
 	}
