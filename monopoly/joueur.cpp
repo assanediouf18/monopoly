@@ -60,7 +60,7 @@ void Joueur::setSolde(int newSolde)
 		}
 		else {
 			cout << "Attention " << pseudo << ", ton solde est negatif." << endl;
-			cout << "Hypotheques ou vend pour rester dans la partie !" << endl;
+			cout << "Hypotheque ou vend pour rester dans la partie !" << endl;
 		}
 	}
 }
