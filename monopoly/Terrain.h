@@ -23,7 +23,6 @@ public:
 	void setNbMaison(int newNbMaison) { nbMaison = newNbMaison; };
 	
 	virtual void arriverSur(Joueur& Joueuractuel, Banque& bank);
-	virtual std::string print();
 	
 	void ajouterMaison(Joueur* Joueuractuel, Banque& bank);
 	void construire(Joueur* Joueuractuel, Banque& bank);

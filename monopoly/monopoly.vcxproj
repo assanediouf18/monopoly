@@ -169,7 +169,6 @@
     <ClInclude Include="Compagnie.h" />
     <ClInclude Include="Depart.h" />
     <ClInclude Include="Gare.h" />
-    <ClInclude Include="Header.h" />
     <ClInclude Include="Jeu.h" />
     <ClInclude Include="joueur.h" />
     <ClInclude Include="ListeCarte.h" />

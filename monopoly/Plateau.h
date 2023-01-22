@@ -28,7 +28,6 @@ public:
     void save(std::ofstream& saveFile);
     void load(std::ifstream& loadFile);
 
-    //Ajouter une exception si index n'est pas dans les limites
     Case* operator[](int index);
 
     static const int prisonLocation = 10;

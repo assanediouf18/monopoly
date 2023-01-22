@@ -82,11 +82,6 @@ void Terrain::arriverSur(Joueur& J, Banque& bank){
 	}
 }
 
-std::string Terrain::print()
-{
-	return std::to_string(nbMaison);
-}
-
 void Terrain::ajouterMaison(Joueur* Joueuractuel, Banque& bank)
 {
 	if (groupeEntier(Joueuractuel)) {
