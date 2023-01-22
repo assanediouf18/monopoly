@@ -75,7 +75,7 @@ void Terrain::arriverSur(Joueur& J, Banque& bank){
 				cout << " - " << groupe[i]->getNom() << endl;
 				if (groupe[i]->getEstachetee())
 				{
-					cout << "	Le propriétaire de ce terrain est " << groupe[i]->getProprietaire()->getPseudo() << endl;
+					cout << "	Le proprietaire de ce terrain est " << groupe[i]->getProprietaire()->getPseudo() << endl;
 				}
 			}
 		}
@@ -95,8 +95,8 @@ void Terrain::ajouterMaison(Joueur* Joueuractuel, Banque& bank)
 		}
 	}
 	else {
-		cout << "Pour pouvoir construire il faut posséder un groupe et ";
-		cout << "il faut que la différences entre le nombre de maisons d'un groupe soit d'au plus 1..." << endl;
+		cout << "Pour pouvoir construire il faut posseder un groupe et ";
+		cout << "il faut que la differences entre le nombre de maisons d'un groupe soit d'au plus 1..." << endl;
 	}
 }
 
@@ -105,12 +105,12 @@ void Terrain::construire(Joueur* Joueuractuel, Banque& bank)
 	if (nbMaison >= 5)
 	{
 		cout << "Il n'est pas possible de construire davantage ici..." << endl;
-		cout << "Mais invitez vos amis à séjourner dans votre hotel !" << endl;
+		cout << "Mais invitez vos amis a sejourner dans votre hotel !" << endl;
 		return;
 	}
 	std::string building = (nbMaison == 4) ? "un hotel" : "une maison";
 	std::string avisJoueur;
-	cout << "Voulez-vous construire " << building << " ? Répondez 'Oui' si vous le voulez. (avec la majuscule !)" << endl;
+	cout << "Voulez-vous construire " << building << " ? Repondez 'Oui' si vous le voulez. (avec la majuscule !)" << endl;
 	avisJoueur = choixAchat(Joueuractuel);
 	if (avisJoueur == "Oui") {
 		ajouterMaison(Joueuractuel, bank);
@@ -137,7 +137,7 @@ void Terrain::vendre(Joueur* player, Banque& bank)
 	if (getEstachetee()) {
 		std::string avisJoueur;
 		std::string building = (nbMaison == 4) ? "hotel" : "maison";
-		cout << "Voulez-vous vendre votre "<< building << " ? Répondez 'Oui' si vous le voulez. (avec la majuscule !)" << endl;
+		cout << "Voulez-vous vendre votre "<< building << " ? Repondez 'Oui' si vous le voulez. (avec la majuscule !)" << endl;
 		avisJoueur = choixAchat(player);
 		if (avisJoueur == "Oui") {
 			if(nbMaison < 5) bank.recevoir(prixmaison / 2, *player);

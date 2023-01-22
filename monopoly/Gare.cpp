@@ -18,8 +18,8 @@ void Gare::acheter(Joueur * Joueuractuel, Banque& bank){
 			setEstachetee(true);
 			Joueuractuel->setMesGares(Joueuractuel->getMesGares() + 1);
 			cout << "Vous etes le nouveau proprietaire, felicitations ! " << endl;
-			cout << Joueuractuel->getPseudo() << " a désormais un solde de " << Joueuractuel->getSolde() << endl;
-			cout << "Voici le titre de propriete de " << nom << endl;
+			cout << Joueuractuel->getPseudo() << " a desormais un solde de " << Joueuractuel->getSolde() << endl;
+			cout << "Voici le titre de propriete de " << Nom << endl;
 			cout << "Le loyer sera de :" << endl;
 			cout << " - 25 M si vous possèdez 1 gare" << endl;
 			cout << " - 50 M si vous possèdez 2 gares" << endl;
@@ -64,7 +64,7 @@ void Gare::arriverSur(Joueur& Joueuractuel, Banque& bank) {
 					Proprietaire->setSolde(Proprietaire->getSolde() + 200);
 				}
 				else {
-					cout << "Cette gare n'a pas de propriétaire donc vous ne payez pas de loyer." << endl;
+					cout << "Cette gare n'a pas de proprietaire donc vous ne payez pas de loyer." << endl;
 				}
 			}
 		}

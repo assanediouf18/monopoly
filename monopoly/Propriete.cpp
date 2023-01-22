@@ -47,7 +47,7 @@ void Propriete::acheter(Joueur * Joueuractuel, Banque& bank){
 void Propriete::hypothequer(Joueur * Joueuractuel, Banque& bank){
 	if (getEstachetee()) {
 		std::string avisJoueur;
-		cout << "Voulez-vous hypothequer votre bien? Répondez 'Oui' si vous le voulez. (avec la majuscule !)" << endl;
+		cout << "Voulez-vous hypothequer votre bien? Repondez 'Oui' si vous le voulez. (avec la majuscule !)" << endl;
 		avisJoueur = choixAchat(Joueuractuel);
 		if (avisJoueur == "Oui") {
 			bank.payer(getHypotheque(), *Joueuractuel);
@@ -65,7 +65,7 @@ void Propriete::arriverSur(Joueur& joueur, Banque& bank)
 void Propriete::vendre(Joueur* Joueuractuel, Banque& bank) {
 	if (getEstachetee()) {
 		std::string avisJoueur;
-		cout << "Voulez-vous vendre votre bien pour "<< getAchat() / 2 << " ? Répondez 'Oui' si vous le voulez. (avec la majuscule !)" << endl;
+		cout << "Voulez-vous vendre votre bien pour "<< getAchat() / 2 << " ? Repondez 'Oui' si vous le voulez. (avec la majuscule !)" << endl;
 		avisJoueur = choixAchat(Joueuractuel);
 		if (avisJoueur == "Oui") {
 			setEstachetee(false);

@@ -525,6 +525,6 @@ void Jeu::read(std::string filename)
 	}
 	catch (const std::exception& e)
 	{
-		cout << "Désolé l'opération de sauvegarde n'a pas fonctionnee..." << endl;
+		cout << "Desole l'operation de sauvegarde n'a pas fonctionnee..." << endl;
 	}
 }
