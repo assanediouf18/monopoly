@@ -110,12 +110,15 @@ void Jeu::lancerPartie()
 		jouerTour(player);
 		player = joueurSuivant(player);
 	}
+	terminerPartie();
 }
 
 void Jeu::terminerPartie()
 {
 	if (getNbrJoueursEnJeu() > 1) return;
-	//Faire l'annonce du gagnant
+	int winner = joueurSuivant(0);
+	cout << "Bravo à " << joueurs[winner].getPseudo() << " !" << endl;
+	cout << "Il remporte la partie avec un solde final de " << joueurs[winner].getSolde() << endl;
 }
 
 int Jeu::joueurSuivant(int actual)
