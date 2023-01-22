@@ -40,10 +40,17 @@ void Joueur::setTempsPrison(int newTps)
 void Joueur::setSolde(int newSolde)
 {
 	solde = newSolde;
-	if (solde < 0 && propertiesPos.size() == 0)
+	if (solde < 0)
 	{
-		cout << pseudo << " est en faillite !" << endl;
-		isPlaying = false;
+		if (propertiesPos.size() <= 0)
+		{
+			cout << pseudo << " est en faillite !" << endl;
+			isPlaying = false;
+		}
+		else {
+			cout << "Attention " << pseudo << ", ton solde est négatif." << endl;
+			cout << "Hypotheques ou vend pour rester dans la partie !" << endl;
+		}
 	}
 }
 

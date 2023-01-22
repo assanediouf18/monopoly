@@ -16,11 +16,10 @@ void Gare::acheter(Joueur * Joueuractuel, Banque& bank){
 			setProprietaire(Joueuractuel);
 			bank.recevoir(getAchat(), *Joueuractuel);
 			setEstachetee(true);
-			Joueuractuel->addProperty(nb_case);
 			Joueuractuel->setMesGares(Joueuractuel->getMesGares() + 1);
 			cout << "Vous etes le nouveau proprietaire, felicitations ! " << endl;
 			cout << Joueuractuel->getPseudo() << " a désormais un solde de " << Joueuractuel->getSolde() << endl;
-			cout << "Voici le titre de propriete de " << Nom << endl;
+			cout << "Voici le titre de propriete de " << nom << endl;
 			cout << "Le loyer sera de :" << endl;
 			cout << " - 25 M si vous possèdez 1 gare" << endl;
 			cout << " - 50 M si vous possèdez 2 gares" << endl;
@@ -45,24 +44,24 @@ void Gare::arriverSur(Joueur& Joueuractuel, Banque& bank) {
 			if (getEsthypothequee()) { cout << "La gare est hypothequee" << endl; }
 			else{
 				if (Proprietaire->getMesGares() == 1) {
+					cout << "Vous avez une seule gare, vous payez donc un loyer de 25 M." << endl;
 					Joueuractuel.setSolde(Joueuractuel.getSolde() - 25);
 					Proprietaire->setSolde(Proprietaire->getSolde() + 25);
-					cout << "Vous avez une seule gare, vous payez donc un loyer de 25 M." << endl;
 				}
 				if (Proprietaire->getMesGares() == 2) {
+					cout << "Vous avez deux gares, vous payez donc un loyer de 50 M." << endl;
 					Joueuractuel.setSolde(Joueuractuel.getSolde() - 50);
 					Proprietaire->setSolde(Proprietaire->getSolde() + 50);
-					cout << "Vous avez deux gares, vous payez donc un loyer de 50 M." << endl;
 				}
 				if (Proprietaire->getMesGares() == 3) {
+					cout << "Vous avez trois gares, vous payez donc un loyer de 100 M." << endl;
 					Joueuractuel.setSolde(Joueuractuel.getSolde() - 100);
 					Proprietaire->setSolde(Proprietaire->getSolde() + 100);
-					cout << "Vous avez trois gares, vous payez donc un loyer de 100 M." << endl;
 				}
 				if (Proprietaire->getMesGares() == 4) {
+					cout << "Vous avez quatre gares, vous payez donc un loyer de 200 M." << endl;
 					Joueuractuel.setSolde(Joueuractuel.getSolde() - 200);
 					Proprietaire->setSolde(Proprietaire->getSolde() + 200);
-					cout << "Vous avez quatre gares, vous payez donc un loyer de 200 M." << endl;
 				}
 				else {
 					cout << "Cette gare n'a pas de propriétaire donc vous ne payez pas de loyer." << endl;

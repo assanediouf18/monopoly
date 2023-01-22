@@ -76,10 +76,10 @@ void Jeu::lancerPartie()
 	}
 
 	std::cout << "La partie commence, bon courage a tous !" << std::endl;
-	std::cout << "Chacun va jeter les des, celui qui aura le score le plus eleve commencera la partie." << std::endl;
 
 	if (first < 0)
 	{
+		std::cout << "Chacun va jeter les des, celui qui aura le score le plus eleve commencera la partie." << std::endl;
 		int max = 0;
 		for (int i = 0; i < nbJoueurs; i++) {
 			if (joueurs[i].getMode() == "Manuel")
@@ -117,7 +117,7 @@ void Jeu::terminerPartie()
 {
 	if (getNbrJoueursEnJeu() > 1) return;
 	int winner = joueurSuivant(0);
-	cout << "Bravo à " << joueurs[winner].getPseudo() << " !" << endl;
+	cout << "Bravo a " << joueurs[winner].getPseudo() << " !" << endl;
 	cout << "Il remporte la partie avec un solde final de " << joueurs[winner].getSolde() << endl;
 }
 
@@ -249,13 +249,20 @@ void Jeu::jouerTour(int index)
 				lancerDe(player);
 				diceRolled = true;
 			}
-			hasPlayed = true;
+			if (player->getSolde() < 0 && player->hasProperties())
+			{
+				cout << "Pas si vite ! Hypothequez ou vendez pour rester dans la partie, votre solde est de ";
+				cout << player->getSolde() << " M" << endl;
+			}
+			else {
+				hasPlayed = true;
+			}
 			break;
 		case '7':
 		{
 			cout << "Bienvenue sur la sauvegarde, entrez le nom de votre sauvegarde." << endl;
 			cout << "Tapez \"0\" pour annuler." << endl;
-			cout << "Attention la sauvegarde n'enregistrera pas les cartes que vous possédez." << endl;
+			cout << "Attention la sauvegarde n'enregistrera pas les cartes que vous possedez." << endl;
 			cout << "Nom de la sauvegarde : ";
 			std::string filename;
 			std::cout << endl;
@@ -270,7 +277,7 @@ void Jeu::jouerTour(int index)
 			std::cout << "Cette option n'est pas disponible" << std::endl;
 			break;
 		}
-	} while (!hasPlayed);
+	} while (player->isStillPlaying() && (!hasPlayed));
 }
 
 
@@ -315,8 +322,7 @@ void Jeu::getPlayers(std::ifstream& readFile)
 		{
 			int ptyNb = 0;
 			readFile >> ptyNb;
-			joueurs[i].addProperty(ptyNb);
-			board[ptyNb]->setProprietaire(&joueurs[i]);
+			board[ptyNb]->setProprietaire(&joueurs[i]); // Cette méthode ajoute aussi la pté au joueur
 		}
 		showPlayer(&joueurs[i]);
 	}
@@ -481,6 +487,7 @@ void Jeu::save(std::string filename, int actualPlayer)
 		board.save(saveFile);
 		saveFile << actualPlayer << endl;
 		saveFile.close();
+		cout << "Sauvegarde effectuee avec succes." << endl;
 	}
 	catch (const std::exception& e)
 	{
@@ -500,6 +507,6 @@ void Jeu::read(std::string filename)
 	}
 	catch (const std::exception& e)
 	{
-		cout << "Désolé l'opération de sauvegarde n'a pas fonctionnée..." << endl;
+		cout << "Désolé l'opération de sauvegarde n'a pas fonctionnee..." << endl;
 	}
 }

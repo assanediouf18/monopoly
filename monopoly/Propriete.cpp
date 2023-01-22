@@ -32,10 +32,9 @@ void Propriete::acheter(Joueur * Joueuractuel, Banque& bank){
 	cout << "Cette propriete n'a pas de proprietaire, voulez-vous l'acheter pour " << achat<< " euros ? Repondez soit 'Oui' soit 'Non'" << endl;
 	avisJoueur = choixAchat(Joueuractuel);
 	if (avisJoueur == "Oui") {
-			Proprietaire = Joueuractuel;
+			setProprietaire(Joueuractuel);
 			bank.recevoir(getAchat(), *Joueuractuel);
 			setEstachetee(true);
-			Joueuractuel->addProperty(nb_case);
 			cout << "Vous etes le nouveau proprietaire, felicitations ! " << endl;
 			cout << Joueuractuel->getPseudo() << " a desormais un solde de " << Joueuractuel->getSolde() << endl;
 	}
@@ -51,7 +50,7 @@ void Propriete::hypothequer(Joueur * Joueuractuel, Banque& bank){
 		cout << "Voulez-vous hypothequer votre bien? Répondez 'Oui' si vous le voulez. (avec la majuscule !)" << endl;
 		avisJoueur = choixAchat(Joueuractuel);
 		if (avisJoueur == "Oui") {
-			bank.recevoir(getHypotheque(), *Joueuractuel);
+			bank.payer(getHypotheque(), *Joueuractuel);
 			setEsthypothequee(true);
 			cout << "Vous avez bien hypothequer votre Propriete" << endl;
 		}
@@ -69,7 +68,7 @@ void Propriete::vendre(Joueur* Joueuractuel, Banque& bank) {
 		cout << "Voulez-vous vendre votre bien pour "<< getAchat() / 2 << " ? Répondez 'Oui' si vous le voulez. (avec la majuscule !)" << endl;
 		avisJoueur = choixAchat(Joueuractuel);
 		if (avisJoueur == "Oui") {
-			bank.recevoir(getAchat() / 2, *Joueuractuel);
+			bank.payer(getAchat() / 2, *Joueuractuel);
 			setEstachetee(false);
 			Proprietaire = NULL;
 			Joueuractuel->removeProperty(nb_case);
@@ -78,5 +77,16 @@ void Propriete::vendre(Joueur* Joueuractuel, Banque& bank) {
 	}
 }
 
+void Propriete::setProprietaire(Joueur* J1)
+{
+	if (Proprietaire != NULL)
+	{
+		cout << "Le propriétaire est deja " << Proprietaire->getPseudo() << endl;
+		return;
+	}
+	Proprietaire = J1;
+	setEstachetee(true);
+	J1->addProperty(nb_case);
+}
 
 

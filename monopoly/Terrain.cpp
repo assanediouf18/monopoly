@@ -49,9 +49,9 @@ void Terrain::arriverSur(Joueur& J, Banque& bank){
 				cout << "Le terrain est hypotheque" << endl;
 			}
 			else {
+				cout << "Le proprietaire a " << getNbMaison() << " maisons vous payez donc un loyer de " << loyer[nbMaison] << " a " << Proprietaire->getPseudo() << endl;
 				Joueuractuel->setSolde(Joueuractuel->getSolde() - loyer[nbMaison]);
 				Proprietaire->setSolde(Proprietaire->getSolde() + loyer[nbMaison]);
-				cout << "Le proprietaire a " << getNbMaison() << " maisons vous payez donc un loyer de " << loyer[nbMaison] << " a " << Proprietaire->getPseudo() << endl;
 			}
 		}
 	}
@@ -62,7 +62,7 @@ void Terrain::arriverSur(Joueur& J, Banque& bank){
 			cout << "Voici le titre de propriete de " << getNom() << endl;
 			cout << "Le loyer sera de : " << endl;
 			cout << " - Terrain nu : " << loyer[0] << " M" << endl;
-			for (int i = 0; i < 5; i++)
+			for (int i = 1; i < 5; i++)
 			{
 				cout << " - Avec " << i << " maison(s) : " << loyer[i] << " M" << endl;
 			}
