@@ -30,17 +30,25 @@ private:
 	**/
 	int getRandomNumber();
 	void lancerDe(Joueur* player);
-	//void menu(Joueur* j);
+	
 	void savePlayers(std::ofstream& saveFile);
-	/***
-	* Sauvegarde le nombre de maisons et le nombre d'hotels pour chaque ptés
-	***/
 	void getPlayers(std::ifstream& readFile);
 
+	/***
+	* Renvoie l'action du joueur en tenant compte de son mode de jeu
+	***/
 	char getPlayerAction(Joueur* player);
+	/***
+	* Affiche le nom du joueur, son solde et ses propriétes s'il en a
+	***/
 	void printPlayerProperties(Joueur* player);
+	/***
+	* Affiche les proprietes du joueur
+	***/
 	void showPlayer(Joueur* player);
-
+	/***
+	* Cette fonction récupére le choix du joueur pour les actions de vente, de construction et d'hypotheque
+	***/
 	std::string saleChoice(Joueur* player, std::string saleType);
 	void sale(int pIndex);
 	void build(int pIndex);
@@ -52,11 +60,9 @@ public:
 	int getNbrJoueursEnJeu();
 	void lancerPartie();
 	void terminerPartie();
-	//Ajouter de quoi gérer l'exception causée par le fait qu'il n'y a pas assez de joueurs
 	int joueurSuivant(int JoeurActuel);
 	//void enchère(Propriete);
 	void jouerTour(int index);
-	//sauvegarde le jeu dans filename
 	void save(std::string filename, int actualPlayer);
 	void read(std::string filename);
 };
