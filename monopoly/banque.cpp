@@ -6,7 +6,7 @@ Banque::Banque() : solde(10000) {
 void Banque::payer(int montant, Joueur& joueur) {
     if (montant > solde)
     {
-        cout << "La banque n'as pas assez pour vous payer plus que " << solde << "..." << endl;
+        cout << "La banque n'a pas assez pour vous verser " << montant << " M..." << endl;
         montant = solde;
         cout << "Vous recevez donc " << solde << " M." << endl;
     }
