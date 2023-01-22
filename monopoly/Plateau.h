@@ -27,6 +27,7 @@ public:
     void deplacer(Joueur* j, int nbPas, Banque& bank);
     void save(std::ofstream& saveFile);
     void load(std::ifstream& loadFile);
+    void recupProprietes(std::vector<int> ptes);
 
     Case* operator[](int index);
 

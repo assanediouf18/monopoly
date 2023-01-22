@@ -20,6 +20,7 @@ public:
 	Terrain(string Nom, int prix, int num_case, int terrainnu, int maison1, int maison2, int maison3, int maison4, int hotel, int prix_maison); 
 	int getNbMaison() { return nbMaison; };
 	int getLoyer() { return loyer[0]; };
+	int getPrixMaison() { return prixmaison; };
 	void setNbMaison(int newNbMaison) { nbMaison = newNbMaison; };
 	
 	virtual void arriverSur(Joueur& Joueuractuel, Banque& bank);

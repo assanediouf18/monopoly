@@ -81,14 +81,12 @@ void Propriete::vendre(Joueur* Joueuractuel, Banque& bank) {
 
 void Propriete::setProprietaire(Joueur* J1)
 {
-	if (Proprietaire != NULL)
-	{
-		cout << "Le propriétaire est deja " << Proprietaire->getPseudo() << endl;
-		return;
-	}
 	Proprietaire = J1;
-	setEstachetee(true);
-	J1->addProperty(nb_case);
+	if (J1 != NULL)
+	{
+		setEstachetee(true);
+		J1->addProperty(nb_case);
+	}
 }
 
 

@@ -107,7 +107,7 @@ void Plateau::deplacer(Joueur* j, int nbPas, Banque& bank) {
     //déplacer le joueur
     j->setPosition(newPos);
     //Donner 200 billets au joueur s'il est passé par la case départ
-    if (newPos < position)
+    if (newPos < position && newPos > 0)
     {
         bank.payer(200, *j);
     }
@@ -141,6 +141,43 @@ void Plateau::load(std::ifstream& loadFile)
     {
         cout << "Erreur dans le chargement du plateau..." << endl;
         exit(EXIT_FAILURE);
+    }
+}
+
+void Plateau::recupProprietes(std::vector<int> ptes)
+{
+    for (int pIndex = ptes.size() - 1; pIndex >= 0; pIndex--)
+    {
+        int nbRecup = ptes[pIndex];
+        for (int i = 0; i < 22; i++)
+        {
+            if (lesTerrains[i].getNb_case() == nbRecup)
+            {
+                lesTerrains[i].getProprietaire()->removeProperty(nbRecup);
+                //La banque reprend les maisons s'il y en a
+                lesTerrains[i].setNbMaison(0);
+                lesTerrains[i].setProprietaire(NULL);
+                lesTerrains[i].setEstachetee(false);
+            }
+        }
+        for (int i = 0; i < 4; i++)
+        {
+            if (lesGares[i].getNb_case() == nbRecup)
+            {
+                lesGares[i].getProprietaire()->removeProperty(nbRecup);
+                lesGares[i].setProprietaire(NULL);
+                lesGares[i].setEstachetee(false);
+            }
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            if (lesCompagnies[i].getNb_case() == nbRecup)
+            {
+                lesCompagnies[i].getProprietaire()->removeProperty(nbRecup);
+                lesCompagnies[i].setProprietaire(NULL);
+                lesCompagnies[i].setEstachetee(false);
+            }
+        }
     }
 }
 
