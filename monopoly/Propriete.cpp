@@ -47,12 +47,14 @@ void Propriete::acheter(Joueur * Joueuractuel, Banque& bank){
 void Propriete::hypothequer(Joueur * Joueuractuel, Banque& bank){
 	if (getEstachetee()) {
 		std::string avisJoueur;
-		cout << "Voulez-vous hypothequer votre bien? Repondez 'Oui' si vous le voulez. (avec la majuscule !)" << endl;
+		std::string action = (esthypothequee) ? "lever l'hypotheque de" : "hypothequer";
+		double interet = esthypothequee ? 1.1 : 1;
+		cout << "Voulez-vous "<< action << " votre bien pour " << getHypotheque() * interet << " M? Repondez 'Oui' si vous le voulez. (avec la majuscule !)" << endl;
 		avisJoueur = choixAchat(Joueuractuel);
 		if (avisJoueur == "Oui") {
-			bank.payer(getHypotheque(), *Joueuractuel);
-			setEsthypothequee(true);
-			cout << "Vous avez bien hypothequer votre Propriete" << endl;
+			bank.payer((int)(getHypotheque() * interet), *Joueuractuel);
+			setEsthypothequee(!esthypothequee);
+			cout << "Vous avez bien " << action << " votre Propriete" << endl;
 		}
 	}
 }
