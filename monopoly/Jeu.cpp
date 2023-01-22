@@ -435,9 +435,10 @@ void Jeu::sale(int pIndex)
 	{
 		int index = stoi(choice);
 		std::vector<int> ptes = player->getProprietes();
-		if (index < 0 || index >= ptes.size())
+		if (index < 0 || index > ptes.size())
 		{
-			cout << "Impossible" << endl;
+			cout << "Cette selection ne correspond e aucune propriete..." << endl;
+			cout << "Vous quittez le menu vente." << endl;
 			return;
 		}
 		int boardLocation = ptes[index];
@@ -463,6 +464,12 @@ void Jeu::build(int pIndex)
 	{
 		int index = stoi(choice);
 		std::vector<int> ptes = player->getProprietes();
+		if (index < 0 || index > ptes.size())
+		{
+			cout << "Cette selection ne correspond a aucune propriete..." << endl;
+			cout << "Vous quittez le menu construction." << endl;
+			return;
+		}
 		int boardLocation = ptes[index];
 		board[boardLocation]->construire(player, bank);
 	}
@@ -486,6 +493,12 @@ void Jeu::hypotheque(int pIndex)
 	{
 		int index = stoi(choice);
 		std::vector<int> ptes = player->getProprietes();
+		if (index < 0 || index > ptes.size())
+		{
+			cout << "Cette selection ne correspond a aucune propriete..." << endl;
+			cout << "Vous quittez le menu hypotheque." << endl;
+			return;
+		}
 		int boardLocation = ptes[index];
 		board[boardLocation]->hypothequer(player, bank);
 	}
