@@ -56,7 +56,7 @@ void Prison::arriverSur(Joueur& joueur, Banque& bank)
 		}
 		else if (joueur.getMode() == "Aleatoire")
 		{
-			int de = rand() % 3 + 1;
+			int de = (rand() % 3) + 1;
 			try
 			{
 				choice = std::to_string(de);

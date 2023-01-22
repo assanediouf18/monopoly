@@ -407,11 +407,12 @@ std::string Jeu::saleChoice(Joueur* player, std::string saleType)
 	}
 	else if (player->getMode() == "Aleatoire")
 	{
-		int max = player->getNbProprete() + 1;
-		int de = rand() % (max) + 1;
+		int max = player->getNbProprete();
+		int de = (rand() % max);
 		try
 		{
-			choice = (de == max) ? "q" : std::to_string(de);
+			choice = (de >= max) ? "q" : std::to_string(de);
+			cout << player->getPseudo() << " a choisi " << choice << " et le max est " << max << endl;
 		}
 		catch (const std::exception&)
 		{
